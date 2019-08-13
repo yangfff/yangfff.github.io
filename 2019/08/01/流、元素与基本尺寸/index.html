@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>CSS世界的专业术语 | 小萝莉的游乐园</title>
+  <title>流、元素与基本尺寸 | 小萝莉的游乐园</title>
   
   <meta name="keywords" content="技术博客，前端，HTML,CSS,JavaScript">
   
@@ -289,8 +289,8 @@
         
   
     <h1 class="title">
-      <a href="/2019/07/31/CSS世界的专业术语/">
-        CSS世界的专业术语
+      <a href="/2019/08/01/流、元素与基本尺寸/">
+        流、元素与基本尺寸
       </a>
     </h1>
   
@@ -319,7 +319,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-07-31</p>
+    <p>2019-08-01</p>
   </a>
 </div>
 
@@ -366,86 +366,103 @@
           <p>本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。</p>
 <a id="more"></a>
 
-<h2 id="一、CSS世界的专业术语"><a href="#一、CSS世界的专业术语" class="headerlink" title="一、CSS世界的专业术语"></a><label style="color:orange">一、CSS世界的专业术语</label></h2><p>案例：</p>
-<pre><code>.vacabulary{
-    height: 99px;
-    color: transparent;
-}</code></pre><h3 id="1-属性"><a href="#1-属性" class="headerlink" title="1. 属性"></a>1. 属性</h3><p>例如上面案例中的高度和颜色就是CSS世界的属性，CSS属性就是魔法师。</p>
-<h3 id="2-值"><a href="#2-值" class="headerlink" title="2. 值"></a>2. 值</h3><p>CSS的各种属性值就是魔法师的魔法技能。<br>在CSS世界中，值得分类十分广泛，比较常用的有：</p>
-<ul>
-<li>整数值，如z-index:1中，1属于<intrger>,同时也属于<number></number></intrger></li>
-<li>数值，如line-height：1.5中的1.5</li>
-<li>百分比值，如padding：50%中的50%</li>
-<li>长度值，如99px</li>
-<li>颜色值，如#999</li>
-</ul>
-<p>此外，还有字符串值、位置值等类型。在CSS3新世界中，还有角度值、频率值、时间值等类型。</p>
-<h3 id="3-关键词"><a href="#3-关键词" class="headerlink" title="3. 关键词"></a>3. 关键词</h3><ul>
-<li>关键字：CSS中很关键的英文单词。例如上面案例中的transparent（全透明黑色）就是典型的关键词，还有常见的solid（实线的）、inherit(继承)。</li>
-<li>泛关键字：所有CSS属性都可以使用的关键字，例如<a href="https://blog.csdn.net/codingnoob/article/details/78179536" target="_blank" rel="noopener">initial（默认）、inherit（继承）和unset（不设置）</a></li>
-</ul>
-<h3 id="4-变量"><a href="#4-变量" class="headerlink" title="4. 变量"></a>4. 变量</h3><p>CSS中目前可以称为变量的比较有效，CSS3中的currentColor就是变量，非常有用：<a href="https://www.zhangxinxu.com/wordpress/2014/10/currentcolor-css3-powerful-css-keyword/" target="_blank" rel="noopener">currentColor-CSS3超高校级好用CSS变量</a>;</p>
-<p>以及阮一峰老师的自定义CSS变量教程：<br><a href="http://www.ruanyifeng.com/blog/2017/05/css-variables.html" target="_blank" rel="noopener">CSS 变量教程</a></p>
-<h3 id="5-长度单位"><a href="#5-长度单位" class="headerlink" title="5. 长度单位"></a>5. 长度单位</h3><p>CSS中的单位有时间单位（如s、ms）,还有角度单位（如deg、rad等），但最常见的还是长度单位。长度单位分为：</p>
-<ul>
-<li>绝对长度单位：彼此固定，不会因为其他元素的尺寸变化而变化。主要有px、cm、mm、Q、in、pc、pt(eg:除px外，其他基本不用) </li>
-<li>相对长度单位：指定相对于另一长度的长度。主要有em、ex、ch、rem、%和可视区百分比长度单位 vm、vh、vmin、vmax</li>
-</ul>
-<p><strong>注意</strong>：</p>
-<ul>
-<li>2%属于数值，这里的%不是长度单位</li>
-<li>“值”里面的&lt;length和长度单位的关系：&lt;numberre&gt;+长度单位=&lt;length&gt;;</li>
-</ul>
-<h3 id="6-功能符"><a href="#6-功能符" class="headerlink" title="6. 功能符"></a>6. 功能符</h3><p>值以函数的形式指定（就是被括号括起来的那种），主要用来表示颜色（rgba和hsla）、背景图片地址（url)、元素属性值、计算（calc）和过渡效果等，如rgba (0,0,0,0)、url(“css-world.png”)、attr(“herf”)、scale(-1)</p>
-<h3 id="7-属性值"><a href="#7-属性值" class="headerlink" title="7. 属性值"></a>7. 属性值</h3><p>属性冒号后面的内容统一称为属性值</p>
-<h3 id="8-声明"><a href="#8-声明" class="headerlink" title="8. 声明"></a>8. 声明</h3><p>属性名+属性值</p>
-<h3 id="9-声明块"><a href="#9-声明块" class="headerlink" title="9. 声明块"></a>9. 声明块</h3><p>声明块就是花括号{}包裹的一系列声明</p>
-<h3 id="10-规则或规则集"><a href="#10-规则或规则集" class="headerlink" title="10. 规则或规则集"></a>10. 规则或规则集</h3><p>出现了选择器，而且后面跟着声明块，如本文最上面的案例。</p>
-<h3 id="11-选择器"><a href="#11-选择器" class="headerlink" title="11. 选择器"></a>11. 选择器</h3><p>用来瞄准目标元素的东西。</p>
-<ul>
-<li>类选择器：如.umbrella</li>
-<li>ID选择器：如#id</li>
-<li>属性 选择器：如[attribute]    [target] 选择带有 target 属性所有元素</li>
-<li>伪类选择器：一般前面有一个：</li>
-<li>伪元素选择器：有两个冒号的原则，::selection    ::selection    选择被用户选取的元素部分。</li>
-</ul>
-<p>这里放上更详细的介绍：<a href="https://www.w3school.com.cn/cssref/css_selectors.ASP" target="_blank" rel="noopener">CSS 选择器参考手册</a></p>
-<h3 id="12-关系选择器"><a href="#12-关系选择器" class="headerlink" title="12. 关系选择器"></a>12. 关系选择器</h3><p>根据与其他元素的关系选择元素的选择器，常见的有：</p>
-<ul>
-<li>后代选择器 空格连接</li>
-<li>相邻后代选择器 &gt;连接</li>
-<li>兄弟选择器 ~连接 （注意：是当前元素后面<strong>所有的</strong>的合规则的那个同父的兄弟元素）</li>
-<li>相邻兄弟选择器： +连接 （注意：仅仅选择当前元素相邻的那<strong>一个</strong>同父元素的合规则的兄弟元素。<em>且适用于IE7以上版本</em>）  </li>
-</ul>
-<h3 id="13-规则"><a href="#13-规则" class="headerlink" title="13. @规则"></a>13. @规则</h3><p>指的是以@字符开头的一些规则，例如@media、@font-face、@page或@support</p>
-<h2 id="二、CSS世界中的“未定义行为”"><a href="#二、CSS世界中的“未定义行为”" class="headerlink" title="二、CSS世界中的“未定义行为”"></a><label style="color:orange">二、CSS世界中的“未定义行为”</label></h2><p>现实世界中，法律约束我们的行为，如果越界，就叫违法；在CSS世界中，有Web标准约束元素的行为，如果越界就称为bug。不过不可能面面俱到，法律会有法律空白，在CSS世界也会有”未定义行为”。<br>例如以下这个案例：FireFox mousedown干掉:active实例页面</p>
-<p>HTML：</p>
-<pre><code>正常情况：
-&lt;a href=&quot;javascript:&quot; class=&quot;active-btn&quot;&gt;按下&lt;/a&gt;
-包含JS：
-&lt;a href=&quot;javascript:&quot; id=&quot;button&quot; class=&quot;active-btn&quot;&gt;按下&lt;/a&gt;</code></pre><p>CSS：</p>
-<pre><code>.active-btn {
-    display: inline-block; 
-    background-color: #cd0000;
-}
-
-.active-btn:active {
-    background-color: #ae0000;
-}</code></pre><p>JavaScript：</p>
-<pre><code>var button = document.getElementById(&quot;button&quot;);
-
-if (button.addEventListener) {
-    button.addEventListener(&quot;mousedown&quot;, function(event) {
-    // 此处省略N行
-    event.preventDefault();    
-    });
-}</code></pre><p>现象描述：在FireFox浏览器中，点击“正常情况按钮”会出现按钮点击样式，但点击“包含js的按钮”，则不会有按钮点击样式<img src="http://pvjdnjjsz.bkt.clouddn.com/%E6%9C%AA%E5%AE%9A%E4%B9%89%E8%A1%8C%E4%B8%BA.png" alt="CSS未定义行为"></p>
-<p>原因分析：因为规范上并没有对这种场景的具体描述，所以FireFox认为：active发生在mousedown事件之后。（IE/Chrome反之认为）</p>
-<blockquote>
-<p>像这种规范估计不到的细枝末节的实现，就称之“未定义行为”</p>
+<p>“流”之所以影响了整个CSS世界，就是因为影响了CSS世界的基石HTML。HTNML标签通常分为两类：块级元素和内联元素。</p>
+<p><strong><em>注意：</em></strong> 按照W3C的CSS规范，这里应该是“块级元素”和“内联级元素”。但是在W3C的HTML规范里，已经明确把HTML元素分为了“块级元素”和“内联元素”。我们这里采用现实中常用的HTML的内联元素这一说法。</p>
+<h2 id="一、块级元素（block-level-element）"><a href="#一、块级元素（block-level-element）" class="headerlink" title="一、块级元素（block-level element）"></a><label style="color:orange">一、块级元素（block-level element）</label></h2><h3 id="1-1-基本特性："><a href="#1-1-基本特性：" class="headerlink" title="1.1 基本特性："></a>1.1 基本特性：</h3><blockquote>
+<p>基本特性：换行特性（一个水平流上只能单独显示一个元素，多个块级元素则换行显示。）</p>
 </blockquote>
-<h2 id="三、致谢"><a href="#三、致谢" class="headerlink" title="三、致谢"></a><label style="color:orange">三、致谢</label></h2><p>本文内容我对张鑫旭老师《CSS世界》一书第二章的学习笔记，感谢张鑫旭老师，也感谢阅读本文的你给我的鼓励!</p>
-<p>作为一个前端小白，如果学习笔记中有错误的地方，还请不吝指点，谢谢！</p>
+<p><strong>注意：</strong>块级元素的流体特性主要表现在水平方向上。</p>
+<h3 id="1-2-块级元素和“display-为block-的元素”不是一个概念"><a href="#1-2-块级元素和“display-为block-的元素”不是一个概念" class="headerlink" title="1.2 块级元素和“display 为block 的元素”不是一个概念"></a>1.2 块级元素和“display 为block 的元素”不是一个概念</h3><p>display:list-item、display:table均块级元素，因为他们符合块级元素的基本特征，即换行特征。</p>
+<h3 id="1-3-用display值为block和list-item来配合clear属性来清除浮动带来的影响"><a href="#1-3-用display值为block和list-item来配合clear属性来清除浮动带来的影响" class="headerlink" title="1.3 用display值为block和list-item来配合clear属性来清除浮动带来的影响"></a>1.3 用display值为block和list-item来配合clear属性来清除浮动带来的影响</h3><p>不使用list-item的原因：字母比较多、会出现项目符号、ie浏览器不支持伪元素的display值为listitem。</p>
+<p>如<a href="https://demo.cssworld.cn/3/1-1.php" target="_blank" rel="noopener">案例</a>：</p>
+<pre><code>.clear: after {
+    content: &apos;&apos;;
+    display: table; // 也可以是block，或者是list-item
+    clear: both;
+  }</code></pre><h2 id="二、list-item-元素会出现项目符号的原因"><a href="#二、list-item-元素会出现项目符号的原因" class="headerlink" title="二、list-item 元素会出现项目符号的原因"></a><label style="color:orange">二、list-item 元素会出现项目符号的原因</label></h2><h3 id="2-1-标记盒子："><a href="#2-1-标记盒子：" class="headerlink" title="2.1 标记盒子："></a>2.1 标记盒子：</h3><p><strong>注意:</strong>标记盒子可以理解为主块级之外的附加盒子。</p>
+<p>list-item 元素会出现项目符号是因为生成了一个附加的盒子，学名“标记盒子”（marker box），专门用来放圆点、数字这些项目号。</p>
+<p>IE浏览器下伪元素不支持list-item 或许就是无法创建这个“标记盒子”导致的。</p>
+<h3 id="2-2-外在盒子和容器盒子"><a href="#2-2-外在盒子和容器盒子" class="headerlink" title="2.2 外在盒子和容器盒子"></a>2.2 外在盒子和容器盒子</h3><p><strong>注意:</strong>容器盒子可以理解为内在盒子。</p>
+<blockquote>
+<p>内在盒子：负责元素是一行显示还是只能换行显示。</p>
+<p>容器盒子：负责宽高、内容呈现等。</p>
+</blockquote>
+<p>[按照display的属性值我们可以知道：</p>
+<ul>
+<li>display值为block的元素由外在的“块级盒子”和内在的“块级容器盒子”组成。</li>
+<li>display值为inline-block的元素由外在的“内联盒子”和内在的“块级容器盒子”组成。</li>
+<li>display值为inline的元素内外均是“内联盒子”。</li>
+<li>display值为inline-table的元素外面是“内联盒子”，里面是“table 盒子”。</li>
+</ul>
+<h3 id="2-3-width-height-作用在“容器盒子”"><a href="#2-3-width-height-作用在“容器盒子”" class="headerlink" title="2.3 width/height 作用在“容器盒子”"></a>2.3 width/height 作用在“容器盒子”</h3><p><a href="https://demo.cssworld.cn/3/1-2.php" target="_blank" rel="noopener">点此查看案例演示：和文字平起平坐的表格</a></p>
+<p>案例结果：该元素和文字一行显示，且表现如同真正的表格元素（子元素宽度等分）</p>
+<h2 id="三、width-height作用的细节"><a href="#三、width-height作用的细节" class="headerlink" title="三、width/height作用的细节"></a><label style="color:orange">三、width/height作用的细节</label></h2><h3 id="3-1-width默认值auto的4种表现："><a href="#3-1-width默认值auto的4种表现：" class="headerlink" title="3.1 width默认值auto的4种表现："></a>3.1 width默认值auto的4种表现：</h3><p><strong>1、充分利用可用空间，宽度默认100%于父级容器的。</strong></p>
+<p>比如：&lt;div&gt;、&lt;p&gt;这些元素的宽度默认是100%于父级容器的。</p>
+<p>这种充分利用可用空间的行为还有个专有名字，叫作<strong>fill-available</strong>。</p>
+<p><strong>2、自适应大小，具有包裹性。</strong></p>
+<p>典型代表：浮动、绝对定位、inline-block 元素或table 元素。</p>
+<p><strong>3、收缩到最小</strong></p>
+<p>这个最容易出现在table-l表格ayout 为auto 的中：<br><img src="http://pvjdnjjsz.bkt.clouddn.com/%E6%94%B6%E7%BC%A9%E4%B8%8E%E5%8C%85%E8%A3%B9.png" alt="table-l表格ayout 为auto 的中"></p>
+<p>当一列空间都不够时，文字能断就断，但中文随便断的，英文单词不能断。</p>
+<p><strong>4、超出容器限制</strong><br>除非明确width的相关设置，否则上面3种都不会主动超过父级容器宽度的，但是存在一些特殊情况。例如：内容很长的连续的英文和数字，或者内联元素被设置了white-space：nowrap,则表现为如下：</p>
+<p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E8%B6%85%E5%87%BA%E5%AE%B9%E5%99%A8%E9%99%90%E5%88%B6.png" alt></p>
+<p>像这一种子元素既保持了inline-block元素的收缩性，又同时让内容宽度最大，直接无视父级容器的宽度限制，后来在CSS3中有了专门的属性值描述，教室max-cintent.</p>
+<blockquote>
+<p>上面的几个只有第一个是“外部尺寸”，其余全部是“内部尺寸”。而这唯一的“外部尺寸”，是“流”的精髓所在。</p>
+</blockquote>
+<h2 id="四、外部尺寸与流体特性"><a href="#四、外部尺寸与流体特性" class="headerlink" title="四、外部尺寸与流体特性"></a><label style="color:orange">四、外部尺寸与流体特性</label></h2><p>元素尺寸由外部的容器决定</p>
+<p>正常流宽度是一种margin/border/padding和content 内容区域自动分配水平空间的机制，尽量用无宽带的流来布局。</p>
+<p>格式化宽度：在position属性值为absolute 或fixed 的元素中。在默认情况下，宽度由内部尺寸决定。当left/top 或top/bottom 对立方位的属性值同时存在的时候，元素的宽度表现为“格式化宽度”，其宽度大小相对于最近的具有定位特性（position 属性值不是static）的祖先元素计算。margin、border、padding 和content 内容区域同样会自动分配水平（和垂直）空间</p>
+<h2 id="五、内部尺寸与流体特性"><a href="#五、内部尺寸与流体特性" class="headerlink" title="五、内部尺寸与流体特性"></a><label style="color:orange">五、内部尺寸与流体特性</label></h2><p>元素尺寸由内部元素决定，“内部尺寸”有下面3 种表现形式：</p>
+<p>包裹性:元素尺寸由内部元素决定，但永远小于“包含块”容器的尺寸（除非容器尺寸小于元素的“首选最小宽度”）按钮:</p>
+<p>按钮就是inline-block 元素。</p>
+<p>按钮文字越多宽度越宽（内部尺寸特性），但如果文字足够多，则会在容器的宽度处自动换行（自适应特性）。</p>
+<p><button>标签按钮才会自动换行，</button><input>标签按钮，默white-space:pre，<br>是不会换行的，需要将pre 值重置为默认的normal。</p>
+<p>按钮最大宽度就是容器的240 像素</p>
+<p>首选最小宽度:元素最适合的最小宽度.外部容器的宽度是240 像素，假设宽度是0，里面的inline-block 元素的宽度是首选最小宽度。具体表现规则：</p>
+<p>东亚文字（如中文）最小宽度为每个汉字的宽度。</p>
+<p>西方文字最小宽度由特定的连续的英文字符单元决定。并不是所有的英文字符都会组成连续单元，一般会终止于空格（普通空格）、短横线、问号以及其他非英文字符等。</p>
+<p>如果想让英文字符和中文一样，每一个字符都用最小宽度单元，可以试试使用CSS 中的word-break:break-all。</p>
+<p>类似图片这样的替换元素的最小宽度就是该元素内容本身的宽度。</p>
+<p>最大宽度:是元素可以有的最大宽度。“最大宽度”实际等同于“包裹性”元素设置white-space:nowrap 声明后的宽度。如果内部没有块级元素或者块级元素没有设定宽度值，则“最大宽度”实际上是最大的连续内联盒子的宽度。</p>
+<h2 id="六、width-值作用的细节"><a href="#六、width-值作用的细节" class="headerlink" title="六、width 值作用的细节"></a><label style="color:orange">六、width 值作用的细节</label></h2><p>width 是作用在“内在盒子”上的，“内在盒子”又被分成了4 个盒子，分别是content box、padding box、border box和margin box。</p>
+<p>content box ： content-box，padding box ：padding-box，border box ：border-box。margin box没有名字。</p>
+<p>margin 的背景永远是透明的。</p>
+<p>在CSS2.1 的规范中，有一段非常露骨的描述：content box 环绕着width 和height 给定的矩形。这种宽度设定和表现并不合理：</p>
+<p>流动性丢失：对于块状元素，如果width:auto，则元素会如水流般充满整个容器，而一旦设定了width具体数值，则元素的流动性就会被阻断。</p>
+<p>与现实世界表现不一致的困扰。</p>
+<h2 id="七、CSS-流体布局下的宽度分离原则"><a href="#七、CSS-流体布局下的宽度分离原则" class="headerlink" title="七、CSS 流体布局下的宽度分离原则"></a><label style="color:orange">七、CSS 流体布局下的宽度分离原则</label></h2><p>所谓“宽度分离原则”，就是CSS 中的width 属性不与影响宽度的padding/border（有时候包括margin）属性共存。写法：<br>      .father {<br>        width: 180px;<br>      }<br>      .son {<br>        margin: 0 20px;<br>        padding: 20px;<br>        border: 1px solid;<br>      }<br>为何要宽度分离:当一件事情的发展可以被多个因素所左右的时候，这个事情最终的结<br>果就会变数很大而不可预期。宽度在这里也是类似，由于盒尺寸中的4 个盒子都能影响宽度，自然页面元素的最终宽度就很容易发生变化而导致意想不到的布局发生。使用“宽度分离”后，咱们不需要烧脑子去计算了，而且页面结构反而更稳固。</p>
+<h2 id="八、改变width-height-作用细节的box-sizing"><a href="#八、改变width-height-作用细节的box-sizing" class="headerlink" title="八、改变width/height 作用细节的box-sizing"></a><label style="color:orange">八、改变width/height 作用细节的box-sizing</label></h2><p>box-sizing 的作用：改变了width 作用的盒子。box-sizing:border-box 就是让100 像素的宽度直接作用在border box上，从默认的content box 变成border box。此时，content box 从宽度值中释放，形成了局部的流动性，和padding 一起自动分配width 值。</p>
+<p>box-sizing 并不支持margin-box。</p>
+<p>如何评价*{box-sizing:border-box}。从纯个人角度讲，不喜欢这种做法的。</p>
+<p>这种做法易产生没必要的消耗，通配符*应该是一个慎用的选择器，因为它会选择所<br>有的标签元素。</p>
+<p>这种做法并不能解决所有问题。box-sizing 不支持margin-box，只有当元素没<br>有水平margin 时候，box-sizing 才能真正无计算，而“宽度分离”等策略则可以彻底解决<br>所有的宽度计算的问题。</p>
+<p>替换元素css重置更合适：</p>
+<p>   input, textarea, img, video, object {<br>     box-sizing: border-box;<br>   }</p>
+<h2 id="九、关于height"><a href="#九、关于height" class="headerlink" title="九、关于height"></a><label style="color:orange">九、关于height</label></h2><p>对于width 属性，就算父元素width 为auto，其百分比值也是支持的。</p>
+<p>对于height 属性，如果父元素height 为auto，只要子元素在文档流中，其百分比值完全就被忽略了。百分比高度值要想起作用，其父级必须有一个可以生效的高度值。</p>
+<p>如何让元素支持height:100%效果：</p>
+<p>设定显式的高度值。</p>
+<p>使用绝对定位。绝对定位元素的百分比计算和非绝对定位元素的百分比计算是有区别的，区别在于绝对定位的宽高百分比计算是相对于padding box 的，也就是说会把padding 大小值计算在内，但是，非绝对定位元素则是相对于content box 计算的。</p>
+<h2 id="十、min-width-max-width和min-height-max-height"><a href="#十、min-width-max-width和min-height-max-height" class="headerlink" title="十、min-width/max-width和min-height/max-height"></a><label style="color:orange">十、min-width/max-width和min-height/max-height</label></h2><p>max-width 和max-height 的初始值是none,min-width/min-height 的初始值都是auto。</p>
+<p>超越!important 指的是max-width 会覆盖width，而且这种覆盖不是普通的覆盖，是超级覆盖。</p>
+<pre><code>&lt;img src=&quot;1.jpg&quot; style=&quot;width:480px!important;&quot;&gt;
+
+img { max-width: 256px; }</code></pre><p>答案是256px。</p>
+<p>min-width覆盖max-width，此规则发生在min-width和max-width冲突的时候。</p>
+<p>任意高度元素的展开收起动画技术：<br>.element {<br>  height: 0;<br>  overflow: hidden;<br>  transition: height .25s;<br>}<br>.element.active {<br>  height: auto; /* 没有transition 效果，只是生硬地展开 */<br>}<br>可以试试下面方法</p>
+<p>.element {<br>  max - height: 0;<br>  overflow: hidden;<br>  transition: max - height .25s;<br>}<br>.element.active {<br>  max - height: 666px; /* 一个足够大的最大高度值 */<br>}<br>注意：即虽然说从适用范围讲，max- height 值越大使用场景越多，但是，如果max-height 值太大，在收起的时候可能会有“效果延迟”的问题。因此，我个人建议 max-height 使用足够安全的最小值，这样，收起时即使有延迟，也<br>会因为时间很短，很难被用户察觉，并不会影响体验。</p>
+<h2 id="十一、内联元素"><a href="#十一、内联元素" class="headerlink" title="十一、内联元素"></a><label style="color:orange">十一、内联元素</label></h2><p>块级负责结构，内联负责内容。</p>
+<p>“内联元素”的“内联”特指“外在盒子”，和“display 为inline的元素”不是一个概念。</p>
+<p>“内联元素”的典型特征就是可以和文字在一行显示。</p>
+<p>内容区域（content area）：域指一种围绕文字看不见的盒子可以理解为把文本选中的背景色区域作为内容区域。</p>
+<p>注意：在IE 和Firefox 浏览器下，文字的选中背景总能准确反映内容区域范围，但是Chrome 浏览器下，::selection 范围并不总是准确的，例如，和图片混排或者有垂直padding 的时候，范围会明显过大，这一点需要注意。</p>
+<p>内联盒子（inline box）：“内联盒子”不会让内容成块显示，而是排成一行，这里的“内联盒子”实际指的就是元素的“外在盒子”，用来决定元素是内联还是块级。该盒子又可以细分为“内联盒子”和“匿名内联盒子”两类：</p>
+<p>内联盒子:外部含内联标签&lt;span&gt;、&lt;a&gt;和&lt;em&gt;等。<br>匿名内联盒子:光秃秃的文字。</p>
+<p>行框盒子（line box）:每一行就是一个“行框盒子”（实线框标注），每个“行框盒子”又是由一个一个“内联盒子”组成的。</p>
+<p>包含盒子（containing box）:</p><p>标签就是一个“包含盒子”（实线框标注），此盒子由一行一行的“行框盒子”组成。</p>
+<h2 id="十二、幽灵空白节点"><a href="#十二、幽灵空白节点" class="headerlink" title="十二、幽灵空白节点"></a><label style="color:orange">十二、幽灵空白节点</label></h2><p>在HTML5 文档声明中，内联元素的所有解析和渲染表现就如同每个行框盒子的前面有一个“空白节点”一样。这个“空白节点”永远透明，不占据任何宽度，看不见也无法通过脚本获取，就好像幽灵一样，但又确确实实地存在，表现如同文本节点一样，因此，我称之为“幽灵空白节点”。</p>
+<p><strong>注意:</strong>这里有一个前提，文档声明必须是HTML5 文档声明，如果还是很多年前的老声明，则不存在“幽灵空白节点”。</p>
 
         </div>
         
@@ -457,10 +474,10 @@ if (button.addEventListener) {
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-02T12:12:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-13T16:09:41+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>最后更新于 Aug 2, 2019</p>
+    <p>最后更新于 Aug 13, 2019</p>
   </a>
 </div>
 
@@ -482,7 +499,7 @@ if (button.addEventListener) {
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/07/31/CSS世界的专业术语/&title=CSS世界的专业术语 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/08/01/流、元素与基本尺寸/&title=流、元素与基本尺寸 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。"
           
           >
           
@@ -494,7 +511,7 @@ if (button.addEventListener) {
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/07/31/CSS世界的专业术语/&title=CSS世界的专业术语 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/08/01/流、元素与基本尺寸/&title=流、元素与基本尺寸 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。"
           
           >
           
@@ -506,7 +523,7 @@ if (button.addEventListener) {
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/07/31/CSS世界的专业术语/&title=CSS世界的专业术语 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。"
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/08/01/流、元素与基本尺寸/&title=流、元素与基本尺寸 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。"
           
           >
           
@@ -530,33 +547,14 @@ if (button.addEventListener) {
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
-                            <h4>
-                                <a href="/2019/08/01/流、元素与基本尺寸/" rel="prev" title="流、元素与基本尺寸">
-                                  
-                                      流、元素与基本尺寸
-                                  
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/CSS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CSS</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2019/07/31/CSS世界概述/" rel="prev" title="CSS世界概述">
+                                <a href="/2019/07/31/CSS世界的专业术语/" rel="prev" title="CSS世界的专业术语">
                                     
-                                        CSS世界概述
+                                        CSS世界的专业术语
                                     
                                 </a>
                             </h4>
@@ -594,7 +592,7 @@ if (button.addEventListener) {
 
   <script>
     window.subData = {
-      title: 'CSS世界的专业术语',
+      title: '流、元素与基本尺寸',
       tools: true
     }
   </script>
@@ -666,7 +664,7 @@ if (button.addEventListener) {
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、CSS世界的专业术语"><span class="toc-text">一、CSS世界的专业术语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-属性"><span class="toc-text">1. 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-值"><span class="toc-text">2. 值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-关键词"><span class="toc-text">3. 关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-变量"><span class="toc-text">4. 变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-长度单位"><span class="toc-text">5. 长度单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-功能符"><span class="toc-text">6. 功能符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-属性值"><span class="toc-text">7. 属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-声明"><span class="toc-text">8. 声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-声明块"><span class="toc-text">9. 声明块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-规则或规则集"><span class="toc-text">10. 规则或规则集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-选择器"><span class="toc-text">11. 选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-关系选择器"><span class="toc-text">12. 关系选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-规则"><span class="toc-text">13. @规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、CSS世界中的“未定义行为”"><span class="toc-text">二、CSS世界中的“未定义行为”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、致谢"><span class="toc-text">三、致谢</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、块级元素（block-level-element）"><span class="toc-text">一、块级元素（block-level element）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-基本特性："><span class="toc-text">1.1 基本特性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-块级元素和“display-为block-的元素”不是一个概念"><span class="toc-text">1.2 块级元素和“display 为block 的元素”不是一个概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-用display值为block和list-item来配合clear属性来清除浮动带来的影响"><span class="toc-text">1.3 用display值为block和list-item来配合clear属性来清除浮动带来的影响</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、list-item-元素会出现项目符号的原因"><span class="toc-text">二、list-item 元素会出现项目符号的原因</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-标记盒子："><span class="toc-text">2.1 标记盒子：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-外在盒子和容器盒子"><span class="toc-text">2.2 外在盒子和容器盒子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-width-height-作用在“容器盒子”"><span class="toc-text">2.3 width/height 作用在“容器盒子”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、width-height作用的细节"><span class="toc-text">三、width/height作用的细节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-width默认值auto的4种表现："><span class="toc-text">3.1 width默认值auto的4种表现：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、外部尺寸与流体特性"><span class="toc-text">四、外部尺寸与流体特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、内部尺寸与流体特性"><span class="toc-text">五、内部尺寸与流体特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、width-值作用的细节"><span class="toc-text">六、width 值作用的细节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、CSS-流体布局下的宽度分离原则"><span class="toc-text">七、CSS 流体布局下的宽度分离原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、改变width-height-作用细节的box-sizing"><span class="toc-text">八、改变width/height 作用细节的box-sizing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、关于height"><span class="toc-text">九、关于height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、min-width-max-width和min-height-max-height"><span class="toc-text">十、min-width/max-width和min-height/max-height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、内联元素"><span class="toc-text">十一、内联元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、幽灵空白节点"><span class="toc-text">十二、幽灵空白节点</span></a></li></ol>
     </div>
   </section>
 
