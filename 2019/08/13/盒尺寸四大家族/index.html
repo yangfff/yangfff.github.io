@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>CSS世界概述 | 小萝莉的游乐园</title>
+  <title>盒尺寸四大家族之content与padding | 小萝莉的游乐园</title>
   
   <meta name="keywords" content="技术博客，前端，HTML,CSS,JavaScript">
   
@@ -289,8 +289,8 @@
         
   
     <h1 class="title">
-      <a href="/2019/07/31/CSS世界概述/">
-        CSS世界概述
+      <a href="/2019/08/13/盒尺寸四大家族/">
+        盒尺寸四大家族之content与padding
       </a>
     </h1>
   
@@ -319,7 +319,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-07-31</p>
+    <p>2019-08-13</p>
   </a>
 </div>
 
@@ -363,54 +363,205 @@
 
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
-          <p>欢迎来到CSS世界，这里有几个比较大的平行世界，不同世界有浏览器王国的命运也不一样，这里还有许多厉害的魔法师哦！</p>
+          <p>盒尺寸中的4个盒子content box、padding box、border box 和margin box分别对应CSS世界中的content、padding、border和margin属性，这四个属性称为“盒尺寸四大家族”，让我们前去探秘吧！</p>
 <a id="more"></a>
 
-<h2 id="一、CSS世界的世界观"><a href="#一、CSS世界的世界观" class="headerlink" title="一、CSS世界的世界观"></a><label style="color:orange">一、CSS世界的世界观</label></h2><p>在CSS世界中：</p>
-<h3 id="世界：操作系统"><a href="#世界：操作系统" class="headerlink" title="世界：操作系统"></a>世界：操作系统</h3><p>不同的操作系统代表了不同的评选世界，CSS世界有几个比较大的平行世界，即：</p>
+<h2 id="一、深入理解content"><a href="#一、深入理解content" class="headerlink" title="一、深入理解content"></a><label style="color:orange">一、深入理解content</label></h2><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565780139522&di=b575402c2cd1462e57aefeed7cb5e333&imgtype=0&src=http%3A%2F%2Fs4.sinaimg.cn%2Fmw690%2F001O8Eu1zy7fhRAYCBl23%26690" alt></p>
+<h3 id="1-1-content与替换元素"><a href="#1-1-content与替换元素" class="headerlink" title="1.1 content与替换元素"></a>1.1 content与替换元素</h3><h5 id="1-1-1-替换元素"><a href="#1-1-1-替换元素" class="headerlink" title="1.1.1 替换元素"></a>1.1.1 替换元素</h5><blockquote>
+<p>替换元素：通过修改某个属性值呈现的内容就可以被替换的元素。</p>
+</blockquote>
+<p>典型例子：&lt;img&gt;、&lt;object&gt;、&lt;video&gt;、&lt;iframe&gt;、表单元素&lt;textarea&gt;、&lt;input&gt;、</p>
+<p>替换元素特点：</p>
 <ul>
-<li>Window世界</li>
-<li>OS X世界</li>
-<li>移动端iOS世界</li>
-<li>Android世界</li>
+<li>内容外观不受页面上的CSS影响</li>
+<li>有自己的尺寸</li>
+<li>在很多CSS属性上有自己的一套变现规则（例如vertical-align属性）</li>
 </ul>
-<h3 id="王国：浏览器"><a href="#王国：浏览器" class="headerlink" title="王国：浏览器"></a>王国：浏览器</h3><p>不同世界的浏览器王国的命运不一样，例如：</p>
+<h5 id="1-1-2-替换元素的默认dispaly值"><a href="#1-1-2-替换元素的默认dispaly值" class="headerlink" title="1.1.2 替换元素的默认dispaly值"></a>1.1.2 替换元素的默认dispaly值</h5><p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E6%9B%BF%E6%8D%A2%E5%85%83%E7%B4%A0%E7%9A%84%E9%BB%98%E8%AE%A4display%E5%B1%9E%E6%80%A72.jpg" alt="替换元素的默认dispaly值"></p>
+<p>用途：显示替换元素时候可以设置style.display=’inline’而无需style.display=’inline-block’。</p>
+<h5 id="1-1-3-替换元素的计算尺寸"><a href="#1-1-3-替换元素的计算尺寸" class="headerlink" title="1.1.3 替换元素的计算尺寸"></a>1.1.3 替换元素的计算尺寸</h5><blockquote>
+<p>替换元素的尺寸从内到外：固有尺寸、HTML尺寸、CSS尺寸</p>
+</blockquote>
 <ul>
-<li>在OS X世界中，IE王国是不存在的，而Safari王国异常强大</li>
-<li>而在Window世界中，Safari王国异常落寞</li>
+<li><p>固有尺寸：固定大小，例如<code>&lt;input&gt;</code>:<input>，此时的尺寸即为固有尺寸，使用px为单位。</p>
+</li>
+<li><p>HTML尺寸：只能通过HTML原生属性改变。如<code>&lt;img width=&quot;300&quot; height=&quot;100&quot;&gt;</code>:</p>
+  <img width="300" height="100">
+</li>
+<li><p>CSS尺寸：通过CSS设置的width和height或者max-width/min-width和max-height/min-height设置的尺寸对应盒尺寸的content box</p>
+</li>
 </ul>
-<h3 id="魔法师：CSS属性"><a href="#魔法师：CSS属性" class="headerlink" title="魔法师：CSS属性"></a>魔法师：CSS属性</h3><p>CSS的各种属性值就是魔法师的魔法技能</p>
-<h3 id="魔法石：HTML"><a href="#魔法石：HTML" class="headerlink" title="魔法石：HTML"></a>魔法石：HTML</h3><h3 id="选择法器：选择器"><a href="#选择法器：选择器" class="headerlink" title="选择法器：选择器"></a>选择法器：选择器</h3><p>例如，使用.umbrella法器，即可对所有class=”umbrella”的元素进行改变<img src="http://m.qpic.cn/psb?/V13nLLWw3zAuxK/sTc164X1TwdEzk5hA6CfmwVXr2uI3.SY*s5A4k*NUdo!/b/dLYAAAAAAAAA&bo=OASgBQAAAAARB6k!&rf=viewer_4" alt="CSS世界"></p>
-<h2 id="二、CSS世界为什么被创造出来"><a href="#二、CSS世界为什么被创造出来" class="headerlink" title="二、CSS世界为什么被创造出来"></a><label style="color:orange">二、CSS世界为什么被创造出来</label></h2><h3 id="2-1-CSS的诞生"><a href="#2-1-CSS的诞生" class="headerlink" title="2.1 CSS的诞生"></a>2.1 CSS的诞生</h3><p>在最开始的时候，互联网领域的信息就是图片和文字，网站的功能就是信息展示。那时候的网站前端技术关心的是图片和文字的呈现，而</p>
-<blockquote>
-<p>CSS世界的诞生就是为图文信息展示服务</p>
+<p><strong>应用：</strong>Web开发时，为提高加载性能以及节约带宽费用，首屏以下的图片就会通过滚屏加载的形式异步加载，然后，这个即将被异步加载的图片为了布局稳健、体验良好，往往使用一张透明的图片占位。例如</p>
+<pre><code>&lt;img scr=&quot;transparent.png&quot;&gt;</code></pre><p>实际上，这张透明的占位图片也是多余资源，我么直接：</p>
+<pre><code>&lt;img&gt;</code></pre><p>然后配合CSS可以实现一样的效果：</p>
+<pre><code>img { visibility: hidden;
+      display: inline-block; 
+    }
+img[scr] {visibility: vidible; }</code></pre><p>注意：这里的<img><strong>直接没有</strong>scr属性，而是scr=””,scr=””这在很多浏览器下依然会有请求，而且请求的是当前页面数据。当图片的scr属性缺省时，图片不会有任何请求，这是最高效的实现方式。</p>
+<h5 id="1-1-4-替换元素与非替换元素"><a href="#1-1-4-替换元素与非替换元素" class="headerlink" title="1.1.4 替换元素与非替换元素"></a>1.1.4 替换元素与非替换元素</h5><p>观点1：他们之间只隔了一个src属性。应用案例：<a href="https://demo.cssworld.cn/4/1-2.php" target="_blank" rel="noopener">基于伪元素的图片内容生成技术</a></p>
+<p>观点2：他们之间只隔了一个CSS content属性。应用案例：<a href="https://demo.cssworld.cn/4/1-4.php" target="_blank" rel="noopener">使用content属性，让普通标签元素变成替换元素</a>；<a href="https://demo.cssworld.cn/4/1-5.php" target="_blank" rel="noopener">完美的文字换图显示方案</a></p>
+<pre><code>HTML：
+&lt;img class=&quot;emoji&quot; src=&quot;laugh.png&quot;&gt;
+
+CSS：
+.emoji:hover {
+content: url(laugh-tear.png);
+}</code></pre><p><strong>注意：</strong>想要在移动端使用该技术，建议换成SVG矢量图片</p>
+<h5 id="1-1-5-content与替换元素关系剖析"><a href="#1-1-5-content与替换元素关系剖析" class="headerlink" title="1.1.5 content与替换元素关系剖析"></a>1.1.5 content与替换元素关系剖析</h5><blockquote>
+<p>在CSS世界，我们把content属性生成的对象称为“匿名替换元素”，content属性生成的内容都是替换元素。</p>
 </blockquote>
-<h3 id="2-2-CSS完胜SVG的武器——流"><a href="#2-2-CSS完胜SVG的武器——流" class="headerlink" title="2.2 CSS完胜SVG的武器——流"></a>2.2 CSS完胜SVG的武器——流</h3><p>在很长一段时间里，网站的主要功能都是图片和文字信息的展示，而SVG的强项是图片，但是文字内容的呈现不敢恭维，所以SVG被打入冷宫，CSS一如既往被重用。</p>
-<blockquote>
-<p>CSS为什么有强大的图文显示能力？</p>
-<p>流！</p>
-</blockquote>
-<h3 id="2-3-什么是流？"><a href="#2-3-什么是流？" class="headerlink" title="2.3 什么是流？"></a>2.3 什么是流？</h3><p>流，即是“文档流”的简称，“流”实际上是CSS世界中的一种基本的定位和布局机制，可以理解为现实世界的“水流”。</p>
-<blockquote>
-<p>“流”就是CSS世界中引导元素排列和定位的一条看不见的“水流”</p>
-</blockquote>
-<p>CSS世界构建的基石是HTML,而HTML最具代表的两个基石<div><span>正好是CSS世界中的块级元素和内联元素的代表，对应着盛水容器的水和木头</span></div></p>
-<blockquote>
-<p>现实中的水流：水流自动铺满容器，放入木头，水位升高，木头依次排序。<br>CSS世界中的流：div自动铺满容器，图片文字依次排列，不足则换行。</p>
-</blockquote>
-<h5 id="流是如何影响整个CSS世界的"><a href="#流是如何影响整个CSS世界的" class="headerlink" title="流是如何影响整个CSS世界的"></a>流是如何影响整个CSS世界的</h5><ul>
-<li>通过控制HTML默认的表现符合流，来使流”统治CSS世界</li>
-<li>通过破坏“流”来实现特殊布局</li>
-<li>通过改变流的流向来改变表现形式</li>
+<p>content属性生成的元素和普通元素内容有不同的特性表现：</p>
+<ul>
+<li>使用content生成的文本是无法选择复制的</li>
+<li>不能左右empty伪类（<a href="https://demo.cssworld.cn/4/1-6.php" target="_blank" rel="noopener">案例在此</a>）</li>
+<li>content动态生成值无法获取</li>
+<li>其他略</li>
 </ul>
-<h5 id="流体布局"><a href="#流体布局" class="headerlink" title="流体布局"></a>流体布局</h5><p>利用元素“流”的特性实现的各类布局效果。例如“div+CSS布局”</p>
-<p><strong><em>注意</em></strong>：“自适应布局”是凡具有自适应特性的一类布局的统称，“流体布局要小寨的多。例如表格布局是自适应布局，但不是流体布局”</p>
-<h3 id="2-4-CSS的世界的一些备注"><a href="#2-4-CSS的世界的一些备注" class="headerlink" title="2.4 CSS的世界的一些备注"></a>2.4 CSS的世界的一些备注</h3><ul>
-<li>对CSS2.1的全面支持是从微软公司的IE8开始的。</li>
-<li><table>比CSS还要老,他有自己的世界。“流”的特性对<table>并不适用，一些CSS属性的表现，如单元格的vertical-align，也和普通元素不一样。</table></table></li>
-<li>CSS新世界——CSS3:布局更为丰富，视觉表现长足进步。</li>
-</ul>
-<h2 id="三、致谢"><a href="#三、致谢" class="headerlink" title="三、致谢"></a><label style="color:orange">三、致谢</label></h2><p>本文内容我对张鑫旭老师《CSS世界》一书第一章的学习笔记，感谢张鑫旭老师，也感谢阅读本文的你给我的鼓励!</p>
+<h3 id="1-2-content内容生成技术"><a href="#1-2-content内容生成技术" class="headerlink" title="1.2 content内容生成技术"></a>1.2 content内容生成技术</h3><p>实际项目中，content属性大都是用在：：before/：：after这两个伪元素中，所以“content内容生成技术”有时候也称“：：before/：：after伪元素技术”</p>
+<h5 id="1-2-1-content辅助元素生成"><a href="#1-2-1-content辅助元素生成" class="headerlink" title="1.2.1 content辅助元素生成"></a>1.2.1 content辅助元素生成</h5><p><a href="https://demo.cssworld.cn/4/1-7.php" target="_blank" rel="noopener">案例content辅助元素与布局</a></p>
+<h5 id="1-2-2-content字符内容生成"><a href="#1-2-2-content字符内容生成" class="headerlink" title="1.2.2 content字符内容生成"></a>1.2.2 content字符内容生成</h5><p><a href="https://demo.cssworld.cn/4/1-8.php" target="_blank" rel="noopener">案例配合@font-face规则实现图标字体效果</a></p>
+<p><a href="https://demo.cssworld.cn/4/1-9.php" target="_blank" rel="noopener">案例content换行符与打点loading效果</a></p>
+<h5 id="1-2-3-content图片生成"><a href="#1-2-3-content图片生成" class="headerlink" title="1.2.3 content图片生成"></a>1.2.3 content图片生成</h5><p>伪元素中的图片更多的是使用background-image模拟，类似：</p>
+<pre><code>div：before {
+    content：‘’;
+    background： url(1.jpg);
+}</code></pre><p>content图片生成并不常用，因为不好控制图片尺寸，所以，只有不需要控制尺寸的图片才有优势。<br><a href="https://demo.cssworld.cn/4/1-10.php" target="_blank" rel="noopener">案例content图片生成与新标签页地址标记
+</a></p>
+<h5 id="1-2-4-content开启闭合图片生成"><a href="#1-2-4-content开启闭合图片生成" class="headerlink" title="1.2.4 content开启闭合图片生成"></a>1.2.4 content开启闭合图片生成</h5><p>可以针对不同语言指定不同的前后引号。但是这个功能很鸡肋，不如直接使用“”‘’方便。</p>
+<pre><code>&lt;p lang=&quot;ch&quot;&gt;&lt;q&gt;中文使用“”&lt;/q&gt;&lt;/p&gt;
+&lt;p lang=&quot;en&quot;&gt;&lt;q&gt;英文使用&quot;&quot;&lt;/q&gt;&lt;/p&gt;
+
+/*为不同的语言指定引号的表现*/
+：lang(ch) &gt; q { quotes: ‘“’ ‘”’；}
+：lang(en) &gt; q { quotes: ‘&quot;’ ‘&quot;’；}
+
+/*在q标签前后插入引号*/
+q:before { content: open-quote;}
+q:after { content: close-quote;}</code></pre><h5 id="1-2-5-content-atter属性值内容生成"><a href="#1-2-5-content-atter属性值内容生成" class="headerlink" title="1.2.5 content atter属性值内容生成"></a>1.2.5 content atter属性值内容生成</h5><p>这个功能比较实用，<a href="https://demo.cssworld.cn/4/1-2.php" target="_blank" rel="noopener">案例src缺省时img元素的alt信息展示</a></p>
+<h5 id="1-2-6-深入了解content计数器"><a href="#1-2-6-深入了解content计数器" class="headerlink" title="1.2.6 深入了解content计数器"></a>1.2.6 深入了解content计数器</h5><p>计数器效果可以说是content部分的重中之重，因为此功能强大、实用、且不具有可替代性，甚至可以实现连JavaScript都实现不好的功能。</p>
+<p>CSS计数器就和我们军训报数一样，班级命名、报数规则、开始报数，这三个关键点刚好对应CSS计数器的两个属性和一个方法。</p>
+<p>1、属性counter-reset（计数器-重置）</p>
+<p>注意：如果不设置，默认起始值为0。</p>
+<pre><code>/*确定计数器名称wangxiaoer，起始值2*/
+.xxx { counter-reset: wangxiaoer 2;}</code></pre><p>完整案例：</p>
+<p><a href="https://demo.cssworld.cn/4/1-11.php" target="_blank" rel="noopener">CSS计数器counter-reset值为2</a></p>
+<p><a href="https://demo.cssworld.cn/4/1-12.php" target="_blank" rel="noopener">CSS计数器counter-reset两个命名并存</a></p>
+<p>2、属性counter-increment（计数器递增）</p>
+<p>注意：如果不设置，默认变化值为1。</p>
+<pre><code>/*变化的值为2*/
+counter-increament: counter 2
+/*变化的值为-1*/
+counter-increament: counter -1</code></pre><p>CSS计数器的技术规则：普照规则</p>
+<blockquote>
+<p>普照规则:普照源（counter-reset）唯一，每普照（counter-increment）一次，普照源增加一次计数值。</p>
+</blockquote>
+<p>案例：</p>
+<p><a href="https://demo.cssworld.cn/4/1-13.php" target="_blank" rel="noopener">CSS计数器counter-reset/counter-increment递增</a></p>
+<p><a href="https://demo.cssworld.cn/4/1-14.php" target="_blank" rel="noopener">CSS计数器counter-increment父子连续普照与递增</a></p>
+<p><a href="https://demo.cssworld.cn/4/1-15.php" target="_blank" rel="noopener">CSS计数器counter-increment递增机制</a></p>
+<p>3、方法counter（）/counters（）</p>
+<blockquote>
+<p>counter（）作用：显示计数、不过方法、用法多个</p>
+</blockquote>
+<pre><code>/*name是counter-reset的名称，style参数选择递增递减方式*/
+counter（ name，style）</code></pre><p>style参数的作用是递增递减英文字母或者罗马文等案例：<a href="https://demo.cssworld.cn/4/1-16.php" target="_blank" rel="noopener">CSS计数器counter()方法style参数示意</a></p>
+<p>counter支持级联：一个counter属性值可以有多个counter（）方法，案例：<a href="https://demo.cssworld.cn/4/1-17.php" target="_blank" rel="noopener">CSS计数器多个counter并存</a></p>
+<blockquote>
+<p>counters（）：嵌套技术的代名词。</p>
+</blockquote>
+<pre><code>/*name是counter-reset的名称，string为字符串*/
+counters（ name，string）
+/*也支持style*/
+counters（ name，string, style）</code></pre><p>string为字符串,表示子序号的连接字符串，如1.1的string就是.,案例：<a href="https://demo.cssworld.cn/4/1-18.php" target="_blank" rel="noopener">CSS计数器counters的string参数与嵌套</a></p>
+<p>注意：普照源是唯一的。要想实现嵌套，必须让每一个列表容器拥有一个“普照源”，通过子辈对父辈的counter-reset重置、配合counters（）方法才能实现计数嵌套效果。</p>
+<pre><code>&lt;div class=&quot;reset&quot;&gt;
+&lt;div class=&quot;counter&quot;&gt;我是王小二
+    &lt;div class=&quot;reset&quot;&gt;
+        &lt;div class=&quot;counter&quot;&gt;我是王小二的大儿子&lt;/div&gt;
+        &lt;div class=&quot;counter&quot;&gt;我是王小二的二儿子
+            &lt;div class=&quot;reset&quot;&gt;
+                &lt;div class=&quot;counter&quot;&gt;我是王小二的二儿子的大孙子&lt;/div&gt;
+                &lt;div class=&quot;counter&quot;&gt;我是王小二的二儿子的二孙子&lt;/div&gt;
+                &lt;div class=&quot;counter&quot;&gt;我是王小二的二儿子的小孙子&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;counter&quot;&gt;我是王小二的三儿子&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;counter&quot;&gt;我是王小三&lt;/div&gt;
+&lt;div class=&quot;counter&quot;&gt;我是王小四
+    &lt;div class=&quot;reset&quot;&gt;
+        &lt;div class=&quot;counter&quot;&gt;我是王小四的大儿子&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code></pre><p>错误示范：<a href="https://demo.cssworld.cn/4/1-19.php" target="_blank" rel="noopener">CSS计数器counters的错误示范</a></p>
+<p><strong>注意：</strong>这种计数效果在模拟书籍的目录效果时十分实用。这里需要强调的是：显示counter计数值的那个DOM元素在文档流中的位置一定要在counter-increment元素的后面，否则是没有技术效果的。</p>
+<h5 id="1-2-4-content内容生成的混合特性"><a href="#1-2-4-content内容生成的混合特性" class="headerlink" title="1.2.4 content内容生成的混合特性"></a>1.2.4 content内容生成的混合特性</h5><p>各种content内容生成语法是可以混合在一起使用的。</p>
+<h2 id="二、温和的padding属性"><a href="#二、温和的padding属性" class="headerlink" title="二、温和的padding属性"></a><label style="color:orange">二、温和的padding属性</label></h2><p>padding性格温和，与人相处友好，在使用padding属性进行页面开发过程中，很少会出现意想不到的情况。</p>
+<blockquote>
+<p>padding指的是盒子的内补间</p>
+</blockquote>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565780139522&di=b575402c2cd1462e57aefeed7cb5e333&imgtype=0&src=http%3A%2F%2Fs4.sinaimg.cn%2Fmw690%2F001O8Eu1zy7fhRAYCBl23%26690" alt></p>
+<h3 id="2-1-padding与元素的尺寸"><a href="#2-1-padding与元素的尺寸" class="headerlink" title="2.1 padding与元素的尺寸"></a>2.1 padding与元素的尺寸</h3><p>因为CSS中默认的box-sizing是content-box,所以使用padding会增加元素的尺寸。</p>
+<p>误区：内联元素的padding只会影响水平方向，不会影响垂直方向。这是错误的！</p>
+<p>正解：内联元素padding对视觉层和布局层具有双重影响。案例：<a href="https://demo.cssworld.cn/4/2-1.php" target="_blank" rel="noopener">内联元素垂直padding也有作用</a></p>
+<p>应用：</p>
+<ol>
+<li><p>利用padding的常规应用：在不影响当前布局的情况下，优雅的增加链接或按钮的点击区域大小。如</p>
+<p> `article a {</p>
+<pre><code>padding: .25em 0;</code></pre><p> }`</p>
+</li>
+<li><p>利用内联元素padding特性的应用：<br><a href="https://demo.cssworld.cn/4/2-2.php" target="_blank" rel="noopener">内联元素padding与高度可控的分隔线</a></p>
+</li>
+<li><p>标题下方留出一定位置：</p>
+</li>
+</ol>
+<p>源代码：</p>
+<pre><code>&lt;h3&gt;&lt;span id=&quot;hash&quot;&gt;标题&lt;/span&gt;&lt;/h3&gt;
+
+h3{
+    line-height: 30px;
+    font-size: 14px;
+}</code></pre><p>现在：</p>
+<pre><code>&lt;h3&gt;&lt;span id=&quot;hash&quot;&gt;标题&lt;/span&gt;&lt;/h3&gt;
+
+h3{
+    line-height: 30px;
+    font-size: 14px;
+h3 &gt; span {
+    padding-top: 58px;
+}</code></pre><h3 id="2-2-padding的百分比值"><a href="#2-2-padding的百分比值" class="headerlink" title="2.2 padding的百分比值"></a>2.2 padding的百分比值</h3><ol>
+<li><p>与margin属性不同，padding不支持负值</p>
+</li>
+<li><p>padding支持百分比值，且padding百分比值无论是水平方向还是竖直方向均是相对于宽度计算的。</p>
+<p> /<em>一个正方形</em>/<br> div { padding: 50%; }</p>
+<p> /<em>一个宽高比2：1的矩形</em>/<br> div { padding: 25% 50%; }</p>
+</li>
+</ol>
+<p>应用案例：<a href="https://demo.cssworld.cn/4/2-3.php" target="_blank" rel="noopener">百分比padding值与等比例头图效果</a></p>
+<h3 id="2-3-标签元素内置的padding"><a href="#2-3-标签元素内置的padding" class="headerlink" title="2.3 标签元素内置的padding"></a>2.3 标签元素内置的padding</h3><ol>
+<li><p>ol/ul列表内置padding-left，但是单位是px不是em。<br>根据张鑫旭老师的经验，font-size是12-14px时，22px是一个比较好的padding-left设定值，所有浏览器都能正常显示，且非常贴近边缘。</p>
+<p> ol,ul {</p>
+<pre><code>padding-left:22px;</code></pre><p> }</p>
+</li>
+<li><p>很多表单都内置padding</p>
+</li>
+</ol>
+<p>案例：button 与 label 配合使用，使得即语义良好行为保留又UI效果好。</p>
+<pre><code>&lt;button id=&quot;btn&quot;&gt;&lt;/button&gt;
+&lt;label for=&quot;but&quot;&gt;按钮&lt;/label&gt;
+
+button{
+    position: absolute;
+    clip: rect(0 0 0 0);
+}
+label{
+    display: inline-block;
+    line-height: 20px;
+    padding: 10px;
+}</code></pre><h3 id="2-4-padding与图形绘制"><a href="#2-4-padding与图形绘制" class="headerlink" title="2.4 padding与图形绘制"></a>2.4 padding与图形绘制</h3><p>padding属性与background-clip属性配合，可以在有限的标签下实现一些CSS图形绘制效果。</p>
+<p>案例：<a href="https://demo.cssworld.cn/4/2-4.php" target="_blank" rel="noopener">三道杠和双层圆点图形生成</a></p>
+<h2 id="三、致谢"><a href="#三、致谢" class="headerlink" title="三、致谢"></a><label style="color:orange">三、致谢</label></h2><p>本文内容我对张鑫旭老师《CSS世界》第四章1、2小节的的学习笔记，感谢张鑫旭老师，也感谢阅读本文的你给我的鼓励!</p>
 <p>作为一个前端小白，如果学习笔记中有错误的地方，还请不吝指点，谢谢！</p>
 
         </div>
@@ -423,10 +574,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-01T10:48:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-14T17:30:30+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>最后更新于 Aug 1, 2019</p>
+    <p>最后更新于 Aug 14, 2019</p>
   </a>
 </div>
 
@@ -448,7 +599,7 @@
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/07/31/CSS世界概述/&title=CSS世界概述 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=欢迎来到CSS世界，这里有几个比较大的平行世界，不同世界有浏览器王国的命运也不一样，这里还有许多厉害的魔法师哦！"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/08/13/盒尺寸四大家族/&title=盒尺寸四大家族之content与padding | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=盒尺寸中的4个盒子content box、padding box、border box 和margin box分别对应CSS世界中的content、padding、border和margin属性，这四个属性称为“盒尺寸四大家族”，让我们前去探秘吧！"
           
           >
           
@@ -460,7 +611,7 @@
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/07/31/CSS世界概述/&title=CSS世界概述 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=欢迎来到CSS世界，这里有几个比较大的平行世界，不同世界有浏览器王国的命运也不一样，这里还有许多厉害的魔法师哦！"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/08/13/盒尺寸四大家族/&title=盒尺寸四大家族之content与padding | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=盒尺寸中的4个盒子content box、padding box、border box 和margin box分别对应CSS世界中的content、padding、border和margin属性，这四个属性称为“盒尺寸四大家族”，让我们前去探秘吧！"
           
           >
           
@@ -472,7 +623,7 @@
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/07/31/CSS世界概述/&title=CSS世界概述 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=欢迎来到CSS世界，这里有几个比较大的平行世界，不同世界有浏览器王国的命运也不一样，这里还有许多厉害的魔法师哦！"
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/08/13/盒尺寸四大家族/&title=盒尺寸四大家族之content与padding | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=盒尺寸中的4个盒子content box、padding box、border box 和margin box分别对应CSS世界中的content、padding、border和margin属性，这四个属性称为“盒尺寸四大家族”，让我们前去探秘吧！"
           
           >
           
@@ -496,40 +647,21 @@
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2019/07/31/CSS世界的专业术语/" rel="prev" title="CSS世界的专业术语">
-                                  
-                                      CSS世界的专业术语
-                                  
+                                <a href="/2019/08/01/流、元素与基本尺寸/" rel="prev" title="流、元素与基本尺寸">
+                                    
+                                        流、元素与基本尺寸
+                                    
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
                                     <a class="tag" href="/tags/CSS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CSS</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
-                
-                    <section class="next">
-                        <span class="art-item-right" aria-hidden="true">
-                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
-                            <h4>
-                                <a href="/2019/07/29/建站成功，第一篇博客用来感谢TRHX的超详细小白建站教程/" rel="prev" title="建站成功，第一篇博客用来感谢TRHX的超详细小白建站教程">
-                                    
-                                        建站成功，第一篇博客用来感谢TRHX的超详细小白建站教程
-                                    
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/Hexo/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Hexo</a>
                                 </h6>
                             
                         </span>
@@ -560,7 +692,7 @@
 
   <script>
     window.subData = {
-      title: 'CSS世界概述',
+      title: '盒尺寸四大家族之content与padding',
       tools: true
     }
   </script>
@@ -632,7 +764,7 @@
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、CSS世界的世界观"><span class="toc-text">一、CSS世界的世界观</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#世界：操作系统"><span class="toc-text">世界：操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#王国：浏览器"><span class="toc-text">王国：浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#魔法师：CSS属性"><span class="toc-text">魔法师：CSS属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#魔法石：HTML"><span class="toc-text">魔法石：HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择法器：选择器"><span class="toc-text">选择法器：选择器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、CSS世界为什么被创造出来"><span class="toc-text">二、CSS世界为什么被创造出来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-CSS的诞生"><span class="toc-text">2.1 CSS的诞生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-CSS完胜SVG的武器——流"><span class="toc-text">2.2 CSS完胜SVG的武器——流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-什么是流？"><span class="toc-text">2.3 什么是流？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#流是如何影响整个CSS世界的"><span class="toc-text">流是如何影响整个CSS世界的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#流体布局"><span class="toc-text">流体布局</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-CSS的世界的一些备注"><span class="toc-text">2.4 CSS的世界的一些备注</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、致谢"><span class="toc-text">三、致谢</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、深入理解content"><span class="toc-text">一、深入理解content</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-content与替换元素"><span class="toc-text">1.1 content与替换元素</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-1-替换元素"><span class="toc-text">1.1.1 替换元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-2-替换元素的默认dispaly值"><span class="toc-text">1.1.2 替换元素的默认dispaly值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-3-替换元素的计算尺寸"><span class="toc-text">1.1.3 替换元素的计算尺寸</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-4-替换元素与非替换元素"><span class="toc-text">1.1.4 替换元素与非替换元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-5-content与替换元素关系剖析"><span class="toc-text">1.1.5 content与替换元素关系剖析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-content内容生成技术"><span class="toc-text">1.2 content内容生成技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-1-content辅助元素生成"><span class="toc-text">1.2.1 content辅助元素生成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-content字符内容生成"><span class="toc-text">1.2.2 content字符内容生成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-3-content图片生成"><span class="toc-text">1.2.3 content图片生成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-4-content开启闭合图片生成"><span class="toc-text">1.2.4 content开启闭合图片生成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-5-content-atter属性值内容生成"><span class="toc-text">1.2.5 content atter属性值内容生成</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-6-深入了解content计数器"><span class="toc-text">1.2.6 深入了解content计数器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-4-content内容生成的混合特性"><span class="toc-text">1.2.4 content内容生成的混合特性</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、温和的padding属性"><span class="toc-text">二、温和的padding属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-padding与元素的尺寸"><span class="toc-text">2.1 padding与元素的尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-padding的百分比值"><span class="toc-text">2.2 padding的百分比值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-标签元素内置的padding"><span class="toc-text">2.3 标签元素内置的padding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-padding与图形绘制"><span class="toc-text">2.4 padding与图形绘制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、致谢"><span class="toc-text">三、致谢</span></a></li></ol>
     </div>
   </section>
 
