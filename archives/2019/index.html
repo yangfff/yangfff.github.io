@@ -292,9 +292,310 @@
         
           
         
+          
+        
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2019/08/15/HTML5的代码清单/">
+      HTML5的代码清单
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <img src="https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png">
+      
+      <p>yangfff</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-08-15</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h2 id="一、HTML5新特性"><a href="#一、HTML5新特性" class="headerlink" title="一、HTML5新特性"></a><label style="color:orange">一、HTML5新特性</label></h2><ol>
+<li><p>强化了Web网页的表现性能，增加了本地数据库等 Web 应用的功能，以及图像操作等。</p>
+</li>
+<li><p>HTML5 在图像上引入了 Canvas 标签，通过 Canvas，用户可以动态生成各种图形图像、图表以及动画，而不再依赖于 Flash、silverlight 等插件了。</p>
+</li>
+<li><p>HTML5 在地理位置操作上引入了 Geolocation API，其特点在于 ：</p>
+<ul>
+<li><p>本身不去获取用户的位置，而是通过第三方接口来获取，例如 IP、GPS、WIFI 等方式。</p>
+</li>
+<li><p>用户可以随时开启和关闭，在被程序调用时也会首先征得用户同意，保证了用户的隐私。</p>
+</li>
+</ul>
+</li>
+<li><p>HTML5 还在数据储存上增加了本地数据库，可以使用 WebSQL 来储存数据，并且引入了 web storage API 实现了离线缓存功能，以此替代了 cookies，使得数据保存空间更<br>大、更安全。</p>
+</li>
+</ol>
+<h2 id="二、HTML5新特性代码清单"><a href="#二、HTML5新特性代码清单" class="headerlink" title="二、HTML5新特性代码清单"></a><label style="color:orange">二、HTML5新特性代码清单</label></h2><h3 id="2-1-使用-video-标签播放动画"><a href="#2-1-使用-video-标签播放动画" class="headerlink" title="2.1  使用 video 标签播放动画"></a>2.1  使用 video 标签播放动画</h3><pre><code>/*这段代码可以实现播放动画功能*/
+&lt;video width=&quot;640&quot; height=&quot;360&quot; preload=&quot;auto&quot; poster=&quot;hoge.png&quot; controls autoplay&gt;
+
+&lt;!-- 针对播放 webm 格式动画的浏览器 --&gt;
+&lt;source src=&quot;hoge.webm&quot; type=&apos;video/webm; codecs=&quot;vp8, vorbis&quot;&apos;&gt;
+&lt;!-- 针对播放 ogv 格式动画的浏览器 -&gt;
+&lt;source src=&quot;hoge.ogv&quot; type=&apos;video/ogg; codecs=&quot;theora, vorbis&quot;&apos;&gt;
+&lt;!-- 针对播放 mp4 格式动画的浏览器 --&gt;
+&lt;source src=&quot;hoge.mp4&quot; type=&apos;video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;&apos;&gt;
+
+&lt;!-- 当浏览器无法使用 video 标签的时候 --&gt;
+&lt;p&gt; 无法播放动画。&lt;a href=&quot;hoge.html&quot;&gt; 推荐环境请看这里。&lt;/a&gt;&lt;/p&gt;
+&lt;/video&gt;</code></pre><h3 id="2-2-使用-audio-标签播放音频"><a href="#2-2-使用-audio-标签播放音频" class="headerlink" title="2.2 使用 audio 标签播放音频"></a>2.2 使用 audio 标签播放音频</h3><pre><code>/*这段代码可以实现音频播放功能*/
+&lt;audio controls loop&gt;
+
+&lt;!-- 针对播放 ogg 格式音频的浏览器 --&gt;
+&lt;source src=&quot;hoge.ogg&quot;&gt;
+&lt;!-- 针对播放 wav 格式音频的浏览器 --&gt;
+&lt;source src=&quot;hoge.wav&quot;&gt;
+&lt;!-- 针对播放 mp3 格式音频的浏览器 --&gt;
+&lt;source src=&quot;hoge.mp3&quot;&gt;
+
+&lt;!-- 当浏览器无法使用 audio 标签的时候 --&gt;
+&lt;p&gt; 无法播放音频。&lt;a href=&quot;hoge.html&quot;&gt; 推荐环境请看这里。&lt;/a&gt;&lt;/p&gt;
+&lt;/audio&gt;</code></pre><h3 id="2-3-使用-Canvas-标签绘制图形"><a href="#2-3-使用-Canvas-标签绘制图形" class="headerlink" title="2.3 使用 Canvas 标签绘制图形"></a>2.3 使用 Canvas 标签绘制图形</h3><pre><code>/*这段代码可以绘制一个矩形*/
+
+&lt;canvas id=&quot;canvas&quot; width=&quot;640&quot; height=&quot;360&quot;&gt;&lt;/canvas&gt;
+
+&lt;script&gt;
+// 获取 context 对象
+var canvas = document.getElementById(&apos;canvas&apos;); 
+if(canvas.getContext){ 
+var context = canvas.getContext(&apos;2d&apos;); 
+ // 设置颜色
+context.fillStyle = &apos;rgb(255,0,0)&apos;; 
+ // 从坐标 (20,30) 开始，画一个 64×36 大小的矩形
+context.fillRect(20,30,64,36); 
+} 
+&lt;/script&gt;</code></pre><h3 id="2-4-轻松取得当前的位置"><a href="#2-4-轻松取得当前的位置" class="headerlink" title="2.4  轻松取得当前的位置"></a>2.4  轻松取得当前的位置</h3><pre><code>/*这段代码可以获取当前位置的纬度和经度*/
+
+&lt;script&gt;
+window.addEventListener(&apos;load&apos;. function () { 
+// 判断可否使用 geolocation
+if(navigator.geolocation){ 
+// 定期获取所在地
+navigator.geolocation.watchPosition(update); 
+} 
+}, false); 
+
+// 取得位置并表示
+function update(position){ 
+// 纬度
+var lat = position.coords.latitude; 
+// 经度
+var lng = position.coords.longitude; 
+// 把纬度和经度显示出来
+document.write(&apos; 纬度 ：&apos;+lat+&apos;，经度 ：&apos;+lng); 
+} 
+&lt;/script&gt;</code></pre><h3 id="2-5-将大量的数据保存在客户端"><a href="#2-5-将大量的数据保存在客户端" class="headerlink" title="2.5 将大量的数据保存在客户端"></a>2.5 将大量的数据保存在客户端</h3><pre><code>/*这段代码中的 JavaScript 使用 LocalStorage 来保存大量的数据*/
+&lt;script&gt;
+// 用 localStorage 来保存数据
+localStorage.key = &apos; 想要保存的值 &apos;;
+
+// 将 localStorage 中的值取出来
+var hoge = localStorage.key;
+
+//“想要保存的值”在页面上显示
+document.write(hoge); 
+&lt;/script&gt;</code></pre><h3 id="2-6-form-的强化"><a href="#2-6-form-的强化" class="headerlink" title="2.6     form 的强化"></a>2.6     form 的强化</h3><pre><code>/*这段代码是form 的几个比较常用的功能*/
+
+&lt;!-- 验证用户输入格式是否正确，只需要改变 type 的类型即可 --&gt;
+&lt;input name=&quot;email&quot; type=&quot;email&quot;&gt;
+
+&lt;!-- 对于必须输入的项目，只需给 input 标签加上 require 属性即可 --&gt;
+&lt;input name=&quot;text&quot; type=&quot;text&quot; require&gt;
+
+&lt;!-- 当失去焦点的时候给出相应的提示，只需给 input 标签加上 placeholder 属性即可 --&gt;
+&lt;input name=&quot;text&quot; type=&quot;text&quot; placeholder=&quot; 例 ：姓名 &quot;&gt;</code></pre><h3 id="2-7-使用-Canvas-来绘图"><a href="#2-7-使用-Canvas-来绘图" class="headerlink" title="2.7 使用 Canvas 来绘图"></a>2.7 使用 Canvas 来绘图</h3><p>使用 Canvas 标签，只需要向 HTML5 里添加 Canvas 元素即可，代码如下 ：</p>
+<pre><code>&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;&lt;/canvas&gt;</code></pre><p>另外，使用案例如下：</p>
+<pre><code>/*这段代码可以实现绘制一个矩形*/
+
+onload = function() {
+ draw();
+};
+
+function draw() {
+ /* 使用 id 来寻找 Canvas 元素 */
+ var canvas = document.getElementById(&apos;canvassample&apos;);
+
+ /* 验证 Canvas 元素是否存在，以及浏览器是否支持 Canvas 元素 */
+ if ( ! canvas || ! canvas.getContext ) return false; /* 创建 context 对象 */
+ var ctx = canvas.getContext(&apos;2d&apos;);
+
+ /* 画一个红色矩形 */
+ cxt.fillStyle=&quot;#FF0000&quot;;
+ cxt.fillRect(0,0,150,75);
+}</code></pre>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/HTML5/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>HTML5</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2019/08/15/盒尺寸四大家族之margin与border/">
+      盒尺寸四大家族之margin与border
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <img src="https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png">
+      
+      <p>yangfff</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-08-15</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>盒尺寸中的4个盒子content box、padding box、border box 和margin box分别对应CSS世界中的content、padding、border和margin属性，这四个属性称为“盒尺寸四大家族”，让我们前去探秘吧！</p>
+      
+        <div class="readmore">
+          <a href="/2019/08/15/盒尺寸四大家族之margin与border/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/CSS/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>CSS</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -1060,7 +1361,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/CSS/" style="font-size: 24px; color: #555">CSS</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a>
+      <a href="/tags/CSS/" style="font-size: 24px; color: #555">CSS</a> <a href="/tags/HTML5/" style="font-size: 14px; color: #999">HTML5</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a>
     </div>
   </section>
 

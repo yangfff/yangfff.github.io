@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>CSS世界的专业术语 | 小萝莉的游乐园</title>
+  <title>盒尺寸四大家族之margin与border | 小萝莉的游乐园</title>
   
   <meta name="keywords" content="技术博客，前端，HTML,CSS,JavaScript">
   
@@ -289,8 +289,8 @@
         
   
     <h1 class="title">
-      <a href="/2019/07/31/CSS世界的专业术语/">
-        CSS世界的专业术语
+      <a href="/2019/08/15/盒尺寸四大家族之margin与border/">
+        盒尺寸四大家族之margin与border
       </a>
     </h1>
   
@@ -319,7 +319,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-07-31</p>
+    <p>2019-08-15</p>
   </a>
 </div>
 
@@ -363,90 +363,24 @@
 
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
-          <p>本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。</p>
+          <p>盒尺寸中的4个盒子content box、padding box、border box 和margin box分别对应CSS世界中的content、padding、border和margin属性，这四个属性称为“盒尺寸四大家族”，让我们前去探秘吧！</p>
 <a id="more"></a>
 
-<h2 id="一、CSS世界的专业术语"><a href="#一、CSS世界的专业术语" class="headerlink" title="一、CSS世界的专业术语"></a><label style="color:orange">一、CSS世界的专业术语</label></h2><p>案例：</p>
-<pre><code>.vacabulary{
-    height: 99px;
-    color: transparent;
-}</code></pre><h3 id="1-属性"><a href="#1-属性" class="headerlink" title="1. 属性"></a>1. 属性</h3><p>例如上面案例中的高度和颜色就是CSS世界的属性，CSS属性就是魔法师。</p>
-<h3 id="2-值"><a href="#2-值" class="headerlink" title="2. 值"></a>2. 值</h3><p>CSS的各种属性值就是魔法师的魔法技能。<br>在CSS世界中，值得分类十分广泛，比较常用的有：</p>
+<h2 id="一、激进的margin属性"><a href="#一、激进的margin属性" class="headerlink" title="一、激进的margin属性"></a><label style="color:orange">一、激进的margin属性</label></h2><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565780139522&di=b575402c2cd1462e57aefeed7cb5e333&imgtype=0&src=http%3A%2F%2Fs4.sinaimg.cn%2Fmw690%2F001O8Eu1zy7fhRAYCBl23%26690" alt></p>
+<h3 id="1-1-margin与元素尺寸以及相关布局"><a href="#1-1-margin与元素尺寸以及相关布局" class="headerlink" title="1.1 margin与元素尺寸以及相关布局"></a>1.1 margin与元素尺寸以及相关布局</h3><p>这里的各类“尺寸”命名和对应的盒子类型全部参考自 jQuery 中与尺寸相关 API 的名称。</p>
 <ul>
-<li>整数值，如z-index:1中，1属于<intrger>,同时也属于<number></number></intrger></li>
-<li>数值，如line-height：1.5中的1.5</li>
-<li>百分比值，如padding：50%中的50%</li>
-<li>长度值，如99px</li>
-<li>颜色值，如#999</li>
+<li><p>元素尺寸：对应 jQuery 中的$().width()和$().height()方法，包括 padding<br>和 border，也就是元素的 border box 的尺寸。在原生的 DOM API 中写作 offsetWidth<br>和 offsetHeight，所以，有时候也成为“元素偏移尺寸”。</p>
+</li>
+<li><p>元素内部尺寸：对应 jQuery 中的$().innerWidth()和$().innerHeight()方法，<br>表示元素的内部区域尺寸，包括 padding 但不包括 border，也就是元素的 padding<br>box 的尺寸。在原生的 DOM API 中写作 clientWidth 和 clientHeight，所以，<br>有时候也称为“元素可视尺寸”。</p>
+</li>
+<li><p>元素外部尺寸：对应 jQuery 中的$().outerWidth(true)和$().outerHeight<br>(true)方法，表示元素的外部尺寸，不仅包括 padding 和 border，还包括 margin，<br>也就是元素的 margin box 的尺寸。没有相对应的原生的 DOM API。</p>
+</li>
 </ul>
-<p>此外，还有字符串值、位置值等类型。在CSS3新世界中，还有角度值、频率值、时间值等类型。</p>
-<h3 id="3-关键词"><a href="#3-关键词" class="headerlink" title="3. 关键词"></a>3. 关键词</h3><ul>
-<li>关键字：CSS中很关键的英文单词。例如上面案例中的transparent（全透明黑色）就是典型的关键词，还有常见的solid（实线的）、inherit(继承)。</li>
-<li>泛关键字：所有CSS属性都可以使用的关键字，例如<a href="https://blog.csdn.net/codingnoob/article/details/78179536" target="_blank" rel="noopener">initial（默认）、inherit（继承）和unset（不设置）</a></li>
-</ul>
-<h3 id="4-变量"><a href="#4-变量" class="headerlink" title="4. 变量"></a>4. 变量</h3><p>CSS中目前可以称为变量的比较有效，CSS3中的currentColor就是变量，非常有用：<a href="https://www.zhangxinxu.com/wordpress/2014/10/currentcolor-css3-powerful-css-keyword/" target="_blank" rel="noopener">currentColor-CSS3超高校级好用CSS变量</a>;</p>
-<p>以及阮一峰老师的自定义CSS变量教程：<br><a href="http://www.ruanyifeng.com/blog/2017/05/css-variables.html" target="_blank" rel="noopener">CSS 变量教程</a></p>
-<h3 id="5-长度单位"><a href="#5-长度单位" class="headerlink" title="5. 长度单位"></a>5. 长度单位</h3><p>CSS中的单位有时间单位（如s、ms）,还有角度单位（如deg、rad等），但最常见的还是长度单位。长度单位分为：</p>
-<ul>
-<li>绝对长度单位：彼此固定，不会因为其他元素的尺寸变化而变化。主要有px、cm、mm、Q、in、pc、pt(eg:除px外，其他基本不用) </li>
-<li>相对长度单位：指定相对于另一长度的长度。主要有em、ex、ch、rem、%和可视区百分比长度单位 vm、vh、vmin、vmax</li>
-</ul>
-<p><strong>注意</strong>：</p>
-<ul>
-<li>2%属于数值，这里的%不是长度单位</li>
-<li>“值”里面的&lt;length和长度单位的关系：&lt;numberre&gt;+长度单位=&lt;length&gt;;</li>
-</ul>
-<h3 id="6-功能符"><a href="#6-功能符" class="headerlink" title="6. 功能符"></a>6. 功能符</h3><p>值以函数的形式指定（就是被括号括起来的那种），主要用来表示颜色（rgba和hsla）、背景图片地址（url)、元素属性值、计算（calc）和过渡效果等，如rgba (0,0,0,0)、url(“css-world.png”)、attr(“herf”)、scale(-1)</p>
-<h3 id="7-属性值"><a href="#7-属性值" class="headerlink" title="7. 属性值"></a>7. 属性值</h3><p>属性冒号后面的内容统一称为属性值</p>
-<h3 id="8-声明"><a href="#8-声明" class="headerlink" title="8. 声明"></a>8. 声明</h3><p>属性名+属性值</p>
-<h3 id="9-声明块"><a href="#9-声明块" class="headerlink" title="9. 声明块"></a>9. 声明块</h3><p>声明块就是花括号{}包裹的一系列声明</p>
-<h3 id="10-规则或规则集"><a href="#10-规则或规则集" class="headerlink" title="10. 规则或规则集"></a>10. 规则或规则集</h3><p>出现了选择器，而且后面跟着声明块，如本文最上面的案例。</p>
-<h3 id="11-选择器"><a href="#11-选择器" class="headerlink" title="11. 选择器"></a>11. 选择器</h3><p>用来瞄准目标元素的东西。</p>
-<ul>
-<li>类选择器：如.umbrella</li>
-<li>ID选择器：如#id</li>
-<li>属性 选择器：如[attribute]    [target] 选择带有 target 属性所有元素</li>
-<li>伪类选择器：一般前面有一个：</li>
-<li>伪元素选择器：有两个冒号的原则，::selection    ::selection    选择被用户选取的元素部分。</li>
-</ul>
-<p>这里放上更详细的介绍：<a href="https://www.w3school.com.cn/cssref/css_selectors.ASP" target="_blank" rel="noopener">CSS 选择器参考手册</a></p>
-<h3 id="12-关系选择器"><a href="#12-关系选择器" class="headerlink" title="12. 关系选择器"></a>12. 关系选择器</h3><p>根据与其他元素的关系选择元素的选择器，常见的有：</p>
-<ul>
-<li>后代选择器 空格连接</li>
-<li>相邻后代选择器 &gt;连接</li>
-<li>兄弟选择器 ~连接 （注意：是当前元素后面<strong>所有的</strong>的合规则的那个同父的兄弟元素）</li>
-<li>相邻兄弟选择器： +连接 （注意：仅仅选择当前元素相邻的那<strong>一个</strong>同父元素的合规则的兄弟元素。<em>且适用于IE7以上版本</em>）  </li>
-</ul>
-<h3 id="13-规则"><a href="#13-规则" class="headerlink" title="13. @规则"></a>13. @规则</h3><p>指的是以@字符开头的一些规则，例如@media、@font-face、@page或@support</p>
-<h2 id="二、CSS世界中的“未定义行为”"><a href="#二、CSS世界中的“未定义行为”" class="headerlink" title="二、CSS世界中的“未定义行为”"></a><label style="color:orange">二、CSS世界中的“未定义行为”</label></h2><p>现实世界中，法律约束我们的行为，如果越界，就叫违法；在CSS世界中，有Web标准约束元素的行为，如果越界就称为bug。不过不可能面面俱到，法律会有法律空白，在CSS世界也会有”未定义行为”。<br>例如以下这个案例：FireFox mousedown干掉:active实例页面</p>
-<p>HTML：</p>
-<pre><code>正常情况：
-&lt;a href=&quot;javascript:&quot; class=&quot;active-btn&quot;&gt;按下&lt;/a&gt;
-包含JS：
-&lt;a href=&quot;javascript:&quot; id=&quot;button&quot; class=&quot;active-btn&quot;&gt;按下&lt;/a&gt;</code></pre><p>CSS：</p>
-<pre><code>.active-btn {
-    display: inline-block; 
-    background-color: #cd0000;
-}
-
-.active-btn:active {
-    background-color: #ae0000;
-}</code></pre><p>JavaScript：</p>
-<pre><code>var button = document.getElementById(&quot;button&quot;);
-
-if (button.addEventListener) {
-    button.addEventListener(&quot;mousedown&quot;, function(event) {
-    // 此处省略N行
-    event.preventDefault();    
-    });
-}</code></pre><p>现象描述：在FireFox浏览器中，点击“正常情况按钮”会出现按钮点击样式，但点击“包含js的按钮”，则不会有按钮点击样式<img src="http://pvjdnjjsz.bkt.clouddn.com/%E6%9C%AA%E5%AE%9A%E4%B9%89%E8%A1%8C%E4%B8%BA.png" alt="CSS未定义行为"></p>
-<p>原因分析：因为规范上并没有对这种场景的具体描述，所以FireFox认为：active发生在mousedown事件之后。（IE/Chrome反之认为）</p>
-<blockquote>
-<p>像这种规范估计不到的细枝末节的实现，就称之“未定义行为”</p>
+<p><strong>注意：</strong>“外部尺寸”有个很不一样的特性，就是尺寸的大小有可能是负数</p>
+<h3 id="1-2-margin的百分比值"><a href="#1-2-margin的百分比值" class="headerlink" title="1.2 margin的百分比值"></a>1.2 margin的百分比值</h3><h3 id="1-3-正确看待CSS世界里的margin合并"><a href="#1-3-正确看待CSS世界里的margin合并" class="headerlink" title="1.3 正确看待CSS世界里的margin合并"></a>1.3 正确看待CSS世界里的margin合并</h3><h3 id="1-4-深入理解CSS中的margin：auto"><a href="#1-4-深入理解CSS中的margin：auto" class="headerlink" title="1.4 深入理解CSS中的margin：auto"></a>1.4 深入理解CSS中的margin：auto</h3><h3 id="1-5-margin无效情形解析"><a href="#1-5-margin无效情形解析" class="headerlink" title="1.5 margin无效情形解析"></a>1.5 margin无效情形解析</h3><h5 id="1-1-1-替换元素"><a href="#1-1-1-替换元素" class="headerlink" title="1.1.1 替换元素"></a>1.1.1 替换元素</h5><blockquote>
+<p>替换元素：通过修改某个属性值呈现的内容就可以被替换的元素。</p>
 </blockquote>
-<h2 id="三、致谢"><a href="#三、致谢" class="headerlink" title="三、致谢"></a><label style="color:orange">三、致谢</label></h2><p>本文内容我对张鑫旭老师《CSS世界》一书第二章的学习笔记，感谢张鑫旭老师，也感谢阅读本文的你给我的鼓励!</p>
-<p>作为一个前端小白，如果学习笔记中有错误的地方，还请不吝指点，谢谢！</p>
-
+<h2 id="二、border属性"><a href="#二、border属性" class="headerlink" title="二、border属性"></a><label style="color:orange">二、border属性</label></h2><h3 id="2-1-为什么border-width不支持百分比值"><a href="#2-1-为什么border-width不支持百分比值" class="headerlink" title="2.1 为什么border-width不支持百分比值"></a>2.1 为什么border-width不支持百分比值</h3><h3 id="2-2-了解各种border-style类型"><a href="#2-2-了解各种border-style类型" class="headerlink" title="2.2 了解各种border-style类型"></a>2.2 了解各种border-style类型</h3><h3 id="2-3-border-color和color"><a href="#2-3-border-color和color" class="headerlink" title="2.3 border-color和color"></a>2.3 border-color和color</h3><h3 id="2-4-border与透明边框技巧"><a href="#2-4-border与透明边框技巧" class="headerlink" title="2.4 border与透明边框技巧"></a>2.4 border与透明边框技巧</h3><h3 id="2-5-border与图形构建"><a href="#2-5-border与图形构建" class="headerlink" title="2.5 border与图形构建"></a>2.5 border与图形构建</h3><h3 id="2-6-border等高布局技术"><a href="#2-6-border等高布局技术" class="headerlink" title="2.6 border等高布局技术"></a>2.6 border等高布局技术</h3>
         </div>
         
           
@@ -457,10 +391,10 @@ if (button.addEventListener) {
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-02T12:12:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-15T14:13:54+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>last updated at Aug 2, 2019</p>
+    <p>last updated at Aug 15, 2019</p>
   </a>
 </div>
 
@@ -482,7 +416,7 @@ if (button.addEventListener) {
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/07/31/CSS世界的专业术语/&title=CSS世界的专业术语 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/08/15/盒尺寸四大家族之margin与border/&title=盒尺寸四大家族之margin与border | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=盒尺寸中的4个盒子content box、padding box、border box 和margin box分别对应CSS世界中的content、padding、border和margin属性，这四个属性称为“盒尺寸四大家族”，让我们前去探秘吧！"
           
           >
           
@@ -494,7 +428,7 @@ if (button.addEventListener) {
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/07/31/CSS世界的专业术语/&title=CSS世界的专业术语 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/08/15/盒尺寸四大家族之margin与border/&title=盒尺寸四大家族之margin与border | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=盒尺寸中的4个盒子content box、padding box、border box 和margin box分别对应CSS世界中的content、padding、border和margin属性，这四个属性称为“盒尺寸四大家族”，让我们前去探秘吧！"
           
           >
           
@@ -506,7 +440,7 @@ if (button.addEventListener) {
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/07/31/CSS世界的专业术语/&title=CSS世界的专业术语 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文介绍的是CSS世界中务必了解的专业术语，包括属性、值、关键词、变量、长度单位、功能符、属性值、生命、声明块、规则或规则集、选择器、关系选择器、@规则以及CSS世界中的“未定义行为”。"
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/08/15/盒尺寸四大家族之margin与border/&title=盒尺寸四大家族之margin与border | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=盒尺寸中的4个盒子content box、padding box、border box 和margin box分别对应CSS世界中的content、padding、border和margin属性，这四个属性称为“盒尺寸四大家族”，让我们前去探秘吧！"
           
           >
           
@@ -534,16 +468,16 @@ if (button.addEventListener) {
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
                             <h4>
-                                <a href="/2019/08/01/流、元素与基本尺寸/" rel="prev" title="流、元素与基本尺寸">
+                                <a href="/2019/08/15/HTML5的代码清单/" rel="prev" title="HTML5的代码清单">
                                   
-                                      流、元素与基本尺寸
+                                      HTML5的代码清单
                                   
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/CSS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CSS</a>
+                                    <a class="tag" href="/tags/HTML5/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>HTML5</a>
                                 </h6>
                             
                         </span>
@@ -554,9 +488,9 @@ if (button.addEventListener) {
                         <span class="art-item-right" aria-hidden="true">
                             <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2019/07/31/CSS世界概述/" rel="prev" title="CSS世界概述">
+                                <a href="/2019/08/13/盒尺寸四大家族/" rel="prev" title="盒尺寸四大家族之content与padding">
                                     
-                                        CSS世界概述
+                                        盒尺寸四大家族之content与padding
                                     
                                 </a>
                             </h4>
@@ -594,7 +528,7 @@ if (button.addEventListener) {
 
   <script>
     window.subData = {
-      title: 'CSS世界的专业术语',
+      title: '盒尺寸四大家族之margin与border',
       tools: true
     }
   </script>
@@ -666,7 +600,7 @@ if (button.addEventListener) {
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、CSS世界的专业术语"><span class="toc-text">一、CSS世界的专业术语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-属性"><span class="toc-text">1. 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-值"><span class="toc-text">2. 值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-关键词"><span class="toc-text">3. 关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-变量"><span class="toc-text">4. 变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-长度单位"><span class="toc-text">5. 长度单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-功能符"><span class="toc-text">6. 功能符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-属性值"><span class="toc-text">7. 属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-声明"><span class="toc-text">8. 声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-声明块"><span class="toc-text">9. 声明块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-规则或规则集"><span class="toc-text">10. 规则或规则集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-选择器"><span class="toc-text">11. 选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-关系选择器"><span class="toc-text">12. 关系选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-规则"><span class="toc-text">13. @规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、CSS世界中的“未定义行为”"><span class="toc-text">二、CSS世界中的“未定义行为”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、致谢"><span class="toc-text">三、致谢</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、激进的margin属性"><span class="toc-text">一、激进的margin属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-margin与元素尺寸以及相关布局"><span class="toc-text">1.1 margin与元素尺寸以及相关布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-margin的百分比值"><span class="toc-text">1.2 margin的百分比值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-正确看待CSS世界里的margin合并"><span class="toc-text">1.3 正确看待CSS世界里的margin合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-深入理解CSS中的margin：auto"><span class="toc-text">1.4 深入理解CSS中的margin：auto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-margin无效情形解析"><span class="toc-text">1.5 margin无效情形解析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-1-替换元素"><span class="toc-text">1.1.1 替换元素</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、border属性"><span class="toc-text">二、border属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-为什么border-width不支持百分比值"><span class="toc-text">2.1 为什么border-width不支持百分比值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-了解各种border-style类型"><span class="toc-text">2.2 了解各种border-style类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-border-color和color"><span class="toc-text">2.3 border-color和color</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-border与透明边框技巧"><span class="toc-text">2.4 border与透明边框技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-border与图形构建"><span class="toc-text">2.5 border与图形构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-border等高布局技术"><span class="toc-text">2.6 border等高布局技术</span></a></li></ol></li></ol>
     </div>
   </section>
 
