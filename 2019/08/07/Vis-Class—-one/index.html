@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Git常用操作总结 | 小萝莉的游乐园</title>
+  <title>Vis-Class1_可视化释义 | 小萝莉的游乐园</title>
   
   <meta name="keywords" content="技术博客，前端，HTML,CSS,JavaScript">
   
@@ -169,7 +169,7 @@
 			
 				<div class="m_search">
 					<form name="searchform" class="form u-search-form">
-						<input type="text" class="input u-search-input" placeholder="Search" />
+						<input type="text" class="input u-search-input" placeholder="搜索" />
 						<i class="icon fas fa-search fa-fw"></i>
 					</form>
 				</div>
@@ -289,8 +289,8 @@
         
   
     <h1 class="title">
-      <a href="/2019/08/16/Git常用操作总结/">
-        Git常用操作总结
+      <a href="/2019/08/07/Vis-Class—-one/">
+        Vis-Class1_可视化释义
       </a>
     </h1>
   
@@ -319,7 +319,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-16</p>
+    <p>2019-08-07</p>
   </a>
 </div>
 
@@ -363,162 +363,109 @@
 
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
-          <p>Git常用操作总结 - 参考自廖雪峰老师的git教程</p>
+          <p>浙江大学2019年可视化与可视分析暑期学校第一课：陈为老师《可视化释义》笔记。</p>
 <a id="more"></a>
 
-<h2 id="一-创建版本库"><a href="#一-创建版本库" class="headerlink" title="一.创建版本库"></a>一.创建版本库</h2><blockquote>
-<p>$ mkdir learngit// 创建文件夹learngit</p>
-<p>$ cd learngit</p>
-<p>$ pwd//显示当前路径</p>
-</blockquote>
-<p>①初始化一个Git仓库：</p>
-<pre><code>git init//将当前目录变成一个Git可以管理的仓库</code></pre><p>②添加文件到Git仓库：</p>
-<pre><code>1.git add&lt;file&gt; ;  2.git commit</code></pre><blockquote>
-<p>$ git add readme.txt // 将文件添加到Git仓库（把文件修改添加到暂存区）</p>
-<p>$ git add file1.txt // 添加file1.txt文件</p>
-</blockquote>
+<h1 id="SummerCourse2019ZJU"><a href="#SummerCourse2019ZJU" class="headerlink" title="SummerCourse2019ZJU"></a>SummerCourse2019ZJU</h1><hr>
+<h2 id="1"> Class 1 Introduction release </h2>
+
 <blockquote>
-<p>$ git add file2.txt file3.txt // 同时添加file2.txt和file3.txt两个文件</p>
+<p><a href="http://www.cad.zju.edu.cn/home/chenwei" target="_blank" rel="noopener">Wei Chen</a></p>
+<p><a href="mailto:chenwei@cad.zju.edu.cn" target="_blank" rel="noopener">chenwei@cad.zju.edu.cn</a></p>
 </blockquote>
+<p><strong>OUTLINE</strong></p>
+<p><a href="#1.1">1.1 What is data visualization</a></p>
+<p><a href="#1.2">1.2 Visualization is hot &amp; cool &amp; young</a></p>
+<p><a href="#1.3">1.3 How to create visualization?</a></p>
+<h3 id="1.1">1、What is data visualization</h3>
+---
+
+<p><strong>1.1 “Data visualization is the creation and study of the visual representation of data” - wiki</strong></p>
+<p> <strong>Input:</strong> data <strong>Output:</strong> visual form <strong>Goal:</strong> insight</p>
+<p> <strong>vi·su·al·i·za·tion:</strong></p>
 <blockquote>
-<p>$ git commit -m “wrote a readme.txt.” // 将文件提交到仓库（把暂存区的所有内容提交到当前分支）</p>
+<ul>
+<li>Formation of mental visual images</li>
+<li>The act or process of interpreting in visual terms or of putting into visible form</li>
+</ul>
 </blockquote>
-<h2 id="二-时光机穿梭"><a href="#二-时光机穿梭" class="headerlink" title="二.时光机穿梭"></a>二.时光机穿梭</h2><p>①查看工作区状态，文件是否被修改过：</p>
-<pre><code>git status</code></pre><p>②查看修改的内容：</p>
-<pre><code>git diff</code></pre><blockquote>
-<p>eg:$ git diff readme.txt // 查看工作区的readme.txt与缓存区的readme.txt的区别</p>
-</blockquote>
-<h3 id="1-版本回退"><a href="#1-版本回退" class="headerlink" title="1.版本回退"></a>1.版本回退</h3><pre><code>①HEAD:当前版本
+<p>eg:<a href="http://www.aaronkoblin.com/work/flightpatterns" target="_blank" rel="noopener">Aaron Koblin, TED 2006</a></p>
+<p><strong>1.2 Why is a Diagram (Sometimes)Worth 10,000 Words</strong></p>
+<p><em>Larkin and Simon, Cognitive Science, 1987</em></p>
+<ul>
+<li>图表表达与句型表达具有信息和计算上的等价性 [Simon 1978]</li>
+<li>图表具有拓扑和几何的关联，将信息基于位置进行索引，所见处即所得</li>
+<li>句型表达具有时间或逻辑方面的序列，显式地表达了单个元素。</li>
+<li>句型表达假设每句话是串行阵列；而图表表达有一个简洁的语义网络，认知时只需要在不同的节点间定位。</li>
+<li>在求解问题时，图表表达可以提供搜索与认知的便利；句型表达在搜索时需要记住更多的信息。<a href="https://visualgo.net/en" target="_blank" rel="noopener">eg:Visu Algo通过动画可视化数据结构和算法</a></li>
+</ul>
+<p><strong>1.3 How to do</strong></p>
+<ul>
+<li>Helps us think</li>
+<li>Uses perception to offload cognition</li>
+<li>Serves as an external aid to augment working memory</li>
+<li>Boosts our cognitive abilities</li>
+</ul>
+<h3 id="1.2">2、Visualization is hot & cool & young</h3>
+---
+**2.1 Top VIS Conferences**
 
-②HEAD^:上个版本
+<ul>
+<li>VAST (Visual Analytics Science and Technology)</li>
+<li>InfoVis (Information Visualization)</li>
+<li>SciVis (Scientific Visualization)</li>
+</ul>
+<p><strong>2.2 What is VIS Research?</strong></p>
+<ul>
+<li>Visualization Pipeline</li>
+<li>Technique Papers</li>
+<li>Application/Design Study Papers</li>
+<li>System Papers</li>
+<li>Evaluation Papers</li>
+<li>Theory/Model papers</li>
+</ul>
+<p><strong>2.3 Some of Web</strong></p>
+<ul>
+<li><a href="http://www.math.yorku.ca/SCS/Gallery/milestone/" target="_blank" rel="noopener">Milestones Project 时间线</a></li>
+<li><a href="https://g2.alipay.com" target="_blank" rel="noopener">蚂蚁金服DT时代新布局：可视化神器G2</a></li>
+<li><a href="https://www.echartsjs.com/" target="_blank" rel="noopener">Baidu EChart</a></li>
+</ul>
+<h3 id="1.3">3、How to create visualization?</h3>
+---
 
-③定位版本：git reset --hard commit_id
-
-④git log：穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本
-
-⑤git reflog：要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。</code></pre><blockquote>
-<p>$ git log // 查看最近到最远的提交记录（详情: commit id + Author + Date + comment）</p>
-</blockquote>
-<blockquote>
-<p>$ git log –pretty=oneline // 查看最近到最远的提交记录（简写：commit id + comment）</p>
-</blockquote>
-<blockquote>
-<p>$ git reset –hard HEAD^ // 回到上一个版本（HEAD: 当前版本，HEAD^: 上一个版本，HEAD~100: 往上100个版本）</p>
-</blockquote>
-<blockquote>
-<p>$ git reset –hard 1234567 // 回到指定版本号commit id（此处：commit id 假设为1234567<strong>**</strong>，Git会根据commit id的前几位自动寻找对应的版本）</p>
-</blockquote>
-<blockquote>
-<p>$ cat readme.txt // 查看readme.txt的内容</p>
-</blockquote>
-<blockquote>
-<p>$ git reflog // 查看每一次命令记录历史，确保能回到任意版本　　</p>
-</blockquote>
-<h3 id="2-工作区和暂存区"><a href="#2-工作区和暂存区" class="headerlink" title="2.工作区和暂存区"></a>2.工作区和暂存区</h3><p>①工作区：就是你在电脑里能看到的目录，比如我的learngit文件夹就是一个工作区</p>
-<p>②版本库：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。</p>
-<p>③暂存区：Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区。 </p>
-<pre><code>$ git diff readme.txt // 比较工作区（working directory）和暂存区（stage/index）的区别
-
-$ git diff --cached // 比较暂存区（stage/index）和分支（master）的区别</code></pre><p>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
-<p>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
-<h3 id="3-管理修改"><a href="#3-管理修改" class="headerlink" title="3.管理修改"></a>3.管理修改</h3><p>①每次修改，如果不add到暂存区，就不会加入到commit中</p>
-<h3 id="4-撤销修改"><a href="#4-撤销修改" class="headerlink" title="4.撤销修改"></a>4.撤销修改</h3><pre><code>①git checkout -- file：丢弃工作区的修改
-
-②git reset HEAD file：把暂存区的修改撤销掉，重新放回工作区</code></pre><h3 id="5-删除文件"><a href="#5-删除文件" class="headerlink" title="5.删除文件"></a>5.删除文件</h3><pre><code>①git rm：从版本库中删除文件</code></pre><blockquote>
-<p>$ rm test.txt // 删除工作区文件（类似于手动删除）</p>
-</blockquote>
-<blockquote>
-<p>$ git status // 查看当前工作区与缓存区状态</p>
-<p>$ git rm test.txt // 情况1：确认删除</p>
-</blockquote>
-<blockquote>
-<p>$ git commit -m “remove test.txt” // 情况1：确认删除后，提交到版本库</p>
-</blockquote>
-<blockquote>
-<p>$ git checkout – readme.txt // 情况2：误删，需要回退（即：用版本库里的版本替换工作区的版本）</p>
-</blockquote>
-<h2 id="三-远程仓库"><a href="#三-远程仓库" class="headerlink" title="三.远程仓库"></a>三.远程仓库</h2><h3 id="1-添加远程库"><a href="#1-添加远程库" class="headerlink" title="1.添加远程库"></a>1.添加远程库</h3><p>①关联一个远程库：</p>
-<pre><code>git remote add origin git@server-name:path/repo-name.git// 关联一个远程仓库</code></pre><blockquote>
-<p>eg:git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:yangfff/learngit.git</p>
-</blockquote>
-<p>②关联后第一次推送master分支的所有内容：</p>
-<pre><code>git push -u origin master</code></pre><p>③此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改</p>
-<pre><code>git push -u origin master // 第一次推送master分支的所有内容</code></pre><p>ps:由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
-<p>注：在GitHub上创建新仓库时，如果勾选了README.md选项时，可能会出现下面错误，提示：远程仓库有readme.txt,而本地仓库没有README.txt,此时应该先进行合并文件，再进行推送。</p>
-<pre><code>git pull --rebase origin master // 推送之前，进行合并</code></pre><p>合并文件之后，发现本地仓库中多了README.md文件，此时再进行推送修改到远程仓库就可以了。</p>
-<pre><code>再次执行：git push -u origin master, 即可推送本地仓库到远程仓库了</code></pre><p>查看GitHub上的文件，已经更新！</p>
-<h3 id="2-从远程库克隆"><a href="#2-从远程库克隆" class="headerlink" title="2.从远程库克隆"></a>2.从远程库克隆</h3><p>①要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆</p>
-<p>②Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快</p>
-<pre><code>$ git clone git@github.com:yangfff/learngit.git // 以SSH方式克隆
-
-$ git clone https://github.com/yangfff/learngit.git // 以Https协议方式克隆</code></pre><h2 id="四-分支管理"><a href="#四-分支管理" class="headerlink" title="四.分支管理"></a>四.分支管理</h2><h3 id="1-创建与合并分支"><a href="#1-创建与合并分支" class="headerlink" title="1.创建与合并分支"></a>1.创建与合并分支</h3><pre><code>查看分支：    git branch
-
-创建分支：    git branch&lt;name&gt;
-
-切换分支：    git cheakout&lt;name&gt;
-
-创建+切换分支：    git cheakout -b &lt;name&gt;
-
-合并某分支到当前分支：git merge&lt;name&gt;
-
-删除分支：git branch - d &lt;name&gt;</code></pre><h3 id="2-解决冲突"><a href="#2-解决冲突" class="headerlink" title="2.解决冲突"></a>2.解决冲突</h3><p>①查看分支合并图：</p>
-<pre><code>git log --graph // 查看分支合并图
-
-git log --graph --pretty=oneline --abbrev-commit // 查看分支合并缩略图</code></pre><h3 id="3-分支管理策略"><a href="#3-分支管理策略" class="headerlink" title="3.分支管理策略"></a>3.分支管理策略</h3><p>①合并分支时加–no-ff参数：普通模式合并，合并后的历史有分支，禁用fast forward</p>
-<p>eg:git log –no-ff-m”merge with no–ff”dev</p>
-<h3 id="4-Bug分支"><a href="#4-Bug分支" class="headerlink" title="4.Bug分支"></a>4.Bug分支</h3><pre><code>git stash // 隐藏分支工作现场，为修复bug准备
-
-git stash list // 查看有哪些分支隐藏的工作现场，为恢复工作现场做准备
-
-git stash apply // 恢复工作现场，但不删除存储的stash内容，结合git stash drop进行删除
-
-git stash drop // 删除存储的stash内容，恢复到隐藏前的工作现场
-
-git stash pop // 恢复到隐藏前的工作现场，相当于git stash apply和git stash drop
-
-git stash apply stash@{0} // 可以多次stash，通过git stash list查看所有的stash，然后可以恢复到指定的隐藏的工作现场</code></pre><h3 id="5-Feature分支"><a href="#5-Feature分支" class="headerlink" title="5.Feature分支"></a>5.Feature分支</h3><p>①开发一个新feature，最好新建一个分支；</p>
-<p>②如果要丢弃一个没有被合并过的分支，可以通过</p>
-<pre><code>git branch -D &lt;name&gt;//强行删除</code></pre><h3 id="6-多人协作"><a href="#6-多人协作" class="headerlink" title="6.多人协作"></a>6.多人协作</h3><p>①git remote -v：查看远程库信息</p>
-<p>②git push origin branch-name：从本地推送分支</p>
-<p>③git pull：推送失败时，抓取远程的新提交</p>
-<p>④git checkout -b branch-name origin/branch-name：在本地创建和远程分支对应的分支（本地和远程分支的名称最好一致）</p>
-<p>⑤git branch –set-upstream branch-name origin/branch-name：建立本地分支和远程分支的关联</p>
-<h2 id="五-标签管理"><a href="#五-标签管理" class="headerlink" title="五.标签管理"></a>五.标签管理</h2><h3 id="1-创建标签"><a href="#1-创建标签" class="headerlink" title="1.创建标签"></a>1.创建标签</h3><p>①git tag <name>：新建一个标签（默认为HEAD，也可以指定commit id）</name></p>
-<p>②git tag -a <tagname> -m “blablabla…”：可以指定标签信息</tagname></p>
-<p>③git tag -s <tagname> -m “blablabla…”：可以用PGP签名信息</tagname></p>
-<p>④git tag：查看所有标签</p>
-<h3 id="2-操作标签"><a href="#2-操作标签" class="headerlink" title="2.操作标签"></a>2.操作标签</h3><p>①git push origin <tagname>：推送一个本地标签</tagname></p>
-<p>②git push origin –tags：推送全部未推送过的本地标签</p>
-<p>③git tag -d <tagname>：删除一个本地标签</tagname></p>
-<p>④git push origin :refs/tags/<tagname>：删除一个远程标签</tagname></p>
-<h2 id="六-使用GitHub"><a href="#六-使用GitHub" class="headerlink" title="六.使用GitHub"></a>六.使用GitHub</h2><p>①在GitHub上，可以任意Fork开源仓库；</p>
-<p>②自己拥有Fork后的仓库的读写权限；</p>
-<p>③可以推送pull request给官方仓库来贡献代码。</p>
-<h2 id="七-自定义Git"><a href="#七-自定义Git" class="headerlink" title="七.自定义Git"></a>七.自定义Git</h2><h3 id="1-忽略特殊文件"><a href="#1-忽略特殊文件" class="headerlink" title="1.忽略特殊文件"></a>1.忽略特殊文件</h3><p>①忽略某些文件时，需要编写.gitignore；</p>
-<h3 id="2-配置别名"><a href="#2-配置别名" class="headerlink" title="2.配置别名"></a>2.配置别名</h3><p>①我们只需要敲一行命令，告诉Git，以后st就表示status：</p>
-<pre><code>git config --global alias.st status</code></pre><blockquote>
-<p>eg:</p>
-</blockquote>
-<blockquote>
-<p>$ git config –global alias.co checkout</p>
-</blockquote>
-<blockquote>
-<p>$ git config –global alias.ci commit</p>
-</blockquote>
-<blockquote>
-<p>$ git config –global alias.br branch</p>
-</blockquote>
-<blockquote>
-<p>$ git config –global alias.unstage ‘reset HEAD’</p>
-</blockquote>
-<blockquote>
-<p>$ git config –global alias.last ‘log -1’</p>
-</blockquote>
-<blockquote>
-<p>git config –global alias.lg “log –color –graph –pretty=format:’%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset’ –abbrev-commit”</p>
-</blockquote>
-<h3 id="3-搭建Git服务器"><a href="#3-搭建Git服务器" class="headerlink" title="3.搭建Git服务器"></a>3.搭建Git服务器</h3><p>GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。</p>
-<p>例如大众点评code.dianpingoa.com</p>
+<p><strong>3.1 Act I: Foundations</strong></p>
+<ul>
+<li>Design Principles</li>
+<li>Process &amp; Data</li>
+<li>Tasks &amp; Interaction</li>
+<li>Perception</li>
+<li>Visual Encodings</li>
+<li>Color</li>
+</ul>
+<p><strong>3.2 Act II:Methods</strong></p>
+<ul>
+<li>SingleViews</li>
+<li>MultipleViews</li>
+<li>Filtering &amp;Aggregation</li>
+<li>Dimensionality Reduction</li>
+<li>Evaluation</li>
+</ul>
+<p><strong>3.3 Act III:Techniques</strong></p>
+<ul>
+<li>Statistical Graphs</li>
+<li>Trees &amp; Networks</li>
+<li>Maps</li>
+<li>Text &amp; Images</li>
+</ul>
+<p><strong>3.4How to create a visualization yourself</strong></p>
+<ul>
+<li><a href="http://openrefine.org/" target="_blank" rel="noopener">数据清洗工具OpenRefine</a>（以前称为Google Refine）; <a href="https://www.cnblogs.com/anovana/p/8267435.html" target="_blank" rel="noopener">中文教程</a></li>
+<li><a href="https://www.tableau.com/" target="_blank" rel="noopener">数据可视化工具Tableau</a>; <a href="https://www.w3cschool.cn/tableau/" target="_blank" rel="noopener">中文教程</a></li>
+<li><a href="https://www.r-project.org/" target="_blank" rel="noopener">统计计算和统计制图的优秀工具:R</a></li>
+<li><a href="https://processing.org/" target="_blank" rel="noopener">在视觉艺术环境中编码的语言:Processing</a></li>
+<li><a href="https://d3js.org/" target="_blank" rel="noopener">最流行的可视化库之一:D3 (JS)</a>;<a href="http://d3.decembercafe.org" target="_blank" rel="noopener">中文教程</a></li>
+<li><a href="http://colorbrewer2.org/" target="_blank" rel="noopener">配色方案:ColorBrewer</a></li>
+</ul>
 
         </div>
         
@@ -530,10 +477,10 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-16T18:11:20+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-16T18:15:32+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>last updated at Aug 16, 2019</p>
+    <p>最后更新于 Aug 16, 2019</p>
   </a>
 </div>
 
@@ -542,7 +489,7 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Git/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Git</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Vis/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Vis</p></a></div>
 
 
         
@@ -555,7 +502,7 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/08/16/Git常用操作总结/&title=Git常用操作总结 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=Git常用操作总结 - 参考自廖雪峰老师的git教程"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/08/07/Vis-Class—-one/&title=Vis-Class1_可视化释义 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=浙江大学2019年可视化与可视分析暑期学校第一课：陈为老师《可视化释义》笔记。"
           
           >
           
@@ -567,7 +514,7 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/08/16/Git常用操作总结/&title=Git常用操作总结 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=Git常用操作总结 - 参考自廖雪峰老师的git教程"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/08/07/Vis-Class—-one/&title=Vis-Class1_可视化释义 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=浙江大学2019年可视化与可视分析暑期学校第一课：陈为老师《可视化释义》笔记。"
           
           >
           
@@ -579,7 +526,7 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/08/16/Git常用操作总结/&title=Git常用操作总结 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=Git常用操作总结 - 参考自廖雪峰老师的git教程"
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/08/07/Vis-Class—-one/&title=Vis-Class1_可视化释义 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=浙江大学2019年可视化与可视分析暑期学校第一课：陈为老师《可视化释义》笔记。"
           
           >
           
@@ -603,21 +550,40 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
         
             <div class="prev-next">
                 
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2019/08/13/盒尺寸四大家族/" rel="prev" title="盒尺寸四大家族之content与padding">
+                                  
+                                      盒尺寸四大家族之content与padding
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/CSS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>CSS</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
-                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2019/08/16/Vis-Class—-one/" rel="prev" title="Vis-Class1_可视化释义">
+                                <a href="/2019/08/05/Git常用操作总结/" rel="prev" title="Git常用操作总结">
                                     
-                                        Vis-Class1_可视化释义
+                                        Git常用操作总结
                                     
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/Vis/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Vis</a>
+                                    <a class="tag" href="/tags/Git/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Git</a>
                                 </h6>
                             
                         </span>
@@ -648,7 +614,7 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
 
   <script>
     window.subData = {
-      title: 'Git常用操作总结',
+      title: 'Vis-Class1_可视化释义',
       tools: true
     }
   </script>
@@ -713,14 +679,14 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
   <section class='widget toc-wrapper'>
     
 <header class='pure'>
-  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
   
     <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
   
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-创建版本库"><span class="toc-text">一.创建版本库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-时光机穿梭"><span class="toc-text">二.时光机穿梭</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-版本回退"><span class="toc-text">1.版本回退</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-工作区和暂存区"><span class="toc-text">2.工作区和暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-管理修改"><span class="toc-text">3.管理修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-撤销修改"><span class="toc-text">4.撤销修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-删除文件"><span class="toc-text">5.删除文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-远程仓库"><span class="toc-text">三.远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-添加远程库"><span class="toc-text">1.添加远程库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-从远程库克隆"><span class="toc-text">2.从远程库克隆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-分支管理"><span class="toc-text">四.分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建与合并分支"><span class="toc-text">1.创建与合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-解决冲突"><span class="toc-text">2.解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-分支管理策略"><span class="toc-text">3.分支管理策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Bug分支"><span class="toc-text">4.Bug分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Feature分支"><span class="toc-text">5.Feature分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-多人协作"><span class="toc-text">6.多人协作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-标签管理"><span class="toc-text">五.标签管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建标签"><span class="toc-text">1.创建标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-操作标签"><span class="toc-text">2.操作标签</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-使用GitHub"><span class="toc-text">六.使用GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七-自定义Git"><span class="toc-text">七.自定义Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-忽略特殊文件"><span class="toc-text">1.忽略特殊文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-配置别名"><span class="toc-text">2.配置别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-搭建Git服务器"><span class="toc-text">3.搭建Git服务器</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SummerCourse2019ZJU"><span class="toc-text">SummerCourse2019ZJU</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-text"> Class 1 Introduction release </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1.1"><span class="toc-text">1、What is data visualization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1.2"><span class="toc-text">2、Visualization is hot &amp; cool &amp; young</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1.3"><span class="toc-text">3、How to create visualization?</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -831,7 +797,7 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
   <section class='widget tagcloud'>
     
 <header class='pure'>
-  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
   
     <a class="rightBtn"
     
@@ -939,19 +905,19 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
     </div>
   
   <br>
-  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
   <div>
-    Use
+    本站使用
     <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
-    as theme
+    作为主题
     
-      , 
-      total visits
+      ，
+      总访问量为
       <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
-      times
+      次
     
-    . 
+    。
   </div>
 </footer>
 <script>setLoadingBarProgress(80);</script>
@@ -1057,15 +1023,15 @@ git stash apply stash@{0} // 可以多次stash，通过git stash list查看所�
 <!-- 复制 -->
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-  let COPY_SUCCESS = "Copied";
-  let COPY_FAILURE = "Copy failed";
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
   /*页面载入完成后，创建复制按钮*/
   !function (e, t, a) {
     /* code */
     var initCopyCode = function(){
       var copyHtml = '';
       copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
       copyHtml += '</button>';
       $(".highlight .code pre").before(copyHtml);
       var clipboard = new ClipboardJS('.btn-copy', {
