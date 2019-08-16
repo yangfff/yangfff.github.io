@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Vis-Class1_Introduction release</title>
+      <link href="/2019/08/16/Vis-Class%E2%80%94-one/"/>
+      <url>/2019/08/16/Vis-Class%E2%80%94-one/</url>
+      
+        <content type="html"><![CDATA[<h1 id="SummerCourse2019ZJU"><a href="#SummerCourse2019ZJU" class="headerlink" title="SummerCourse2019ZJU"></a>SummerCourse2019ZJU</h1><hr><h2 id="1"> Class 1 Introduction release </h2><blockquote><p><a href="http://www.cad.zju.edu.cn/home/chenwei" target="_blank" rel="noopener">Wei Chen</a></p><p><a href="mailto:chenwei@cad.zju.edu.cn" target="_blank" rel="noopener">chenwei@cad.zju.edu.cn</a></p></blockquote><p><strong>OUTLINE</strong></p><p><a href="#1.1">1.1 What is data visualization</a></p><p><a href="#1.2">1.2 Visualization is hot &amp; cool &amp; young</a></p><p><a href="#1.3">1.3 How to create visualization?</a></p><h3 id="1.1">1、What is data visualization</h3>---<p><strong>1.1 “Data visualization is the creation and study of the visual representation of data” - wiki</strong></p><p> <strong>Input:</strong> data <strong>Output:</strong> visual form <strong>Goal:</strong> insight</p><p> <strong>vi·su·al·i·za·tion:</strong></p><blockquote><ul><li>Formation of mental visual images</li><li>The act or process of interpreting in visual terms or of putting into visible form</li></ul></blockquote><p>eg:<a href="http://www.aaronkoblin.com/work/flightpatterns" target="_blank" rel="noopener">Aaron Koblin, TED 2006</a></p><p><strong>1.2 Why is a Diagram (Sometimes)Worth 10,000 Words</strong></p><p><em>Larkin and Simon, Cognitive Science, 1987</em></p><ul><li>图表表达与句型表达具有信息和计算上的等价性 [Simon 1978]</li><li>图表具有拓扑和几何的关联，将信息基于位置进行索引，所见处即所得</li><li>句型表达具有时间或逻辑方面的序列，显式地表达了单个元素。</li><li>句型表达假设每句话是串行阵列；而图表表达有一个简洁的语义网络，认知时只需要在不同的节点间定位。</li><li>在求解问题时，图表表达可以提供搜索与认知的便利；句型表达在搜索时需要记住更多的信息。<a href="https://visualgo.net/en" target="_blank" rel="noopener">eg:Visu Algo通过动画可视化数据结构和算法</a></li></ul><p><strong>1.3 How to do</strong></p><ul><li>Helps us think</li><li>Uses perception to offload cognition</li><li>Serves as an external aid to augment working memory</li><li>Boosts our cognitive abilities</li></ul><h3 id="1.2">2、Visualization is hot & cool & young</h3>---**2.1 Top VIS Conferences**<ul><li>VAST (Visual Analytics Science and Technology)</li><li>InfoVis (Information Visualization)</li><li>SciVis (Scientific Visualization)</li></ul><p><strong>2.2 What is VIS Research?</strong></p><ul><li>Visualization Pipeline</li><li>Technique Papers</li><li>Application/Design Study Papers</li><li>System Papers</li><li>Evaluation Papers</li><li>Theory/Model papers</li></ul><p><strong>2.3 Some of Web</strong></p><ul><li><a href="http://www.math.yorku.ca/SCS/Gallery/milestone/" target="_blank" rel="noopener">Milestones Project 时间线</a></li><li><a href="https://g2.alipay.com" target="_blank" rel="noopener">蚂蚁金服DT时代新布局：可视化神器G2</a></li><li><a href="https://www.echartsjs.com/" target="_blank" rel="noopener">Baidu EChart</a></li></ul><h3 id="1.3">3、How to create visualization?</h3>---<p><strong>3.1 Act I: Foundations</strong></p><ul><li>Design Principles</li><li>Process &amp; Data</li><li>Tasks &amp; Interaction</li><li>Perception</li><li>Visual Encodings</li><li>Color</li></ul><p><strong>3.2 Act II:Methods</strong></p><ul><li>SingleViews</li><li>MultipleViews</li><li>Filtering &amp;Aggregation</li><li>Dimensionality Reduction</li><li>Evaluation</li></ul><p><strong>3.3 Act III:Techniques</strong></p><ul><li>Statistical Graphs</li><li>Trees &amp; Networks</li><li>Maps</li><li>Text &amp; Images</li></ul><p><strong>3.4How to create a visualization yourself</strong></p><ul><li><a href="http://openrefine.org/" target="_blank" rel="noopener">数据清洗工具OpenRefine</a>（以前称为Google Refine）; <a href="https://www.cnblogs.com/anovana/p/8267435.html" target="_blank" rel="noopener">中文教程</a></li><li><a href="https://www.tableau.com/" target="_blank" rel="noopener">数据可视化工具Tableau</a>; <a href="https://www.w3cschool.cn/tableau/" target="_blank" rel="noopener">中文教程</a></li><li><a href="https://www.r-project.org/" target="_blank" rel="noopener">统计计算和统计制图的优秀工具:R</a></li><li><a href="https://processing.org/" target="_blank" rel="noopener">在视觉艺术环境中编码的语言:Processing</a></li><li><a href="https://d3js.org/" target="_blank" rel="noopener">最流行的可视化库之一:D3 (JS)</a>;<a href="http://d3.decembercafe.org" target="_blank" rel="noopener">中文教程</a></li><li><a href="http://colorbrewer2.org/" target="_blank" rel="noopener">配色方案:ColorBrewer</a></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Vis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTML5-Canvas的基本功能</title>
       <link href="/2019/08/16/HTML5-Canvas%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD/"/>
       <url>/2019/08/16/HTML5-Canvas%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD/</url>
