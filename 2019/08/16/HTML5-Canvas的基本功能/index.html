@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>HTML5-Canvas的基本功能 | 小萝莉的游乐园</title>
+  
+  <meta name="keywords" content="技术博客，前端，HTML,CSS,JavaScript">
+  
+  
+  <meta name="description" content="一jio一个坑,向着敌人的炮火前进!">
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/cherry.png">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>小萝莉的游乐园</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="https://github.com/yangfff?tab=repositories"
+            
+            
+            id="https:github.comyangfff?tab=repositories">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header pure">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="pure"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          小萝莉的游乐园
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="archives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜尋" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="archives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://github.com/yangfff?tab=repositories"
+                
+                
+                id="https:github.comyangfff?tab=repositories">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/08/16/HTML5-Canvas的基本功能/">
+        HTML5-Canvas的基本功能
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <img src="https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png">
+      
+      <p>yangfff</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-08-16</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          <p>利用 Canvas 的 API，展示一些基本图形的绘制及操作方法，包括画线、画图、文字操作及图片操作等。（内含代码清单）</p>
+<a id="more"></a>
+
+<h2 id="一、绘制基本图形"><a href="#一、绘制基本图形" class="headerlink" title="一、绘制基本图形"></a><label style="color:orange">一、绘制基本图形</label></h2><h3 id="1-1-画线"><a href="#1-1-画线" class="headerlink" title="1.1 画线"></a>1.1 画线</h3><p><strong>简约版：</strong></p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;
+你的浏览器不支持 HTML5
+&lt;/canvas&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;); 
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.lineWidth = 10;
+ctx.strokeStyle = &quot;red&quot;;
+ctx.beginPath();
+ctx.moveTo(10,10);
+ctx.lineTo(150,50);
+ctx.stroke();
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p><strong>注释版：</strong></p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+/*在HTML中嵌入Canvas标签，如果浏览器不支持Canvas标签，那么浏览器会自动跳过Canvas标签，运行Canvas内部HTML代码*/
+&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;
+你的浏览器不支持 HTML5
+&lt;/canvas&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+    /*获取HTML中的Canvas标签*/
+    var c=document.getElementById(&quot;myCanvas&quot;);
+    /*返回一个用来绘制环境类型的环境，目前只支持2d环境*/ 
+    var ctx=c.getContext(&quot;2d&quot;);
+    /*线宽*/
+    ctx.lineWidth = 10;
+    /*笔画颜色，这里颜色值可以是英文字母、RGB值、十六进制颜色*/
+    ctx.strokeStyle = &quot;red&quot;;
+
+    /*线帽有三种，分别是butt、round、square
+    butt:默认。向线条的每个末端添加平直的边缘。
+    round:向线条的每个末端添加圆形线帽。
+    square:向线条的每个末端添加正方形线帽。*/
+    ctx.lineCup=&quot;butt&quot;;
+    /*创建一个新路径*/
+    ctx.beginPath();
+    /*画笔光标起始位置*/
+    ctx.moveTo(10,10);
+    /*画笔光标终止位置*/
+    ctx.lineTo(150,50);
+    /*开始绘制定义好的路径*/
+    ctx.stroke();
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h3 id="1-2-画矩形"><a href="#1-2-画矩形" class="headerlink" title="1.2 画矩形"></a>1.2 画矩形</h3><p><strong>空心矩形：</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;); 
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.lineWidth = 10;
+ctx.strokeStyle = &quot;red&quot;;
+ctx.beginPath();
+/*用strokeRect函数绘制矩形，四个参数：起点坐标x、起点坐标y、矩形长、矩形宽*/
+ctx.strokeRect(10,10,70,40);
+
+&lt;/script&gt;</code></pre><p>注：<code>ctx.strokeRect(10,10,70,40);</code>等价于<code>ctx.rect(10,10,70,40);ctx.stroke();</code></p>
+<p><strong>实心矩形：</strong></p>
+<pre><code>/*使用fillRect函数*/
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;); 
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.fillStyle = &quot;red&quot;;
+ctx.beginPath();
+/*用strokeRect函数绘制矩形，四个参数：起点坐标x、起点坐标y、矩形长、矩形宽*/
+ctx.fillRect(10,10,70,40);
+
+&lt;/script&gt;</code></pre><p>注：<code>ctx.fillRect(10,10,70,40);</code>等价于<code>ctx.rect(10,10,70,40);ctx.fill();</code></p>
+<h3 id="1-3-画圆"><a href="#1-3-画圆" class="headerlink" title="1.3 画圆"></a>1.3 画圆</h3><p>圆其实就是360度的圆弧。在Canvas中，可使用arc函数来画一个圆弧。</p>
+<p><strong>空心圆：</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;); 
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.lineWidth = 5;
+ctx.strokeStyle = &quot;red&quot;;
+ctx.beginPath();
+/*用arc函数绘制圆弧，六个参数：圆弧中心坐标x、圆弧中心坐标y、圆弧半径、起始角度、终止角度（要转化成弧度）、是否逆时针*/
+ctx.arc(100,100,70,0,360*Math.PI/180,true);
+ctx.stroke();
+&lt;/script&gt;</code></pre><p><strong>实心圆：</strong></p>
+<pre><code>/*使用fill函数*/
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;); 
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.lineWidth = 5;
+ctx.strokeStyle = &quot;red&quot;;
+ctx.beginPath();
+/*用arc函数绘制矩形，六个参数：圆弧中心坐标x、圆弧中心坐标y、圆弧半径、起始角度、终止角度（要转化成弧度）、是否逆时针*/
+ctx.arc(100,100,70,0,360*Math.PI/180,true);
+ctx.fill();
+&lt;/script&gt;</code></pre><h3 id="1-4-圆角矩形"><a href="#1-4-圆角矩形" class="headerlink" title="1.4  圆角矩形"></a>1.4  圆角矩形</h3><p>Canvas中没有直接画圆角矩形的API，但是我么可以用arcTo函数完成圆角的绘制，然后结合直线绘制，就可以完成圆角矩形的绘制了。</p>
+<p><strong>绘制一个圆角：</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;); 
+var ctx=c.getContext(&quot;2d&quot;);
+ctx.beginPath();
+
+ctx.moveTo(20,20);
+ctx.lineTo(70,20);
+/*用arcTo函数为当前的子路径添加一条圆弧。5个参数：P1坐标x、P1坐标y、P2坐标x、P2坐标y、圆弧半径*/
+ctx.arcTo(120,30,120,70,50);
+ctx.lineTo(120,120);
+ctx.stroke();
+&lt;/script&gt;</code></pre><p><strong>绘制圆角矩形：</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;); 
+var ctx=c.getContext(&quot;2d&quot;);
+ctx.beginPath();
+
+ctx.moveTo(40,20);
+ctx.lineTo(100,20);
+/*用arcTo函数为当前的子路径添加一条圆弧。5个参数：P1坐标x、P1坐标y、P2坐标x、P2坐标y、圆弧半径*/
+ctx.arcTo(120,20,120,40,20);
+ctx.lineTo(120,70);
+ctx.arcTo(120,90,100,90,20);
+ctx.lineTo(40,90);
+ctx.arcTo(20，90，20，70，20);
+ctx.lineTo(20，40);
+ctx.arcTo(20，20，40，20，20);
+
+ctx.stroke();
+&lt;/script&gt;</code></pre><h3 id="1-5-擦除Canvas画板"><a href="#1-5-擦除Canvas画板" class="headerlink" title="1.5 擦除Canvas画板"></a>1.5 擦除Canvas画板</h3><p>使用clearRect函数擦除一个矩形区域。他需要4个参数：起点坐标x、坐标y、擦除区域的长和宽。</p>
+<p><strong>绘制一个红色实心矩形，再擦除一个50*50的小矩形：</strong></p>
+<pre><code>&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot;&gt;
+你的浏览器不支持 HTML5
+&lt;/canvas&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;); 
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.fillStyle = &quot;red&quot;;
+ctx.beginPath();
+
+ctx.fillRect(10,10,200,100);
+ctx.clearRect(30,30,50,50);
+
+ctx.stroke();
+
+&lt;/script&gt;</code></pre><h2 id="二、绘制复杂图形"><a href="#二、绘制复杂图形" class="headerlink" title="二、绘制复杂图形"></a><label style="color:orange">二、绘制复杂图形</label></h2><h3 id="2-1-画曲线"><a href="#2-1-画曲线" class="headerlink" title="2.1 画曲线"></a>2.1 画曲线</h3><p><strong>二次贝塞尔曲线：</strong></p>
+<p>二次贝塞尔曲线有一个控制点，再Canvas中用quadraticCurveTo(cpx,cpy,x,y)函数绘制。cpx,cpy表示控制点的坐标，x，y表示终点坐标。</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;); 
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.beginPath();
+
+ctx.moveTo(100,100);
+ctx.quadraticCurveTo(20,50,200,20);
+
+ctx.stroke();
+&lt;/script&gt;</code></pre><p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E7%BB%98%E5%88%B6%E6%9B%B2%E7%BA%BF%E5%8E%9F%E7%90%86%E5%9B%BE.png" alt></p>
+<p><strong>三次贝塞尔曲线：</strong></p>
+<p>二次、三次贝塞尔曲线的区别在于三次的有两个控制点。</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;); 
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.moveTo(68，130);
+var cX1 = 20;
+var cY1 = 10;
+var cX2 = 268;
+var cY2 = 10;
+var endX = 268;
+var endY = 170;
+ctx.bezierCurveTo(cX1,cY1,cX2,cY2,endC,endY);
+
+ctx.stroke();
+&lt;/script&gt;</code></pre><h3 id="2-2-利用clip在指定区域绘图"><a href="#2-2-利用clip在指定区域绘图" class="headerlink" title="2.2 利用clip在指定区域绘图"></a>2.2 利用clip在指定区域绘图</h3><p>clip函数使用当前路径作为绘制操作的剪辑区域。可以理解为窗户，不论绘制了多大的图形，最后看到的图像只能由clip这扇窗来决定。</p>
+<p><strong>先画圆，使用clip，再画矩形，最后只能看到圆</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.arc(100,100,40,0,360*Math.PI/180,true);
+
+ctx.clip();
+
+ctx.beginPath();
+//设定颜色
+ctx.fillStyle=&quot;lightblue&quot;;
+//绘制矩形
+ctx.fillRect(0,0,300,150);
+&lt;/script&gt;</code></pre><h3 id="2-3-绘制自定义图形"><a href="#2-3-绘制自定义图形" class="headerlink" title="2.3 绘制自定义图形"></a>2.3 绘制自定义图形</h3><p><strong>结合各种方法，绘制特殊图形，例如：</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.beginPath(); 
+ctx.moveTo(100, 150);   
+ctx.bezierCurveTo(50, 100, 100, 0, 150, 50);   
+ctx.bezierCurveTo(200, 0, 250, 100, 200, 150);  
+ctx.bezierCurveTo(250, 200, 200, 300, 150, 250);  
+ctx.bezierCurveTo( 100, 300, 50, 200,100, 150);    
+ctx.closePath(); 
+
+ctx.moveTo(100, 150);
+ctx.lineTo(150, 50); 
+ctx.lineTo(200, 150); 
+ctx.lineTo(150, 250); 
+ctx.lineTo(100, 150); 
+ctx.lineWidth = 5;   
+ctx.strokeStyle = &quot;#ff0000&quot;;   
+
+ctx.stroke();   
+&lt;/script&gt;</code></pre><p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2.png" alt></p>
+<h2 id="三、绘制文本"><a href="#三、绘制文本" class="headerlink" title="三、绘制文本"></a><label style="color:orange">三、绘制文本</label></h2><h3 id="3-1-绘制文字"><a href="#3-1-绘制文字" class="headerlink" title="3.1 绘制文字"></a>3.1 绘制文字</h3><p><strong>使用fillText绘制实心文字</strong></p>
+<p>fillText(text,x,y,max Width)函数，4各参数分别是：文本字符串、坐标x、坐标y、文本宽度。其中文本宽度可以省略，当其省略时，文本宽度会自动定为整个文本的宽度。</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+//设定文字大小和字体
+ctx.font=&quot;30px Arial&quot;;
+//描画文字
+ctx.fillText(&quot;Hello World&quot;,100,50);
+
+//或添加文本宽度参数：
+//ctx.fillText(&quot;Hello World&quot;,100,50,50);
+
+&lt;/script&gt;</code></pre><p><strong>使用strokeText绘制空心文字：</strong><br>strokeText与fillText用法相同，只是fillText为实心文字，strokeText为空心文字</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+//设定文字大小和字体
+ctx.font=&quot;30px Arial&quot;;
+//描画文字
+ctx.strokeText(&quot;Hello World&quot;,100,50);
+&lt;/script&gt;</code></pre><h3 id="3-2-文字设置"><a href="#3-2-文字设置" class="headerlink" title="3.2 文字设置"></a>3.2 文字设置</h3><h5 id="3-2-1-文字大小"><a href="#3-2-1-文字大小" class="headerlink" title="3.2.1 文字大小"></a>3.2.1 文字大小</h5><p>使用font参数：例如：ctx.font=”50px Arial”;</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.beginPath();
+//设定文字大小为30px
+ctx.font=&quot;30px Arial&quot;;
+ctx.fillText(&quot;Hello World&quot;,100,50);
+
+ctx.beginPath();
+//设定文字大小为50px
+ctx.font=&quot;50px Arial&quot;;
+ctx.fillText(&quot;Hello World&quot;,100,150);
+
+ctx.beginPath();
+//设定文字大小为100px
+ctx.font=&quot;70px Arial&quot;;
+ctx.fillText(&quot;Hello World&quot;,100,250);
+&lt;/script&gt;</code></pre><h5 id="3-2-2-文字字体"><a href="#3-2-2-文字字体" class="headerlink" title="3.2.2 文字字体"></a>3.2.2 文字字体</h5><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.beginPath();
+//设定文字字体为Arial
+ctx.font=&quot;30px Arial&quot;;
+ctx.fillText(&quot;Hello World (Arial)&quot;,50,50);
+
+ctx.beginPath();
+//设定文字字体为Verdana
+ctx.font=&quot;30px Verdana&quot;;
+ctx.fillText(&quot;Hello World (Verdana)&quot;,50,100);
+
+ctx.beginPath();
+//设定文字字体为Times New Roman
+ctx.font=&quot;30px Times New Roman&quot;;
+ctx.fillText(&quot;Hello World (Times New Roman)&quot;,50,150);
+
+ctx.beginPath();
+//设定文字字体为Courier New
+ctx.font=&quot;30px Courier New&quot;;
+ctx.fillText(&quot;Hello World (Courier New)&quot;,50,200);
+
+ctx.beginPath();
+//设定文字字体为serif
+ctx.font=&quot;30px serif&quot;;
+ctx.fillText(&quot;Hello World (serif)&quot;,50,250);
+
+ctx.beginPath();
+//设定文字字体为sans-serif
+ctx.font=&quot;30px sans-serif&quot;;
+ctx.fillText(&quot;Hello World (sans-serif)&quot;,50,300);
+&lt;/script&gt;</code></pre><p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E6%96%87%E5%AD%97%E5%AD%97%E4%BD%93.png" alt></p>
+<h5 id="3-2-3-文字粗体效果"><a href="#3-2-3-文字粗体效果" class="headerlink" title="3.2.3 文字粗体效果"></a>3.2.3 文字粗体效果</h5><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.beginPath();
+//设定font-weight为normal
+ctx.font=&apos;normal 30px Arial&apos;;
+ctx.fillText(&quot;Hello World (normal)&quot;,50,50);
+
+ctx.beginPath();
+//设定font-weight为bold 
+ctx.font=&apos;bold 30px Arial&apos;;
+ctx.fillText(&quot;Hello World (bold)&quot;,50,90);
+
+ctx.beginPath();
+//设定font-weight为bolder
+ctx.font=&apos;bolder 30px Arial&apos;;
+ctx.fillText(&quot;Hello World (bolder)&quot;,50,130);
+
+ctx.beginPath();
+//设定font-weight为lighter
+ctx.font=&apos;lighter 30px Arial&apos;;
+ctx.fillText(&quot;Hello World (lighter)&quot;,50,170);
+
+ctx.beginPath();
+//设定font-weight为100
+ctx.font=&apos;100 30px Arial&apos;;
+ctx.fillText(&quot;Hello World (100)&quot;,50,210);
+
+ctx.beginPath();
+//设定font-weight为600
+ctx.font=&apos;600 30px Arial&apos;;
+ctx.fillText(&quot;Hello World (600)&quot;,50,250);
+
+ctx.beginPath();
+//设定font-weight为900
+ctx.font=&apos;900 30px Arial&apos;;
+ctx.fillText(&quot;Hello World (900)&quot;,50,290);
+&lt;/script&gt;</code></pre><p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E5%AD%97%E4%BD%93%E7%B2%97%E7%BB%86.png" alt></p>
+<h5 id="3-2-4-文字斜体效果"><a href="#3-2-4-文字斜体效果" class="headerlink" title="3.2.4 文字斜体效果"></a>3.2.4 文字斜体效果</h5><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.beginPath();
+//设定font-weight为normal
+ctx.font=&apos;normal 30px Arial&apos;;
+ctx.fillText(&quot;Hello World (normal)&quot;,50,50);
+
+ctx.beginPath();
+//设定font-style为italic 
+ctx.font=&apos;italic 30px Arial&apos;;
+ctx.fillText(&quot;Hello World (italic)&quot;,50,90);
+
+ctx.beginPath();
+//设定font-style为oblique
+ctx.font=&apos;oblique 30px Arial&apos;;
+ctx.fillText(&quot;Hello World (oblique)&quot;,50,130);
+&lt;/script&gt;</code></pre><h3 id="3-3-文字的对齐效果"><a href="#3-3-文字的对齐效果" class="headerlink" title="3.3 文字的对齐效果"></a>3.3 文字的对齐效果</h3><h5 id="3-3-1-水平对齐"><a href="#3-3-1-水平对齐" class="headerlink" title="3.3.1 水平对齐"></a>3.3.1 水平对齐</h5><pre><code>&lt;/canvas&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+ctx.moveTo(160,0);
+ctx.lineTo(160,300);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.textAlign=&apos;start&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&quot;Hello World&quot;,160,50);
+
+ctx.beginPath();
+ctx.textAlign=&apos;end&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&quot;Hello World&quot;,160,100);
+
+ctx.beginPath();
+ctx.textAlign=&apos;left&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&quot;Hello World&quot;,160,150);
+
+ctx.beginPath();
+ctx.textAlign=&apos;center&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&quot;Hello World&quot;,160,200);
+
+ctx.beginPath();
+ctx.textAlign=&apos;right&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&quot;Hello World&quot;,160,250);
+&lt;/script&gt;</code></pre><p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E6%96%87%E5%AD%97%E5%AF%B9%E9%BD%90.png" alt></p>
+<h5 id="3-3-2-竖直对齐"><a href="#3-3-2-竖直对齐" class="headerlink" title="3.3.2 竖直对齐"></a>3.3.2 竖直对齐</h5><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&apos;myCanvas&apos;);
+var ctx=c.getContext(&apos;2d&apos;);
+
+ctx.textBaseline=&apos;alphabetic&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&apos;Hello World&apos;,50,50);
+ctx.moveTo(0,50);
+ctx.lineTo(250,50);
+ctx.stroke();
+
+ctx.textBaseline=&apos;bottom&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&apos;Hello World&apos;,50,100);
+ctx.moveTo(0,100);
+ctx.lineTo(250,100);
+ctx.stroke();
+
+ctx.textBaseline=&apos;hanging&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&apos;Hello World&apos;,50,150);
+ctx.moveTo(0,150);
+ctx.lineTo(250,150);
+ctx.stroke();
+
+ctx.textBaseline=&apos;ideographic&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&apos;Hello World&apos;,50,200);
+ctx.moveTo(0,200);
+ctx.lineTo(250,200);
+ctx.stroke();
+
+ctx.textBaseline=&apos;middle&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&apos;Hello World&apos;,50,250);
+ctx.moveTo(0,250);
+ctx.lineTo(250,250);
+ctx.stroke();
+
+ctx.textBaseline=&apos;top&apos;;
+ctx.font=&apos;30px Arial&apos;;
+ctx.fillText(&apos;Hello World&apos;,50,300);
+ctx.moveTo(0,300);
+ctx.lineTo(250,300);
+ctx.stroke();
+&lt;/script&gt;</code></pre><p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E6%96%87%E5%AD%97%E7%AB%96%E7%9B%B4%E6%96%B9%E5%90%91%E5%AF%B9%E9%BD%90.png" alt></p>
+<h2 id="四、图片操作"><a href="#四、图片操作" class="headerlink" title="四、图片操作"></a><label style="color:orange">四、图片操作</label></h2><h3 id="4-1-利用drawImage绘制图片"><a href="#4-1-利用drawImage绘制图片" class="headerlink" title="4.1 利用drawImage绘制图片"></a>4.1 利用drawImage绘制图片</h3><p>drawImage函数有3种函数原型，语法如下：</p>
+<p>drawImages（image，dx, dy）;<br>drawImages（image，dx, dy, dw, dh）;<br>drawImages（image，sx, sy, sw, sh, dx, dy, dw, dh）;</p>
+<ul>
+<li>image是要绘制的对象，可以说HTMLImageRlement、HTML-CanvasElement或者HTMLVideoElement</li>
+<li>dx、dy是image在Canvas中定位的坐标值</li>
+<li>dw、dh表示image在Canvas中即将绘制区域（相对dx、dy坐标的偏移量）的宽度与高度值</li>
+<li>sx、sy是image所要绘制的起始位置</li>
+<li>sw、sh表示image所要绘制区域（相对sw、sy坐标的偏移量）的宽度与高度值</li>
+</ul>
+<p><strong>方式1：在Canvas中通过<img>标签的id取得图片数据</strong></p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+img标签&lt;br /&gt;
+&lt;img id=&quot;face&quot; src=&quot;face.jpg&quot; alt=&quot;The Face&quot; width=&quot;240&quot; height=&quot;240&quot; /&gt;&lt;br /&gt;
+canvas画板&lt;br /&gt;
+&lt;canvas id=&quot;myCanvas&quot; width=&quot;500&quot; height=&quot;350&quot;&gt;
+你的浏览器不支持HTML5
+&lt;/canvas&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+var img=document.getElementById(&quot;face&quot;);
+
+img.onload = function(){    
+   ctx.drawImage(img,10,10);   
+};   
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>步骤1：在html中加入<img>标签</p>
+<p><code>&lt;img id=&quot;face&quot; src=&quot;face.jpg&quot; alt=&quot;The Face&quot; width=&quot;240&quot; height=&quot;240&quot; /&gt;&lt;br /&gt;</code></p>
+<p>步骤2：在Canvas中通过<img>标签的id取得图片数据</p>
+<p><code>var img=document.getElementById(&quot;face&quot;);</code></p>
+<p>步骤3：用drawImage函数江图片绘制到画板上</p>
+<p><code>ctx.drawImage(img,10,10);</code></p>
+<p><strong>方式2：在Canvas中通过 JavaScript 的 Image 对象来获取数据（个人推荐这种）</strong></p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;canvas id=&quot;myCanvas&quot; width=&quot;500&quot; height=&quot;350&quot;&gt;
+你的浏览器不支持HTML5
+&lt;/canvas&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+var image = new Image();    
+image.src = &quot;face.jpg&quot;;  
+
+image.onload = function(){    
+   ctx.drawImage(image,10,10);   
+};    
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>步骤1：建立image对象</p>
+<p><code>var image = new Image();</code></p>
+<p>步骤2：通过设置scr属性，载入图片</p>
+<p><code>image.src = &quot;face.jpg&quot;;</code></p>
+<p>步骤3：添加onload事件侦听，当图片载入完成时，将其绘制到画板</p>
+<pre><code>image.onload = function(){    
+   ctx.drawImage(image,10,10);   
+}; </code></pre><p><strong>drawImage函数的3种函数原型的用法与区别：</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+var image = new Image();    
+image.src = &quot;face.jpg&quot;;  
+image.onload = function(){   
+
+    /*从坐标（10，10）开始绘制整张图片*/ 
+    ctx.drawImage(image,10,10);  
+
+    /*从坐标（260，10）开始绘制整张图片到长100、宽100的矩形区域内*/
+    ctx.drawImage(image,260,10,100,100); 
+
+    /*截取图片从（50，50）到（100，100）的部分，从坐标（260，130开始绘制，放大长100，宽100的矩形区域内）*/
+    ctx.drawImage(image,50,50,100,100,260,130,100,100);   
+};    
+&lt;/script&gt;</code></pre><p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86.png" alt></p>
+<h3 id="4-2-利用getImageData和putImageData绘制图片（不推荐）"><a href="#4-2-利用getImageData和putImageData绘制图片（不推荐）" class="headerlink" title="4.2 利用getImageData和putImageData绘制图片（不推荐）"></a>4.2 利用getImageData和putImageData绘制图片（不推荐）</h3><p>putImageData（imagedata，dx, dy, sx, sy, sw, sh）</p>
+<ul>
+<li>imagedata为像素数据</li>
+<li>dx、dy是绘制图片的定位坐标值</li>
+<li>sx、sy是imagedata所要绘制图片的起始位置</li>
+<li>sw、sh表示imagedata所要绘制区域（相对imagedata的sx、sy坐标的偏移量）的宽度与高度值</li>
+</ul>
+<p>这里第四个参数及以后的所有参数都可以省略，如果省略则表示绘制整个imagedata。</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+
+var image = new Image();    
+image.src = &quot;face.jpg&quot;;  
+
+image.onload = function(){    
+    ctx.drawImage(image,10,10);  
+    var imgData=ctx.getImageData(50,50,200,200);
+    ctx.putImageData(imgData,10,260); 
+    ctx.putImageData(imgData,200,260,50,50,100,100);
+};    
+&lt;/script&gt;</code></pre><p>步骤1：图片数据读取完成后，首先江图片数据绘制到Canvas画板上</p>
+<p><code>ctx.drawImage(image,10,10);</code></p>
+<p>步骤2：用getImageData函数从画板上取得像素数据</p>
+<p><code>var imgData=ctx.getImageData(50,50,200,200);</code></p>
+<p>步骤3：将取得的整个像素数据绘制到画板上</p>
+<p><code>ctx.putImageData(imgData,10,260);</code></p>
+<p>或将取得的整个像素数据的一部分绘制到画板上</p>
+<p><code>ctx.putImageData(imgData,200,260,50,50,100,100);</code></p>
+<p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%862.png" alt></p>
+<p><strong>注意：</strong>这种方法种使用了getImageData函数获取图片数据，这个函数在Google Chrome等浏览器中会涉及跨域问题，所以无法直接在浏览器种浏览。必须通过服务器来访问。当然，我么可以在本地服务器是浏览。</p>
+<h3 id="4-3-利用createImageData新建像素"><a href="#4-3-利用createImageData新建像素" class="headerlink" title="4.3 利用createImageData新建像素"></a>4.3 利用createImageData新建像素</h3><p>createImageData函数有两种函数原型：</p>
+<ol>
+<li>返回指定大小的imageData对象：</li>
+</ol>
+<p><code>createImageData（sw, sh）;</code></p>
+<ol start="2">
+<li>返回与指定对象相同大小的imageData对象</li>
+</ol>
+<p><code>createImageData(imageData);</code></p>
+<p><strong>注意：通过createImageData返回的是一个空的imageData对象，必须要针对起像素进行复制才能显示到Canvas 画板上</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var c=document.getElementById(&quot;myCanvas&quot;);
+var ctx=c.getContext(&quot;2d&quot;);
+var image = new Image();    
+image.src = &quot;face.jpg&quot;;  
+image.onload = function(){    
+    ctx.drawImage(image,10,10);  
+    var imgData=ctx.getImageData(50,50,200,200);
+
+    var imgData01=ctx.createImageData(imgData);
+    for (i=0; i&lt;imgData01.width*imgData01.height*4;i+=4){
+        imgData01.data[i+0]=255;
+        imgData01.data[i+1]=0;
+        imgData01.data[i+2]=0;
+        imgData01.data[i+3]=255;
+    }
+    ctx.putImageData(imgData01,10,260); 
+
+    var imgData02=ctx.createImageData(100,100);
+    for (i=0; i&lt;imgData02.width*imgData02.height*4;i+=4){
+        imgData02.data[i+0]=255;
+        imgData02.data[i+1]=0;
+        imgData02.data[i+2]=0;
+        imgData02.data[i+3]=155;
+    }
+    ctx.putImageData(imgData02,220,260); 
+};    
+&lt;/script&gt;</code></pre><p><strong>代码解析：</strong></p>
+<ol>
+<li><p>图片数据读取完成后，首先将图片数据绘制到 Canvas 画板上。</p>
+<p> <code>ctx.drawImage(image,10,10);</code></p>
+</li>
+<li><p>用 getImageData 函数从画板上取得像素数据。</p>
+<p> <code>var imgData=ctx.getImageData(50,50,200,200);</code></p>
+</li>
+<li><p>使用 createImageData 返回与 imgData 相同大小的 ImageData 对象。</p>
+<p> <code>var imgData01=ctx.createImageData(imgData);</code></p>
+</li>
+<li><p>imgData01 进行赋值。</p>
+<p> for (i=0; i&lt;imgData01.width<em>imgData01.height</em>4;i+=4){<br>  imgData01.data[i+0]=255;<br>  imgData01.data[i+1]=0;<br>  imgData01.data[i+2]=0;<br>  imgData01.data[i+3]=255;<br> }</p>
+</li>
+<li><p>利用 putImageData 将 imgData01 画到 Canvas 画板上。</p>
+<p> <code>ctx.putImageData(imgData01,10,260);</code></p>
+</li>
+<li><p>使用 createImageData 返回一个大小为 100×100 的 ImageData 对象。</p>
+<p> <code>var imgData02=ctx.createImageData(100,100);</code></p>
+</li>
+<li><p>对 imgData02 进行赋值。</p>
+<p> for (i=0; i&lt;imgData02.width<em>imgData02.height</em>4;i+=4){<br>  imgData02.data[i+0]=255;<br>  imgData02.data[i+1]=0;<br>  imgData02.data[i+2]=0;<br>  imgData02.data[i+3]=155;<br> }</p>
+</li>
+<li><p>利用 putImageData 将 imgData02 画到 Canvas 画板上。</p>
+<p> <code>ctx.putImageData(imgData02,220,260);</code></p>
+</li>
+</ol>
+<p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%863.png" alt></p>
+<h2 id="五、致谢"><a href="#五、致谢" class="headerlink" title="五、致谢"></a><label style="color:orange">五、致谢</label></h2><p>写这篇学习总结的时候是学校开学的前夕，实验室还没有人。早上我给自己泡了一杯茶，累了就去弹两首古琴曲子然后继续回来学。这篇总结写完的时候，太阳的余辉正撒在我的书桌上。我抬头望着窗外的云朵，好像忽然懂了《时光恋旅人》里主角父亲穿越时空一遍遍看书的感受了，哈哈哈，在时空隧道里，想来我一个人也可以相处的很愉快吧。</p>
+<p>本文内容是我对张路斌老师《HTML5 Canvas 游戏开发实战》第二章的学习总结，感谢张路斌老师，也感谢阅读本文的你给我的鼓励!</p>
+<p>作为一个前端小白，如果学习笔记中有错误的地方，还请不吝指点，谢谢！</p>
+
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <hr>
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-16T17:29:25+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>最後更新於 Aug 16, 2019</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/HTML5-Canvas/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>HTML5-Canvas</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/08/16/HTML5-Canvas的基本功能/&title=HTML5-Canvas的基本功能 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=利用 Canvas 的 API，展示一些基本图形的绘制及操作方法，包括画线、画图、文字操作及图片操作等。（内含代码清单）"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/08/16/HTML5-Canvas的基本功能/&title=HTML5-Canvas的基本功能 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=利用 Canvas 的 API，展示一些基本图形的绘制及操作方法，包括画线、画图、文字操作及图片操作等。（内含代码清单）"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/08/16/HTML5-Canvas的基本功能/&title=HTML5-Canvas的基本功能 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=利用 Canvas 的 API，展示一些基本图形的绘制及操作方法，包括画线、画图、文字操作及图片操作等。（内含代码清单）"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一頁&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/08/16/JavaScript中的面向对象/" rel="prev" title="JavaScript中的面向对象">
+                                    
+                                        JavaScript中的面向对象
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/JavaScript/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>JavaScript</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'HTML5-Canvas的基本功能',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+          
+            <section class='widget author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://avatars2.githubusercontent.com/u/41238115?s=460&v=4'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:yangfff2018@139.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/yangfff"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=1465557010"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目錄</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、绘制基本图形"><span class="toc-text">一、绘制基本图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-画线"><span class="toc-text">1.1 画线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-画矩形"><span class="toc-text">1.2 画矩形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-画圆"><span class="toc-text">1.3 画圆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-圆角矩形"><span class="toc-text">1.4  圆角矩形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-擦除Canvas画板"><span class="toc-text">1.5 擦除Canvas画板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、绘制复杂图形"><span class="toc-text">二、绘制复杂图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-画曲线"><span class="toc-text">2.1 画曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-利用clip在指定区域绘图"><span class="toc-text">2.2 利用clip在指定区域绘图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-绘制自定义图形"><span class="toc-text">2.3 绘制自定义图形</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、绘制文本"><span class="toc-text">三、绘制文本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-绘制文字"><span class="toc-text">3.1 绘制文字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-文字设置"><span class="toc-text">3.2 文字设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-1-文字大小"><span class="toc-text">3.2.1 文字大小</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-2-文字字体"><span class="toc-text">3.2.2 文字字体</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-3-文字粗体效果"><span class="toc-text">3.2.3 文字粗体效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-4-文字斜体效果"><span class="toc-text">3.2.4 文字斜体效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-文字的对齐效果"><span class="toc-text">3.3 文字的对齐效果</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-1-水平对齐"><span class="toc-text">3.3.1 水平对齐</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-2-竖直对齐"><span class="toc-text">3.3.2 竖直对齐</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、图片操作"><span class="toc-text">四、图片操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-利用drawImage绘制图片"><span class="toc-text">4.1 利用drawImage绘制图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-利用getImageData和putImageData绘制图片（不推荐）"><span class="toc-text">4.2 利用getImageData和putImageData绘制图片（不推荐）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-利用createImageData新建像素"><span class="toc-text">4.3 利用createImageData新建像素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、致谢"><span class="toc-text">五、致谢</span></a></li></ol>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            <section class='widget grid'>
+  
+<header class='pure'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives/" href="/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="archives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/yangfff?tab=repositories" href="https://github.com/yangfff?tab=repositories"
+          
+          
+          id="https:github.comyangfff?tab=repositories">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;熱門標籤</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/CSS/" style="font-size: 24px; color: #555">CSS</a> <a href="/tags/HTML5/" style="font-size: 14px; color: #999">HTML5</a> <a href="/tags/HTML5-Canvas/" style="font-size: 14px; color: #999">HTML5-Canvas</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            
+
+
+  <section class='widget music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn"
+    
+      rel="external nofollow noopener noreferrer"
+    
+    
+      target="_blank"
+    
+    href="https://music.163.com/#/user/home?id=1465557010"
+    title="https://music.163.com/#/user/home?id=1465557010">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2238045229"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+          
+        
+      
+    
+
+  
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:yangfff2018@139.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/yangfff"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=1465557010"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作為主題
+    
+      ，
+      總訪問量為
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["http://pic1.win4000.com/wallpaper/2018-09-19/5ba1bec53fdfc.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["http://pic1.win4000.com/wallpaper/2018-09-19/5ba1bec53fdfc.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "複製成功";
+  let COPY_FAILURE = "複製失敗";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>複製</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js"></script>
+  <!--浏览器搞笑标题-->
+  <script type="text/javascript" src="\js\FunnyTitle.js"></script>
+  <!--动态线条背景-->
+	<script type="text/javascript"
+	color="27,195,251" opacity='0.8' zIndex="-2" count="500" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+	</script>
+
+ <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":null,"use":"live2d-widget-model-shizuku","display":null,"position":"right","width":150,"height":300,"mobile":null,"show":false,"react":null,"opacity":0.7,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
