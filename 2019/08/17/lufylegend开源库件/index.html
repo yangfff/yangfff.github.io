@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>lufylegend开源库件 | 小萝莉的游乐园</title>
+  
+  <meta name="keywords" content="技术博客，前端，HTML,CSS,JavaScript">
+  
+  
+  <meta name="description" content="一jio一个坑,向着敌人的炮火前进!">
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/cherry.png">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>小萝莉的游乐园</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="https://github.com/yangfff?tab=repositories"
+            
+            
+            id="https:github.comyangfff?tab=repositories">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header pure">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="pure"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          小萝莉的游乐园
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="archives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="archives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://github.com/yangfff?tab=repositories"
+                
+                
+                id="https:github.comyangfff?tab=repositories">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/08/17/lufylegend开源库件/">
+        lufylegend开源库件
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <img src="https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png">
+      
+      <p>yangfff</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-08-17</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          <p>本文将详细介绍如何利用HTML5的开源框架lufylegend来进行游戏的开发。</p>
+<a id="more"></a>
+
+<h2 id="一、lufylegend库件简介"><a href="#一、lufylegend库件简介" class="headerlink" title="一、lufylegend库件简介"></a>一、lufylegend库件简介</h2><ul>
+<li>一个HTML5开源框架</li>
+<li>利用JavaScript和ActionScript相似性，用仿ActionScript3.0的语法对HTML5 Canvas的API进行了封装</li>
+<li>支持多种常用环境，手机浏览器与PC浏览器自动切换事件</li>
+</ul>
+<h3 id="1-1-工作原理"><a href="#1-1-工作原理" class="headerlink" title="1.1 工作原理"></a>1.1 工作原理</h3><p>lufylegend库件封装了Canvas绘图的所有API，它利用JavaScript的setInterval函数，对Canvas画板进行周期性重绘。每次重绘时，首先要使用clearRect对Canvas画板进行清空整个画板，再调用需要重绘的各个API函数，这样可以达到重新绘制所有图形的目的。</p>
+<p>lufylegend库件初始化时，会根据浏览器来判断需要加载的是mouse事件还是touch事件。再利用lufylegend库件加载点击事件的时候，只是将被加载的事件加入了框架预先准备的数组中，当点击事件发生的时候才会调用这个数组里的事件。</p>
+<h3 id="1-2-库件使用流程"><a href="#1-2-库件使用流程" class="headerlink" title="1.2 库件使用流程"></a>1.2 库件使用流程</h3><ol>
+<li>从<a href="http://lufylegend.com/lufylegend下载库件最新版。" target="_blank" rel="noopener">http://lufylegend.com/lufylegend下载库件最新版。</a></li>
+</ol>
+<p>压缩包内包含lufylegend-x.x.x.js和lufylegend-x.x.x.min.js两个完整版本，还有lufylegend-x.x.x.simple.js和lufylegend-x.x.x.simple.min.js两个缩减版本，***.min是去除了回车和空格的压缩版本。</p>
+<p>simple缩减版本与完整版本的区别在于，将LBox2d，LQuadTree，LTransitionManager，LoadingSample1，LoadingSample2，LoadingSample3，LoadingSample4，LoadingSample5等几个类与引擎的常用部分分离，缩减了引擎的体积。如果用到了被分离的部分的功能的话，可以进行手动加载。</p>
+<ol start="2">
+<li><p>在html中将库件引入。</p>
+</li>
+<li><p>调用LInit函数，初始化库件。</p>
+</li>
+</ol>
+<p>示例代码：</p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../lufylegend-1.7.6.min.js&quot;&gt;&lt;/script&gt; 
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;mylegend&quot;&gt;loading...&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,500,350,main);
+function main(){  
+    alert(&quot;lufylegend start&quot;);  
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h2 id="二、图片的加载与显示"><a href="#二、图片的加载与显示" class="headerlink" title="二、图片的加载与显示"></a>二、图片的加载与显示</h2><p>步骤：</p>
+<ol>
+<li>使用Lloader类加载图片数据</li>
+<li>将读取完的图片数据保存到LbitmapData中</li>
+<li>利用Lbitmap将图片显示到画板上</li>
+</ol>
+<h3 id="2-1-图片显示举例"><a href="#2-1-图片显示举例" class="headerlink" title="2.1  图片显示举例"></a>2.1  图片显示举例</h3><pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;../lufylegend-1.7.6.min.js&quot;&gt;&lt;/script&gt; 
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;mylegend&quot;&gt;loading...&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var loader;  
+init(50,&quot;mylegend&quot;,500,350,main);
+
+function main(){  
+    /*给Image添加一个onload事件*/
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);  
+    loader.load(&quot;face.jpg&quot;,&quot;bitmapData&quot;);  
+}  
+
+function loadBitmapdata(event){  
+    /*图片读取完调用loadBitmapdata函数，新建一个LBitmapData对象。此时的loader.content就是一个Image*/
+    /*LbitmapData是lufylend库件的一个类，用来保存和读取Image对象，如果要将图片显示到Canvas画板上，则需要用到Lbitmap*/
+    var bitmapdata = new LBitmapData(loader.content); 
+
+    /*LBitmap的功能是将Image对象显示到Canvas画板上*/
+    var bitmap = new LBitmap(bitmapdata);  
+    addChild(bitmap);  
+} 
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>给Image添加一个onload事件的代码：<br>    loader = new LLoader();<br>    loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);<br>    loader.load(“face.jpg”,”bitmapData”); </p>
+<p>等价于:</p>
+<pre><code>var image = new Image();
+image.onload = function(){
+};</code></pre><p>上面的代码可以看出图片显示主要用到LBitmapData和LBitmap两个对象。</p>
+<h3 id="2-2-LBitmapData对象"><a href="#2-2-LBitmapData对象" class="headerlink" title="2.2 LBitmapData对象"></a>2.2 LBitmapData对象</h3><blockquote>
+<p>LBitmapData（image,x,y,width,height）</p>
+</blockquote>
+<p>参数针对可视范围，若后面四个参数缺省，则显示整张图片</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var loader;  
+init(50,&quot;mylegend&quot;,500,350,main);
+
+function main(){  
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);  
+    loader.load(&quot;face.jpg&quot;,&quot;bitmapData&quot;);  
+}  
+function loadBitmapdata(event){  
+    var bitmapdata = new LBitmapData(loader.content,50,50,150,150);  
+    var bitmap = new LBitmap(bitmapdata);  
+    addChild(bitmap);  
+} 
+&lt;/script&gt;</code></pre><h3 id="2-3-LBitmap对象"><a href="#2-3-LBitmap对象" class="headerlink" title="2.3 LBitmap对象"></a>2.3 LBitmap对象</h3><p>功能：</p>
+<ol>
+<li><p>将图片显示到Canvas画板上</p>
+</li>
+<li><p>控制图片的各种属性，坐标（x,y）、透明度（rotate）、旋转(rotate)、缩放(scaleX、scaleY)等</p>
+<p> /<em>设置图片旋转与透明度</em>/</p>
+ <script type="text/javascript">
+ var loader;  
+ init(50,"mylegend",500,350,main);
+
+ function main(){  
+     loader = new LLoader();  
+     loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);  
+     loader.load("face.jpg","bitmapData");  
+ }  
+ function loadBitmapdata(event){  
+     var bitmapdata = new LBitmapData(loader.content);  
+     var bitmap = new LBitmap(bitmapdata); 
+     //图片坐标
+     bitmap.x = 50;
+     bitmap.y = 50; 
+     //图片旋转60度
+     bitmap.rotate = 60;
+     //图片透明度设置为0.4
+     bitmap.alpha = 0.4;
+     addChild(bitmap);  
+ } 
+ </script>
+
+</li>
+</ol>
+<h2 id="层的概念"><a href="#层的概念" class="headerlink" title="层的概念"></a>层的概念</h2><p>如果把不同的图形放到不同层，我么就能觉得这些图像在游戏画面里出现的顺序。</p>
+<p>lufylegend.js库件为Canvas实现了层的概念，就是LSprite对象。</p>
+<p>创建LSprite对象，并把layer层添加到画板：</p>
+<pre><code>var layer = new LSprite();
+addChild(layer);</code></pre><p>把layer层添加到画板，然后将bitmap添加到layer层：</p>
+<pre><code>var layer = new LSprite();
+addChild(layer);
+layer.addChild(bitmap);</code></pre><p>LSprite对象也和LBitmap对象一样，有坐标（x,y）、透明度（rotate）、旋转(rotate)、缩放(scaleX、scaleY)等属性，不过它控制的是整个层的属性。</p>
+<pre><code>/*使用LSprite对象的旋转属性*/
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+var loader;  
+init(50,&quot;mylegend&quot;,500,350,main);
+
+function main(){  
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);  
+    loader.load(&quot;face.jpg&quot;,&quot;bitmapData&quot;);  
+}  
+function loadBitmapdata(event){  
+    var bitmapdata = new LBitmapData(loader.content);  
+    var bitmap = new LBitmap(bitmapdata);  
+     //加入层LSprite
+    var layer = new LSprite();
+    addChild(layer);
+    layer.addChild(bitmap);  
+    layer.x = 50;
+    layer.y = 50;
+    layer.rotate = 60;
+} 
+&lt;/script&gt;</code></pre><h2 id="使用LGraphics对象绘图"><a href="#使用LGraphics对象绘图" class="headerlink" title="使用LGraphics对象绘图"></a>使用LGraphics对象绘图</h2><p>LGraphics是lufylegend库件中的一个绘图类，它内置了一些函数以简化绘图。</p>
+<p>可以单独属于，也可以与LSprite对象配合使用。</p>
+<h3 id="4-1-绘制矩形"><a href="#4-1-绘制矩形" class="headerlink" title="4.1 绘制矩形"></a>4.1 绘制矩形</h3><p>使用LGraphics对象中的drawRect函数绘制矩形：</p>
+<blockquote>
+<p>drawRect （thickness,lineColor,pointArray,isfill,color）</p>
+</blockquote>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,500,350,main);
+function main(){  
+   var graphics = new LGraphics();
+   addChild(graphics);
+   graphics.drawRect(1,&apos;#000000&apos;,[50,50,100,100]);
+   graphics.drawRect(1,&apos;#000000&apos;,[170,50,100,100],true,&apos;#cccccc&apos;);
+}  
+&lt;/script&gt;</code></pre><h3 id="4-2-绘制圆"><a href="#4-2-绘制圆" class="headerlink" title="4.2 绘制圆"></a>4.2 绘制圆</h3><blockquote>
+<p>drawArc (thickeness,lineColor,pointArray,isfull,color)</p>
+</blockquote>
+<p>pointArray:圆形参数数组[坐标x,坐标y,半径，起始角度，结束角度，顺时针或逆时针]</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,500,350,main);
+function main(){  
+/*建立一个绘图对象，并将其加载到Cavans画板上*/
+   var graphics = new LGraphics();
+   addChild(graphics);
+    /*画一个空心圆*/
+   graphics.drawArc(1,&apos;#000000&apos;,[60,60,50,0,360*Math.PI/180]);
+    /*画一个实心圆*/
+   graphics.drawArc(1,&apos;#000000&apos;,[180,60,50,0,360*Math.PI/180],true,&apos;#cccccc&apos;);
+}  
+&lt;/script&gt;</code></pre><h3 id="4-3-绘制任意多边形"><a href="#4-3-绘制任意多边形" class="headerlink" title="4.3 绘制任意多边形"></a>4.3 绘制任意多边形</h3><blockquote>
+<p>drawVertices (thickness,lineColor,vertices,isfill,color)</p>
+</blockquote>
+<p>vertices:顶点数组[[顶点1],[顶点2],[顶点3<br>]…]</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,500,350,main);
+function main(){  
+   var graphics = new LGraphics();
+   addChild(graphics);
+    /*画一个空心六边形*/
+   graphics.drawVertices(1,&apos;#000000&apos;,[[50,20],[80,20],[100,50],[80,80],[50,80],[30,50]]);
+    /*画一个填充六边形*/
+   graphics.drawVertices(1,&apos;#000000&apos;,[[150,20],[180,20],[200,50],[180,80],[150,80],[130,50]],true,&apos;#cccccc&apos;);
+}  
+&lt;/script&gt;</code></pre><h3 id="4-4-使用Canvas原始绘图函数进行绘图"><a href="#4-4-使用Canvas原始绘图函数进行绘图" class="headerlink" title="4.4 使用Canvas原始绘图函数进行绘图"></a>4.4 使用Canvas原始绘图函数进行绘图</h3><p>LGraphics对象可以使用Canvas的原始绘图函数进行绘图。</p>
+<pre><code>script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,500,350,main);
+function main(){  
+    /*建立一个绘图对象，并将其加载到Canvas画板上*/
+    var graphics = new LGraphics();
+    addChild(graphics);
+
+    /*调用LGraphics对象中的add函数，传入绘图函数*/
+    graphics.add(function(coodx,coody){
+        LGlobal.canvas.strokeStyle = &quot;#000000&quot;;
+        LGlobal.canvas.moveTo(20,20);
+        LGlobal.canvas.lineTo(200,200);
+        LGlobal.canvas.stroke();
+    });
+}  
+&lt;/script&gt;</code></pre><p>因为写在fun内部的JavaScript代码都会被运行，所以绘制图形的代码可以写在他的里面。</p>
+<p>这里用到的LGlobal.canvas其实就是getContext(“2d”)所返回的对象。</p>
+<p>add函数原型：add(fun)</p>
+<h3 id="4-5-使用LSprite对象进行绘图"><a href="#4-5-使用LSprite对象进行绘图" class="headerlink" title="4.5 使用LSprite对象进行绘图"></a>4.5 使用LSprite对象进行绘图</h3><p>由于每个LSprite对象都包含一个LGraphics对象，所以上面的绘图都可以使用LSprite对象中的graphics来实现，比如4.1中画一个矩形的代码也可以这样写：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,500,350,main);
+function main(){  
+   var layer = new LSprite();
+   addChild(layer);
+
+   layer.graphics.drawRect(1,&apos;#000000&apos;,[50,50,100,100]);
+   layer.graphics.drawRect(1,&apos;#000000&apos;,[170,50,100,100],true,&apos;#cccccc&apos;);
+}  
+&lt;/script&gt;</code></pre><h3 id="4-6-使用LGraphics对象绘制图片"><a href="#4-6-使用LGraphics对象绘制图片" class="headerlink" title="4.6 使用LGraphics对象绘制图片"></a>4.6 使用LGraphics对象绘制图片</h3><p>使用LGraphics对象绘制图片，主要是结合LGraphics对象的beginBitmapfull函数来实现的。</p>
+<h5 id="4-6-1-绘制一个圆形区域的图片"><a href="#4-6-1-绘制一个圆形区域的图片" class="headerlink" title="4.6.1 绘制一个圆形区域的图片"></a>4.6.1 绘制一个圆形区域的图片</h5><p>LGraphics对象的beginBitmapfull函数和drawArc函数结合起来使用</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var loader;  
+init(50,&quot;mylegend&quot;,500,350,main);
+
+function main(){  
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);  
+    loader.load(&quot;face.jpg&quot;,&quot;bitmapData&quot;);  
+}  
+function loadBitmapdata(event){  
+    var bitmapdata = new LBitmapData(loader.content);  
+    var backLayer = new LSprite();
+    addChild(backLayer);
+    backLayer.graphics.beginBitmapFill(bitmapdata);
+    backLayer.graphics.drawArc(1,&quot;#000&quot;,[110,80,50,0,Math.PI*2]);
+}
+&lt;/script&gt;</code></pre><p>解析：</p>
+<p>利用beginBitmapfull函数将LBitmapData对象存储到LGraphics对象中：  </p>
+<pre><code>backLayer.graphics.beginBitmapFill(bitmapdata);</code></pre><p>利用drawArc函数绘制一个圆形区域。LBitmapData对象会直接将存储在自己内部的BitmapData对象通过这个圆形区域显示出来：</p>
+<pre><code>backLayer.graphics.drawArc(1,&quot;#000&quot;,[110,80,50,0,Math.PI*2]);</code></pre><h5 id="4-6-2-绘制一个矩形区域的图片"><a href="#4-6-2-绘制一个矩形区域的图片" class="headerlink" title="4.6.2 绘制一个矩形区域的图片"></a>4.6.2 绘制一个矩形区域的图片</h5><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var loader;  
+init(50,&quot;mylegend&quot;,500,350,main);
+
+function main(){  
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);  
+    loader.load(&quot;face.jpg&quot;,&quot;bitmapData&quot;);  
+}  
+function loadBitmapdata(event){  
+    var bitmapdata = new LBitmapData(loader.content);  
+    var backLayer = new LSprite();
+    addChild(backLayer);
+    backLayer.graphics.beginBitmapFill(bitmapdata);
+    backLayer.graphics.drawRect(1,&quot;#000&quot;,[80,50,70,100]);
+}
+&lt;/script&gt;</code></pre><h5 id="4-6-3-绘制一个多边形区域的图片"><a href="#4-6-3-绘制一个多边形区域的图片" class="headerlink" title="4.6.3 绘制一个多边形区域的图片"></a>4.6.3 绘制一个多边形区域的图片</h5><p>LGraphics对象的beginBitmapfull函数和drawVertices函数结合起来使用</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var loader;  
+init(50,&quot;mylegend&quot;,500,350,main);
+
+function main(){  
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);  
+    loader.load(&quot;face.jpg&quot;,&quot;bitmapData&quot;);  
+}  
+function loadBitmapdata(event){  
+    var bitmapdata = new LBitmapData(loader.content);  
+    var backLayer = new LSprite();
+    addChild(backLayer);
+    backLayer.graphics.beginBitmapFill(bitmapdata);
+    backLayer.graphics.drawVertices(1,&quot;#000&quot;,[[120,50],[100,200],[200,150]]);
+}
+&lt;/script&gt;</code></pre><h5 id="4-6-4-绘制一个扭曲的图片"><a href="#4-6-4-绘制一个扭曲的图片" class="headerlink" title="4.6.4 绘制一个扭曲的图片"></a>4.6.4 绘制一个扭曲的图片</h5><p>LGraphics对象的beginBitmapfull函数和drawTriangles函数结合起来使用</p>
+<blockquote>
+<p>drawTriangles函数:drawTriangles(vertices,indices,uvtData,thickness,color)</p>
+</blockquote>
+<p>vertices：由数字构成的矢量，其中每一对数字将被视为一个坐标位置（x,y），该参数是必须要有的</p>
+<p>indices：由整数或索引构成的矢量，其中每3个索引定义一个三角形，如果indeces参数为null，则每三个顶点定义一个三角形。（三角形定点顺序：左上-右上-左下或右上-左下-右下）</p>
+<p>uvtData：用于应用纹理映射的标准坐标构成的矢量。表示定义上面的每个顶点相对于整张图片的比例</p>
+<p>thickness：分割玩的三角形边框线宽</p>
+<p>color：分割玩的三角形边框颜色</p>
+<p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E6%89%AD%E6%9B%B2.png" alt></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var loader;  
+init(50,&quot;mylegend&quot;,500,350,main);
+
+function main(){  
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);  
+    loader.load(&quot;face.jpg&quot;,&quot;bitmapData&quot;);  
+}  
+function loadBitmapdata(event){  
+    var bitmapdata = new LBitmapData(loader.content);  
+    var backLayer = new LSprite();
+    backLayer.x=100;
+    addChild(backLayer);
+
+    vertices = new Array();
+    vertices.push(0, 0);
+    vertices.push(0-50, 120);//这里将原坐标的x坐标左移50
+    vertices.push(0, 240);
+    vertices.push(120, 0);
+    vertices.push(120, 120);
+    vertices.push(120, 240);
+    vertices.push(240, 0);
+    vertices.push(240+50, 120);//这里将原坐标的x坐标右移50
+    vertices.push(240, 240);
+
+    indices = new Array();
+    indices.push(0, 3, 1);
+    indices.push(3, 1, 4);
+    indices.push(1, 4, 2);
+    indices.push(4, 2, 5);
+    indices.push(3, 6, 4);
+    indices.push(6, 4, 7);
+    indices.push(4, 7, 5);
+    indices.push(7, 5, 8);
+
+    uvtData = new Array();
+    uvtData.push(0, 0);
+    uvtData.push(0, 0.5);
+    uvtData.push(0, 1);
+    uvtData.push(0.5, 0);
+    uvtData.push(0.5, 0.5);
+    uvtData.push(0.5, 1);
+    uvtData.push(1, 0);
+    uvtData.push(1, 0.5);
+    uvtData.push(1, 1);
+
+    backLayer.graphics.beginBitmapFill(bitmapdata);
+    backLayer.graphics.drawTriangles(vertices, indices, uvtData);
+}
+&lt;/script&gt;</code></pre><h5 id="4-6-5-实现3d效果"><a href="#4-6-5-实现3d效果" class="headerlink" title="4.6.5 实现3d效果"></a>4.6.5 实现3d效果</h5><p>使用drawTriangles函数，示例代码如下</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot; /&gt;
+        &lt;title&gt;3D&lt;/title&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;../lufylegend-1.7.6.min.js&quot;&gt;
+        &lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            LSystem.screen(0.5);
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;legend&quot;&gt;
+        &lt;/div&gt;
+        &lt;script&gt;
+            init(50, &quot;legend&quot;, 600, 500, main);
+            var leftspeed = 0;
+            var leftindex = 1;
+            var upspeed = 10;
+            var upindex = 1;
+            var vertices;
+            var indices;
+            var uvtData;
+            var backLayer;
+            var bitmapData, earthBitmapData;
+            var rows = 24, cols = 24;
+            var mi = 0;
+            var imgData = [{
+                name: &quot;earth&quot;,
+                path: &quot;earth.jpg&quot;
+            }];
+            var imglist;
+            function main(){
+                LLoadManage.load(imgData, null, gameInit);
+            }
+
+            function gameInit(result){
+                imglist = result;
+                earthBitmapData = new LBitmapData(imglist[&quot;earth&quot;]);
+                //earthBitmapData = new LBitmapData(&quot;#ffffff&quot;, 0, 0, 500, 300);
+
+                var i, j;
+                var r = 100;
+                vertices = new Array();
+                for (i = 0; i &lt;= cols; i++) {
+                    for (j = 0; j &lt;= rows; j++) {
+                        var angle = (90 - 180 * j / rows) * Math.PI / 180;
+                        var a = Math.sin(angle);
+                        if ((90 - 180 * j / rows) % 90 == 0 &amp;&amp; (90 - 180 * j / rows) % 180 != 0) 
+                            a = (90 - 180 * j / rows) &gt; 0 ? 1 : -1;
+                        if ((90 - 180 * j / rows) % 180 == 0) 
+                            a = 0;
+                        var sy = -r * a;
+                        var sa = Math.cos(angle);
+                        if ((90 - 180 * j / rows) % 180 == 0) sa = 1;
+                        var sr = Math.abs(r * sa);
+                        var angle2 = 360 * (i + 1) / cols;
+                        var b = Math.cos(angle2 * Math.PI / 180);
+                        if (angle2 % 360 == 0) 
+                            b = 1;
+                        else if (angle2 % 180 == 0) 
+                            b = -1;
+                        var sx = sr * b;
+                        vertices.push(sx, sy);
+                    }
+                }
+                indices = new Array();
+                for (i = 0; i &lt; cols; i++) {
+                    for (j = 0; j &lt; rows; j++) {
+                        indices.push(i * (rows + 1) + j, (i + 1) * (rows + 1) + j, i * (rows + 1) + j + 1);
+                        indices.push((i + 1) * (rows + 1) + j, i * (rows + 1) + j + 1, (i + 1) * (rows + 1) + j + 1);
+                    }
+                }
+                uvtData = new Array();
+                for (i = 0; i &lt;= cols; i++) {
+                    for (j = 0; j &lt;= rows; j++) {
+                        uvtData.push(i / cols, j / rows);
+                    }
+                }
+                backLayer = new LSprite();
+                backLayer.x = 110;
+                backLayer.y = 110;
+                addChild(backLayer);
+                backLayer.graphics.clear();
+                backLayer.graphics.beginBitmapFill(earthBitmapData);
+                backLayer.graphics.drawTriangles(vertices, indices, uvtData);
+
+                backLayer.addEventListener(LEvent.ENTER_FRAME, onframe);
+            }
+
+            function onframe(){
+                if (leftspeed &lt; 10 &amp;&amp; leftindex++ &gt; leftspeed) {
+                    leftindex = 0;
+                    for (i = 0; i &lt;= rows; i++) {
+                        uvtData.push(uvtData.shift());
+                        uvtData.push(uvtData.shift());
+                    }
+                }
+                if (upspeed &lt; 10 &amp;&amp; upindex++ &gt; upspeed) {
+                    upindex = 0;
+                    for (var i = 1; i &lt; uvtData.length; i += 2) {
+                        uvtData[i] += 1 / rows;
+                        if (uvtData[i] &gt; 1) 
+                            uvtData[i] -= 1;
+                    }
+                }
+            }
+
+            function runspeed(value){
+                leftspeed = 10 - value;
+            }
+
+            function runmax(value){
+                backLayer.scaleX = value / 50;
+                backLayer.scaleY = backLayer.scaleX;
+            }
+        &lt;/script&gt;
+        &lt;div id=&quot;mylegend1&quot; style=&quot;position:absolute;top:400px;width:400px;z-index:1;color: #ffffff;background-color:#000000;&quot;&gt;
+            旋转速度:&lt;input type=&quot;number&quot; max=&quot;10&quot; min=&quot;0&quot; value=&quot;10&quot; onchange=&quot;runspeed(this.value);&quot;/&gt;
+            &lt;br/&gt;
+            伸缩:&lt;input type=&quot;number&quot; max=&quot;100&quot; min=&quot;0&quot; value=&quot;50&quot; onchange=&quot;runmax(this.value);&quot;/&gt;%
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre><h2 id="五、文本"><a href="#五、文本" class="headerlink" title="五、文本"></a>五、文本</h2><h3 id="5-1-文本属性"><a href="#5-1-文本属性" class="headerlink" title="5.1 文本属性"></a>5.1 文本属性</h3><p>创建的文本框对象不会自动加入可视化对象列表中，只有手动调用addChild（）方法添加它才能显示。</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,500,350,main);
+function main(){  
+   var layer = new LSprite();
+   addChild(layer);
+   var field = new LTextField();
+   field.text = &quot;Hello World!&quot;;
+   layer.addChild(field);
+}  
+&lt;/script&gt;</code></pre><p>加一些改进：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,500,350,main);
+function main(){  
+   var layer = new LSprite();
+   addChild(layer);
+   var field = new LTextField();
+   field.x = 50;
+   field.y = 50;
+   field.text = &quot;Hello World!&quot;;
+   field.size = 25;
+   field.color = &quot;#333333&quot;;
+   field.weight = &quot;bolder&quot;;
+   layer.addChild(field);
+}  
+&lt;/script&gt;</code></pre><h3 id="5-2-输入框"><a href="#5-2-输入框" class="headerlink" title="5.2 输入框"></a>5.2 输入框</h3><p>LTextField只要将文本的texttype属性设置为LTextFieldType.INPUT，就可以将文本变成输入框</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,500,350,main);
+function main(){  
+   var layer = new LSprite();
+   addChild(layer);
+   var field = new LTextField();
+   field.x = 50;
+   field.y = 50;
+   field.setType(LTextFieldType.INPUT);
+   layer.addChild(field);
+}  
+&lt;/script&gt;</code></pre><h2 id="六、事件"><a href="#六、事件" class="headerlink" title="六、事件"></a>六、事件</h2><h3 id="6-1-鼠标事件"><a href="#6-1-鼠标事件" class="headerlink" title="6.1 鼠标事件"></a>6.1 鼠标事件</h3><p>鼠标事件分为鼠标按下、鼠标弹起和鼠标移动事件</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,300,300,main);
+var field;
+function main(){  
+   var layer = new LSprite();
+   layer.graphics.drawRect(1,&apos;#cccccc&apos;,[0,0,300,300],true,&apos;#cccccc&apos;);
+   addChild(layer);
+
+    /*建立一个文本*/
+   field = new LTextField();
+   field.text = &quot;Wait Click!&quot;;
+   layer.addChild(field);
+    /*给layer对象加载鼠标按下和鼠标弹起事件侦听*/
+   layer.addEventListener(LMouseEvent.MOUSE_DOWN,downshow);
+   layer.addEventListener(LMouseEvent.MOUSE_UP,upshow);
+}  
+/*侦听鼠标按下和弹起事件，当鼠标按下时...*/
+function downshow(event){
+    field.text = &quot;Mouse Down!&quot;;
+}
+function upshow(event){
+    field.text = &quot;Mouse Up!&quot;;
+}
+&lt;/script&gt;</code></pre><p>注意：手机上用TOUCh_START等代替，但是这个库件会根据运行环境自动转换，所以不用自行切换。</p>
+<h3 id="6-2-循环事件"><a href="#6-2-循环事件" class="headerlink" title="6.2 循环事件"></a>6.2 循环事件</h3><p>使用LRvent.ENTER_FRAMR来添加侦听循环事件</p>
+<pre><code>/*现象：屏幕上文本从开始不断自增*/
+&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,300,300,main);
+var field;
+function main(){  
+    var layer = new LSprite();
+    layer.graphics.drawRect(1,&apos;#cccccc&apos;,[0,0,300,300],true,&apos;#cccccc&apos;);
+    addChild(layer);
+
+    field = new LTextField();
+    field.text = &quot;0&quot;;
+
+    layer.addChild(field);
+    /*给layer对象加载循环时间侦听*/
+    layer.addEventListener(LEvent.ENTER_FRAME,onframe);
+}  
+
+/*回调函数*/
+function onframe(){
+    field.text = parseInt(field.text) + 1;
+}
+&lt;/script&gt;</code></pre><h3 id="6-3-键盘事件"><a href="#6-3-键盘事件" class="headerlink" title="6.3 键盘事件"></a>6.3 键盘事件</h3><p>使用LKeyboardEvent.KEY_DOWN、LKeyboardEvent.KEY_up、LKeyboardEvent.KEY_PRESS来侦听键盘事件</p>
+<p>由于键盘事件需要加载到window上，所以加载的时候与前面讲述的方法会稍微有些变化。</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,300,300,main);
+var field;
+function main(){  
+    var layer = new LSprite();
+    layer.graphics.drawRect(1,&apos;#cccccc&apos;,[0,0,300,300],true,&apos;#cccccc&apos;);
+    addChild(layer);
+    field = new LTextField();
+    field.text = &quot;Wait Click!&quot;;
+    layer.addChild(field);
+    LEvent.addEventListener(LGlobal.window,LKeyboardEvent.KEY_DOWN,downshow);
+    LEvent.addEventListener(LGlobal.window,LKeyboardEvent.KEY_UP,upshow);
+}  
+function downshow(event){
+    field.text = event.keyCode + &quot; Down!&quot;;
+}
+/*键盘按键的值*/
+function upshow(event){
+    field.text = event.keyCode + &quot; Up!&quot;;
+}
+&lt;/script&gt;</code></pre><p>这里使用LEvent.addEventListener来加载键盘事件，其中LGlobal.window就是window对象，所以键盘事件就是加载到window对象上的，这样能侦听到整个浏览器窗口。</p>
+<pre><code>LEvent.addEventListener(LGlobal.window,LKeyboardEvent.KEY_DOWN,downshow);
+LEvent.addEventListener(LGlobal.window,LKeyboardEvent.KEY_UP,upshow);</code></pre><h3 id="4-7-按钮"><a href="#4-7-按钮" class="headerlink" title="4.7 按钮"></a>4.7 按钮</h3><p>内置LButton类来添加按钮</p>
+<blockquote>
+<p>LButton(DisplayObject_up,DisplayObject_over)</p>
+</blockquote>
+<p>DisplayObject_up:按钮默认up状态，当鼠标不在按钮上，按钮就处于这个状态</p>
+<p>DisplayObject_up：鼠标在按钮时的状态</p>
+<p>传入按钮的这两个状态对象，可以是LSprite对象，也可以是LBitmap对象</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+init(50,&quot;mylegend&quot;,300,300,main);
+var loader,bitmapup,bitmapover,field;  
+
+/*读取两种图片，准备接下来当作按钮的两个状态*/
+function main(){  
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadUp);  
+    loader.load(&quot;up.png&quot;,&quot;bitmapData&quot;);  
+}  
+function loadUp(event){  
+    bitmapup = new LBitmap(new LBitmapData(loader.content));
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadOver);  
+    loader.load(&quot;over.png&quot;,&quot;bitmapData&quot;);  
+}
+
+
+function loadOver(){  
+    bitmapover = new LBitmap(new LBitmapData(loader.content));
+    var layer = new LSprite();
+    addChild(layer);
+    field = new LTextField();
+    field.text = &quot;Wait Click!&quot;;
+    layer.addChild(field);
+    /*新建LButton按钮对象，并将bitmapup、bitmapover做为参数传给这个按钮*/
+    var testButton = new LButton(bitmapup,bitmapover);
+    testButton.y = 50;
+    layer.addChild(testButton);
+
+    /*LButton继承自类LSprite，所以由LSprite类的所有属性和方法，这样就可以给按钮添加鼠标点击事件了*/
+    testButton.addEventListener(LMouseEvent.MOUSE_DOWN,downshow);
+}  
+function downshow(event){
+    field.text = &quot;testButton Click!&quot;;
+}
+&lt;/script&gt;</code></pre><h2 id="八、动画"><a href="#八、动画" class="headerlink" title="八、动画"></a>八、动画</h2><blockquote>
+<p>LAnimation(layer,data,list)</p>
+</blockquote>
+<p>layer:LSprite对象<br>data:LBitmapData对象<br>list:一个存储坐标的二维数组</p>
+<p>动画需要一个坐标的二维数组，也就是小图片的坐标，这里用LGlobal.dividiCooedinate函数来实现：</p>
+<blockquote>
+<p>LGlobal.dividiCooedinate(width,height,row,col)</p>
+</blockquote>
+<p>row：行数<br>col:列数</p>
+<p><img src="http://pvjdnjjsz.bkt.clouddn.com/chara.png" alt></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var loader,anime,layer;  
+init(200,&quot;mylegend&quot;,500,350,main);
+function main(){  
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);  
+    loader.load(&quot;chara.png&quot;,&quot;bitmapData&quot;);  
+}  
+function loadBitmapdata(event){  
+
+    /*将读取完的Image保持到LBitmapData,显示范围为（0，0，64，64）*/
+    var bitmapdata = new LBitmapData(loader.content,0,0,64,64);
+
+    /*建一个保存有坐标位置的二维数组*/  
+    var list = LGlobal.divideCoordinate(256,256,4,4);
+
+     //加入层LSprite
+    layer = new LSprite();
+    addChild(layer);
+
+    /*建一个LAnimation类，并将上面准备好的layer、bitmapdata、list作为参数传入LAnimation对象中*/
+    anime = new LAnimation(layer,bitmapdata,list);
+
+    /*给layer层添加循环事件侦听*/
+    layer.addEventListener(LEvent.ENTER_FRAME,onframe);
+}  
+
+/*循环事件的回调函数调用LAnimation类的onframe函数，来实现动画的顺序循环播放*/
+function onframe(){
+    anime.onframe();
+}
+&lt;/script&gt;</code></pre><p>LAnimation类的onframe函数的功能是将所播放图片的列号加1，如果循环onframe函数，就变成动画了。但是目前只是实现了第一行图片的循环播放，如果实现所有图片的循环播放，则需要用LAnimation类的setAction函数。</p>
+<blockquote>
+<p>setAction(rowIndex,colIndex)</p>
+</blockquote>
+<p>rowIndex:数组行号<br>colIndex：数组列号</p>
+<p>如果只需要改变播放的行号，那么第二个参数可省。</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var loader,anime,layer;  
+init(200,&quot;mylegend&quot;,500,350,main);
+function main(){  
+    loader = new LLoader();  
+    loader.addEventListener(LEvent.COMPLETE,loadBitmapdata);  
+    loader.load(&quot;chara.png&quot;,&quot;bitmapData&quot;);  
+}  
+function loadBitmapdata(event){  
+    var bitmapdata = new LBitmapData(loader.content,0,0,64,64);  
+    var list = LGlobal.divideCoordinate(256,256,4,4);
+     //加入层LSprite
+    layer = new LSprite();
+    addChild(layer);
+    anime = new LAnimation(layer,bitmapdata,list);
+    layer.addEventListener(LEvent.ENTER_FRAME,onframe);
+}  
+function onframe(){
+    /*使用LAnimation类的getAction函数取得anime对象当前所播放动画的行号列好，其返回值为数组类型[行号，列号]*/
+    var action = anime.getAction();
+
+    /*利用switch对当前所播放动画的行号进行了区别处理，[0,1,2,3]这4个行号分别代表下、左、右、上4个方向，然后再4个方向上改变坐标值进行相应的移动，并且根据所移动到达的位置来该百年移动的方向*/
+    switch(action[0]){
+        case 0:
+            layer.y += 5;
+            if(layer.y &gt;= 200){
+                anime.setAction(2);
+            }
+            break;
+        case 1:
+            layer.x -= 5;
+            if(layer.x &lt;= 0){
+                anime.setAction(0);
+            }
+            break;
+        case 2:
+            layer.x += 5;
+            if(layer.x &gt;= 200){
+                anime.setAction(3);
+            }
+            break;
+        case 3:
+            layer.y -= 5;
+            if(layer.y &lt;= 0){
+                anime.setAction(1);
+            }
+            break;
+    }
+
+    /*循环事件的回调函数调用LAnimation类的onframe函数，来实现动画的肾虚循环播放*/
+    anime.onframe();
+}
+&lt;/script&gt;</code></pre><h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>本文内容是我对张路斌老师《HTML5 Canvas 游戏开发实战》第四章的学习总结，感谢张路斌老师，也感谢阅读本文的你给我的鼓励!</p>
+<p>作为一个前端小白，如果学习笔记中有错误的地方，还请不吝指点，谢谢！</p>
+
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <hr>
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-17T16:48:34+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>last updated at Aug 17, 2019</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/HTML5-Canvas/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>HTML5-Canvas</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/08/17/lufylegend开源库件/&title=lufylegend开源库件 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文将详细介绍如何利用HTML5的开源框架lufylegend来进行游戏的开发。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/08/17/lufylegend开源库件/&title=lufylegend开源库件 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文将详细介绍如何利用HTML5的开源框架lufylegend来进行游戏的开发。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/08/17/lufylegend开源库件/&title=lufylegend开源库件 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=本文将详细介绍如何利用HTML5的开源框架lufylegend来进行游戏的开发。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/08/16/使用Canvas制作一个自定义画板/" rel="prev" title="使用Canvas制作一个自定义画板">
+                                    
+                                        使用Canvas制作一个自定义画板
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/HTML5-Canvas/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>HTML5-Canvas</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'lufylegend开源库件',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+          
+            <section class='widget author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://avatars2.githubusercontent.com/u/41238115?s=460&v=4'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:yangfff2018@139.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/yangfff"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=1465557010"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、lufylegend库件简介"><span class="toc-text">一、lufylegend库件简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-工作原理"><span class="toc-text">1.1 工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-库件使用流程"><span class="toc-text">1.2 库件使用流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、图片的加载与显示"><span class="toc-text">二、图片的加载与显示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-图片显示举例"><span class="toc-text">2.1  图片显示举例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-LBitmapData对象"><span class="toc-text">2.2 LBitmapData对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-LBitmap对象"><span class="toc-text">2.3 LBitmap对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#层的概念"><span class="toc-text">层的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用LGraphics对象绘图"><span class="toc-text">使用LGraphics对象绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-绘制矩形"><span class="toc-text">4.1 绘制矩形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-绘制圆"><span class="toc-text">4.2 绘制圆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-绘制任意多边形"><span class="toc-text">4.3 绘制任意多边形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-使用Canvas原始绘图函数进行绘图"><span class="toc-text">4.4 使用Canvas原始绘图函数进行绘图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-使用LSprite对象进行绘图"><span class="toc-text">4.5 使用LSprite对象进行绘图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-使用LGraphics对象绘制图片"><span class="toc-text">4.6 使用LGraphics对象绘制图片</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-6-1-绘制一个圆形区域的图片"><span class="toc-text">4.6.1 绘制一个圆形区域的图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-6-2-绘制一个矩形区域的图片"><span class="toc-text">4.6.2 绘制一个矩形区域的图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-6-3-绘制一个多边形区域的图片"><span class="toc-text">4.6.3 绘制一个多边形区域的图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-6-4-绘制一个扭曲的图片"><span class="toc-text">4.6.4 绘制一个扭曲的图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-6-5-实现3d效果"><span class="toc-text">4.6.5 实现3d效果</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、文本"><span class="toc-text">五、文本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-文本属性"><span class="toc-text">5.1 文本属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-输入框"><span class="toc-text">5.2 输入框</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、事件"><span class="toc-text">六、事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-鼠标事件"><span class="toc-text">6.1 鼠标事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-循环事件"><span class="toc-text">6.2 循环事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-键盘事件"><span class="toc-text">6.3 键盘事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-按钮"><span class="toc-text">4.7 按钮</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、动画"><span class="toc-text">八、动画</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#致谢"><span class="toc-text">致谢</span></a></li></ol>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            <section class='widget grid'>
+  
+<header class='pure'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives/" href="/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="archives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="https://github.com/yangfff?tab=repositories" href="https://github.com/yangfff?tab=repositories"
+          
+          
+          id="https:github.comyangfff?tab=repositories">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/CSS/" style="font-size: 24px; color: #555">CSS</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/HTML5/" style="font-size: 14px; color: #999">HTML5</a> <a href="/tags/HTML5-Canvas/" style="font-size: 19px; color: #777">HTML5-Canvas</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/tags/Vis/" style="font-size: 14px; color: #999">Vis</a>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            
+
+
+  <section class='widget music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn"
+    
+      rel="external nofollow noopener noreferrer"
+    
+    
+      target="_blank"
+    
+    href="https://music.163.com/#/user/home?id=1465557010"
+    title="https://music.163.com/#/user/home?id=1465557010">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2238045229"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+          
+        
+      
+    
+
+  
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:yangfff2018@139.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/yangfff"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=1465557010"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>
+    Use
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    as theme
+    
+      , 
+      total visits
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      times
+    
+    . 
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["http://pic1.win4000.com/wallpaper/2018-09-19/5ba1bec53fdfc.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["http://pic1.win4000.com/wallpaper/2018-09-19/5ba1bec53fdfc.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/love.js"></script>
+  <!--浏览器搞笑标题-->
+  <script type="text/javascript" src="\js\FunnyTitle.js"></script>
+  <!--动态线条背景-->
+	<script type="text/javascript"
+	color="27,195,251" opacity='0.8' zIndex="-2" count="500" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+	</script>
+
+ <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":null,"use":"live2d-widget-model-shizuku","display":null,"position":"right","width":150,"height":300,"mobile":null,"show":false,"react":null,"opacity":0.7,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
