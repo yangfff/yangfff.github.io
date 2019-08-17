@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发</title>
+      <link href="/2019/08/17/%E4%BD%BF%E7%94%A8lufylegend%E5%BA%93%E4%BB%B6%E8%BF%9B%E8%A1%8CHTML5%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+      <url>/2019/08/17/%E4%BD%BF%E7%94%A8lufylegend%E5%BA%93%E4%BB%B6%E8%BF%9B%E8%A1%8CHTML5%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/</url>
+      
+        <content type="html"><![CDATA[<p>猜拳游戏——石头剪刀布</p><a id="more"></a><h2 id="一、游戏分析"><a href="#一、游戏分析" class="headerlink" title="一、游戏分析"></a>一、游戏分析</h2><p>游戏需要的要素：</p><ol><li>图片描画：将石头剪刀布三张图片会知道画面上</li><li>图形绘制：背景、边框</li><li>文字绘制：统计次数的文字</li><li>鼠标点击：通过点击三个不同按钮选择出拳</li><li>电脑AI:电脑随机出拳</li><li>条件分支与判断：胜负判定结果</li></ol><h2 id="二、必要的Javascript知识"><a href="#二、必要的Javascript知识" class="headerlink" title="二、必要的Javascript知识"></a>二、必要的Javascript知识</h2><h3 id="2-1-随机数"><a href="#2-1-随机数" class="headerlink" title="2.1 随机数"></a>2.1 随机数</h3><p>Math.random()函数，可以随机生成0到1之间的一个小数。如果需要随机生成5-10之间的整数，则用：<br>    Math.floor(5 + 5*Math.random());</p><h3 id="2-2-条件分支"><a href="#2-2-条件分支" class="headerlink" title="2.2 条件分支"></a>2.2 条件分支</h3><p>if..else if..else:</p><pre><code>if(条件1){    条件1成立执行代码；}else if(条件2){    条件2成立执行代码；}else{    条件1、2都不成立时执行代码；}</code></pre><p>switch:</p><pre><code>switch(变量){    case 值1：        执行代码块1        break;        case 值2：        执行代码块2        break;    default;        当变量既不是值1也不是值2时执行的代码块}</code></pre><h2 id="三、分层实现"><a href="#三、分层实现" class="headerlink" title="三、分层实现"></a>三、分层实现</h2><p>层次划分：</p><ul><li>整个游戏界面一层</li><li>选择出拳部分一层</li><li>结果显示部分一层</li></ul><p>3层分别显示到画面上：</p><pre><code>init(50,&quot;mylegend&quot;,800,400,main);/*新建3个变量层，分别代表3个显示层*/var backLayer,resultLayer,clickLayer;function main(){    gameInit();}function gameInit(){    /*初始化层backLayer，将其作为背景层显示出来*/    backLayer = new LSprite();        addChild(backLayer);    //添加游戏界面背景    backLayer.graphics.drawRect(10,&apos;#008800&apos;,[0,0,LGlobal.width,LGlobal.height],true,&apos;#000000&apos;);    //结果显示层初始化    initResultLayer();    //操作层初始化    initClickLayer();}/*初始化resultLayer层，将其作为结果表示层，并在层上绘制一个白色矩形，当作结果表示层的背景色*/function initResultLayer(){    resultLayer = new LSprite();    resultLayer.graphics.drawRect(4,&apos;#ff8800&apos;,[0,0,150,110],true,&apos;#ffffff&apos;);    resultLayer.x = 10;    resultLayer.y = 100;    backLayer.addChild(resultLayer);}/*初始化clickLayer层，并将其作为控制点击层，同时再层上绘制一个白色矩形，当作控制点击层的背景色*/function initClickLayer(){    clickLayer = new LSprite();    clickLayer.graphics.drawRect(4,&apos;#ff8800&apos;,[0,0,300,110],true,&apos;#ffffff&apos;);    clickLayer.x = 250;    clickLayer.y = 275;    backLayer.addChild(clickLayer);}</code></pre><h2 id="四、各个层的基本功能"><a href="#四、各个层的基本功能" class="headerlink" title="四、各个层的基本功能"></a>四、各个层的基本功能</h2><h3 id="4-1-基本画面显示"><a href="#4-1-基本画面显示" class="headerlink" title="4.1 基本画面显示"></a>4.1 基本画面显示</h3><p>将图片读取到电脑，然后按照需求显示到画面。</p><p><img src="http://pvjdnjjsz.bkt.clouddn.com/shitou.png" alt><br><img src="http://pvjdnjjsz.bkt.clouddn.com/jiandao.png" alt><br><img src="http://pvjdnjjsz.bkt.clouddn.com/bu.png" alt></p><p><img src="http://pvjdnjjsz.bkt.clouddn.com/title.png" alt></p><p>图片的读取，再<a href="https://yangfff.github.io/2019/08/17/lufylegend%E5%BC%80%E6%BA%90%E5%BA%93%E4%BB%B6/" target="_blank" rel="noopener">这篇博客</a>已经介绍过，我们这次使用lufylegend库件中另一种比较方便的图片读取方式，即静态类LLoadManage中的load函数来一次性读取多张图片：</p><blockquote><p>LLoadManage.load ($list,$onupdata,$oncomplete);</p></blockquote><p>$list:尧都区的图片数组<br>$onupdata：没读取数组中一张图片后调用的函数，可以为空<br>$oncomplet：读取玩数组中所有图片后调用的函数</p><pre><code>init(50,&quot;mylegend&quot;,800,400,main);var loadingLayer,backLayer,resultLayer,clickLayer,/*变量imglist用来保存读取后的图片数据的数组，保存方式以key=&gt;value的形式，key就是imgData对于的name值*/var imglist = {};var imgData = new Array(        {name:&quot;title&quot;,path:&quot;../images/title.png&quot;},        {name:&quot;shitou&quot;,path:&quot;../images/shitou.png&quot;},        {name:&quot;jiandao&quot;,path:&quot;../images/jiandao.png&quot;},        {name:&quot;bu&quot;,path:&quot;../images/bu.png&quot;}        );function main(){    backLayer = new LSprite();        addChild(backLayer);    /*加载进度条，有三种样式，这里使用样式3*/    loadingLayer = new LoadingSample3();    backLayer.addChild(loadingLayer);    /*利用静态类LLoadManage的load函数来读取数组中的*/    LLoadManage.load(        imgData,        function(progress){            loadingLayer.setProgress(progress);        },        function(result){            imglist = result;            backLayer.removeChild(loadingLayer);            loadingLayer = null;            gameInit();        }    );}</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> HTML5-Canvas </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>lufylegend开源库件</title>
       <link href="/2019/08/17/lufylegend%E5%BC%80%E6%BA%90%E5%BA%93%E4%BB%B6/"/>
       <url>/2019/08/17/lufylegend%E5%BC%80%E6%BA%90%E5%BA%93%E4%BB%B6/</url>
