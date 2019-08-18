@@ -169,7 +169,7 @@
 			
 				<div class="m_search">
 					<form name="searchform" class="form u-search-form">
-						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<input type="text" class="input u-search-input" placeholder="Search" />
 						<i class="icon fas fa-search fa-fw"></i>
 					</form>
 				</div>
@@ -363,7 +363,7 @@
 
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
-          <p>猜拳游戏——石头剪刀布</p>
+          <p>猜拳游戏——石头剪刀布。里面使用了LBitmapData、LBitmap、LSprite、LTextField等几个类和lufylegend库件里的鼠标事件。</p>
 <a id="more"></a>
 
 <h2 id="一、游戏分析"><a href="#一、游戏分析" class="headerlink" title="一、游戏分析"></a>一、游戏分析</h2><p>游戏需要的要素：</p>
@@ -472,7 +472,7 @@ function main(){
     loadingLayer = new LoadingSample3();
     backLayer.addChild(loadingLayer);
 
-    /*利用静态类LLoadManage的load函数来读取数组中的*/
+    /*利用静态类LLoadManage的load函数来读取数组中的图片*/
     LLoadManage.load(
         imgData,
         function(progress){
@@ -485,6 +485,445 @@ function main(){
             gameInit();
         }
     );
+}</code></pre><p>LLoadManage的load函数：</p>
+<ul>
+<li>第一个参数imgData：要读取的图片数组</li>
+<li>第二个参数function：function类型，每读取一张图片后调用的函数，其中progress指的是读完的图片数占总图片数的比例，将这个比例值通过setProgress传给LoadingSample3对象，就实现了同台的进度条</li>
+<li>第三个参数：function类型，是将读取完图片后的结果赋值给变量imglist，然后移除画面上的进度条对象，最后调用gameInit,进行游戏下一步的操作。</li>
+</ul>
+<p>修改gameInit函数，添加相应变量：</p>
+<pre><code>init(50,&quot;mylegend&quot;,800,400,main);
+
+/*添加selfBitmap、enemyBitmap变量，用于显示己方的电脑的出拳结果*/
+var loadingLayer,
+backLayer,
+resultLayer,
+clickLayer,
+selfBitmap,
+enemyBitmap;
+
+var imglist = {};
+var imgData = new Array(
+        {name:&quot;title&quot;,path:&quot;../images/title.png&quot;},
+        {name:&quot;shitou&quot;,path:&quot;../images/shitou.png&quot;},
+        {name:&quot;jiandao&quot;,path:&quot;../images/jiandao.png&quot;},
+        {name:&quot;bu&quot;,path:&quot;../images/bu.png&quot;}
+        );
+var showList = new Array();
+function main(){
+    backLayer = new LSprite();    
+    addChild(backLayer);
+    loadingLayer = new LoadingSample3();
+    backLayer.addChild(loadingLayer);
+    LLoadManage.load(
+        imgData,
+        function(progress){
+            loadingLayer.setProgress(progress);
+        },
+        function(result){
+            imglist = result;
+            backLayer.removeChild(loadingLayer);
+            loadingLayer = null;
+            gameInit();
+        }
+    );
+}
+function gameInit(){
+
+    /*为了避免反复新建LBitmapData对象，所以将新建的LBitmapData对象添加到数组showList中。imglist是利用LLoadManage读取图片后返回的结果集。*/
+    showList.push(new LBitmapData(imglist[&quot;shitou&quot;]));
+    showList.push(new LBitmapData(imglist[&quot;jiandao&quot;]));
+    showList.push(new LBitmapData(imglist[&quot;bu&quot;]));
+
+    //添加游戏界面背景
+    backLayer.graphics.drawRect(10,&apos;#008800&apos;,[0,0,LGlobal.width,LGlobal.height],true,&apos;#000000&apos;);
+
+    //显示游戏标题
+    var titleBitmap = new LBitmap(new LBitmapData(imglist[&quot;title&quot;]));
+    titleBitmap.x = (LGlobal.width - titleBitmap.width)/2;
+    titleBitmap.y = 10;
+    backLayer.addChild(titleBitmap);
+    //玩家方出拳图片
+    selfBitmap = new LBitmap(showList[0]);
+    selfBitmap.x = 400 - selfBitmap.width - 50;
+    selfBitmap.y = 130;
+    backLayer.addChild(selfBitmap);
+    //电脑方出拳图片
+    enemyBitmap = new LBitmap(showList[0]);
+    enemyBitmap.x = 400 + 50;
+    enemyBitmap.y = 130;
+    backLayer.addChild(enemyBitmap);
+    //玩家电脑名称设定
+    var nameText;
+    nameText = new LTextField();
+    nameText.text = &quot;玩家&quot;;
+    nameText.weight = &quot;bolder&quot;;
+    nameText.color = &quot;#ffffff&quot;;
+    nameText.size = 24;
+    nameText.x = selfBitmap.x + (selfBitmap.width - nameText.getWidth())/2;
+    nameText.y = 95;
+    backLayer.addChild(nameText);
+    nameText = new LTextField();
+    nameText.text = &quot;电脑&quot;;
+    nameText.weight = &quot;bolder&quot;;
+    nameText.color = &quot;#ffffff&quot;;
+    nameText.size = 24;
+    nameText.x = enemyBitmap.x + (enemyBitmap.width - nameText.getWidth())/2;
+    nameText.y = 95;
+    backLayer.addChild(nameText);
+
+    //结果显示层初始化
+    initResultLayer();
+    //操作层初始化
+    initClickLayer();
+}
+function initResultLayer(){
+    resultLayer = new LSprite();
+    resultLayer.graphics.drawRect(4,&apos;#ff8800&apos;,[0,0,150,110],true,&apos;#ffffff&apos;);
+    resultLayer.x = 10;
+    resultLayer.y = 100;
+    backLayer.addChild(resultLayer);
+}
+function initClickLayer(){
+    clickLayer = new LSprite();
+    clickLayer.graphics.drawRect(4,&apos;#ff8800&apos;,[0,0,300,110],true,&apos;#ffffff&apos;);
+    clickLayer.x = 250;
+    clickLayer.y = 275;
+    backLayer.addChild(clickLayer);
+}</code></pre><h3 id="4-2-结果层的显示"><a href="#4-2-结果层的显示" class="headerlink" title="4.2 结果层的显示"></a>4.2 结果层的显示</h3><p>在结果层中记录审理、失败和平局等各种结果的次数</p>
+<p>定义相应变量：</p>
+<pre><code>var loadingLayer,
+backLayer,
+resultLayer,
+clickLayer,
+selfBitmap,
+enemyBitmap,
+
+/*LTextField对象，用于显示各种结果值*/
+selfTextAll,
+selfTextWin,
+selfTextLoss,
+selfTextDraw,
+/*次数*/
+win = 0,
+loss = 0,
+draw = 0;</code></pre><p>初始化几个对象，并显示到结果层：</p>
+<pre><code>function initResultLayer(){
+    resultLayer = new LSprite();
+    resultLayer.graphics.drawRect(4,&apos;#ff8800&apos;,[0,0,150,110],true,&apos;#ffffff&apos;);
+    resultLayer.x = 10;
+    resultLayer.y = 100;
+    backLayer.addChild(resultLayer);
+    selfTextAll = new LTextField();
+    selfTextAll.text = &quot;猜拳次数 ： 0&quot;;
+    selfTextAll.weight = &quot;bolder&quot;;
+    selfTextAll.x = 10;
+    selfTextAll.y = 20;
+    resultLayer.addChild(selfTextAll);
+    selfTextWin = new LTextField();
+    selfTextWin.text = &quot;胜利次数 ： 0&quot;;
+    selfTextWin.weight = &quot;bolder&quot;;
+    selfTextWin.x = 10;
+    selfTextWin.y = 40;
+    resultLayer.addChild(selfTextWin);
+    selfTextLoss = new LTextField();
+    selfTextLoss.text = &quot;失败次数 ： 0&quot;;
+    selfTextLoss.weight = &quot;bolder&quot;;
+    selfTextLoss.x = 10;
+    selfTextLoss.y = 60;
+    resultLayer.addChild(selfTextLoss);
+    selfTextDraw = new LTextField();
+    selfTextDraw.text = &quot;平局次数 ： 0&quot;;
+    selfTextDraw.weight = &quot;bolder&quot;;
+    selfTextDraw.x = 10;
+    selfTextDraw.y = 80;
+    resultLayer.addChild(selfTextDraw);
+}</code></pre><h3 id="4-3-控制层的显示"><a href="#4-3-控制层的显示" class="headerlink" title="4.3 控制层的显示"></a>4.3 控制层的显示</h3><p>添加石头、剪刀、布三个按钮：</p>
+<pre><code>function initClickLayer(){
+    clickLayer = new LSprite();
+    clickLayer.graphics.drawRect(4,&apos;#ff8800&apos;,[0,0,300,110],true,&apos;#ffffff&apos;);
+    var msgText = new LTextField();
+    msgText.text = &quot;请出拳：&quot;;
+    msgText.weight = &quot;bolder&quot;;
+    msgText.x = 10;
+    msgText.y = 10;
+
+    /*调用getButton函数，通过传入相应参数来建立按钮*/
+    clickLayer.addChild(msgText);
+    var btnShitou = getButton(&quot;shitou&quot;);
+    btnShitou.x = 30;
+    btnShitou.y = 35;
+    clickLayer.addChild(btnShitou);
+    var btnJiandao = getButton(&quot;jiandao&quot;);
+    btnJiandao.x = 115;
+    btnJiandao.y = 35;
+    clickLayer.addChild(btnJiandao);
+    var btnBu = getButton(&quot;bu&quot;);
+    btnBu.x = 200;
+    btnBu.y = 35;
+    clickLayer.addChild(btnBu);
+    clickLayer.x = 250;
+    clickLayer.y = 275;
+    backLayer.addChild(clickLayer);
+}</code></pre><h2 id="五、出拳"><a href="#五、出拳" class="headerlink" title="五、出拳"></a>五、出拳</h2><p>给按钮添加鼠标点击事件：</p>
+<pre><code>function initClickLayer(){
+clickLayer = new LSprite();
+clickLayer.graphics.drawRect(4,&apos;#ff8800&apos;,[0,0,300,110],true,&apos;#ffffff&apos;);
+var msgText = new LTextField();
+msgText.text = &quot;请出拳：&quot;;
+msgText.weight = &quot;bolder&quot;;
+msgText.x = 10;
+msgText.y = 10;
+clickLayer.addChild(msgText);
+
+/*建立3个按钮之后，分别给按钮加上MOUSE_UP事件，当鼠标单击按钮并弹起时候，调用onclick函数*/
+var btnShitou = getButton(&quot;shitou&quot;);
+btnShitou.x = 30;
+btnShitou.y = 35;
+clickLayer.addChild(btnShitou);
+btnShitou.addEventListener(LMouseEvent.MOUSE_UP,onclick);
+var btnJiandao = getButton(&quot;jiandao&quot;);
+btnJiandao.x = 115;
+btnJiandao.y = 35;
+clickLayer.addChild(btnJiandao);
+btnJiandao.addEventListener(LMouseEvent.MOUSE_UP,onclick);
+var btnBu = getButton(&quot;bu&quot;);
+btnBu.x = 200;
+btnBu.y = 35;
+clickLayer.addChild(btnBu);
+btnBu.addEventListener(LMouseEvent.MOUSE_UP,onclick);
+clickLayer.x = 250;
+clickLayer.y = 275;
+backLayer.addChild(clickLayer);
+
+}
+function onclick(event,display){
+    var selfValue,enemyValue;
+    if(display.name == &quot;shitou&quot;){
+        selfValue = 0;
+    }else if(display.name == &quot;jiandao&quot;){
+        selfValue = 1;
+    }else if(display.name == &quot;bu&quot;){
+        selfValue = 2;
+    }
+    enemyValue = Math.floor(Math.random()*3);
+    selfBitmap.bitmapData = showList[selfValue];
+    enemyBitmap.bitmapData = showList[enemyValue];
+}</code></pre><h2 id="六、结果判定"><a href="#六、结果判定" class="headerlink" title="六、结果判定"></a>六、结果判定</h2><p>为方便判断结果，我们准备一个结果判定数组：</p>
+<p><img src="http://pvjdnjjsz.bkt.clouddn.com/%E6%95%B0%E7%BB%84.png" alt></p>
+<pre><code>function onclick(event,display){
+    var selfValue,enemyValue;
+    if(display.name == &quot;shitou&quot;){
+        selfValue = 0;
+    }else if(display.name == &quot;jiandao&quot;){
+        selfValue = 1;
+    }else if(display.name == &quot;bu&quot;){
+        selfValue = 2;
+    }
+    enemyValue = Math.floor(Math.random()*3);
+    selfBitmap.bitmapData = showList[selfValue];
+    enemyBitmap.bitmapData = showList[enemyValue];
+    var result = checkList[selfValue][enemyValue];
+    if(result == -1){
+        loss += 1;
+    }else if(result == 1){
+        win += 1;
+    }else{
+        draw += 1;
+    }
+    selfTextWin.text = &quot;胜利次数 ： &quot; + win;
+    selfTextLoss.text = &quot;失败次数 ： &quot; + loss;
+    selfTextDraw.text = &quot;平局次数 ： &quot; +  draw;
+    selfTextAll.text = &quot;猜拳次数 ： &quot; + (win + loss + draw);
+}</code></pre><p>运行效果：<img src="http://pvjdnjjsz.bkt.clouddn.com/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83.png" alt></p>
+<h2 id="七、完整代码"><a href="#七、完整代码" class="headerlink" title="七、完整代码"></a>七、完整代码</h2><pre><code>init(50,&quot;mylegend&quot;,800,400,main);
+var loadingLayer,
+backLayer,
+resultLayer,
+clickLayer,
+selfBitmap,
+enemyBitmap,
+selfTextAll,
+selfTextWin,
+selfTextLoss,
+selfTextDraw,
+win = 0,
+loss = 0,
+draw = 0;
+var imglist = {};
+var imgData = new Array(
+        {name:&quot;title&quot;,path:&quot;../images/title.png&quot;},
+        {name:&quot;shitou&quot;,path:&quot;../images/shitou.png&quot;},
+        {name:&quot;jiandao&quot;,path:&quot;../images/jiandao.png&quot;},
+        {name:&quot;bu&quot;,path:&quot;../images/bu.png&quot;}
+        );
+var checkList = [
+[0,1,-1],
+[-1,0,1],
+[1,-1,0]
+];
+var showList = new Array();
+function main(){
+    LGlobal.setDebug(true);    
+    backLayer = new LSprite();    
+    addChild(backLayer);
+    loadingLayer = new LoadingSample3();
+    backLayer.addChild(loadingLayer);    
+    LLoadManage.load(
+        imgData,
+        function(progress){
+            loadingLayer.setProgress(progress);
+        },
+        function(result){
+            imglist = result;
+            backLayer.removeChild(loadingLayer);
+            loadingLayer = null;
+            gameInit();
+        }
+    );
+}
+function gameInit(){
+    showList.push(new LBitmapData(imglist[&quot;shitou&quot;]));
+    showList.push(new LBitmapData(imglist[&quot;jiandao&quot;]));
+    showList.push(new LBitmapData(imglist[&quot;bu&quot;]));
+    //添加游戏界面背景
+    backLayer.graphics.drawRect(10,&apos;#008800&apos;,[0,0,LGlobal.width,LGlobal.height],true,&apos;#000000&apos;);
+
+    //显示游戏标题
+    var titleBitmap = new LBitmap(new LBitmapData(imglist[&quot;title&quot;]));
+    titleBitmap.x = (LGlobal.width - titleBitmap.width)/2;
+    titleBitmap.y = 10;
+    backLayer.addChild(titleBitmap);
+    //玩家方出拳图片
+    selfBitmap = new LBitmap(showList[0]);
+    selfBitmap.x = 400 - selfBitmap.width - 50;
+    selfBitmap.y = 130;
+    backLayer.addChild(selfBitmap);
+    //电脑方出拳图片
+    enemyBitmap = new LBitmap(showList[0]);
+    enemyBitmap.x = 400 + 50;
+    enemyBitmap.y = 130;
+    backLayer.addChild(enemyBitmap);
+    //玩家电脑名称设定
+    var nameText;
+    nameText = new LTextField();
+    nameText.text = &quot;玩家&quot;;
+    nameText.weight = &quot;bolder&quot;;
+    nameText.color = &quot;#ffffff&quot;;
+    nameText.size = 24;
+    nameText.x = selfBitmap.x + (selfBitmap.width - nameText.getWidth())/2;
+    nameText.y = 95;
+    backLayer.addChild(nameText);
+    nameText = new LTextField();
+    nameText.text = &quot;电脑&quot;;
+    nameText.weight = &quot;bolder&quot;;
+    nameText.color = &quot;#ffffff&quot;;
+    nameText.size = 24;
+    nameText.x = enemyBitmap.x + (enemyBitmap.width - nameText.getWidth())/2;
+    nameText.y = 95;
+    backLayer.addChild(nameText);
+
+    //结果显示层初始化
+    initResultLayer();
+    //操作层初始化
+    initClickLayer();
+}
+function initResultLayer(){
+    resultLayer = new LSprite();
+    resultLayer.graphics.drawRect(4,&apos;#ff8800&apos;,[0,0,150,110],true,&apos;#ffffff&apos;);
+    resultLayer.x = 10;
+    resultLayer.y = 100;
+    backLayer.addChild(resultLayer);
+    selfTextAll = new LTextField();
+    selfTextAll.text = &quot;猜拳次数 ： 0&quot;;
+    selfTextAll.weight = &quot;bolder&quot;;
+    selfTextAll.x = 10;
+    selfTextAll.y = 20;
+    resultLayer.addChild(selfTextAll);
+    selfTextWin = new LTextField();
+    selfTextWin.text = &quot;胜利次数 ： 0&quot;;
+    selfTextWin.weight = &quot;bolder&quot;;
+    selfTextWin.x = 10;
+    selfTextWin.y = 40;
+    resultLayer.addChild(selfTextWin);
+    selfTextLoss = new LTextField();
+    selfTextLoss.text = &quot;失败次数 ： 0&quot;;
+    selfTextLoss.weight = &quot;bolder&quot;;
+    selfTextLoss.x = 10;
+    selfTextLoss.y = 60;
+    resultLayer.addChild(selfTextLoss);
+    selfTextDraw = new LTextField();
+    selfTextDraw.text = &quot;平局次数 ： 0&quot;;
+    selfTextDraw.weight = &quot;bolder&quot;;
+    selfTextDraw.x = 10;
+    selfTextDraw.y = 80;
+    resultLayer.addChild(selfTextDraw);
+}
+function initClickLayer(){
+    clickLayer = new LSprite();
+    clickLayer.graphics.drawRect(4,&apos;#ff8800&apos;,[0,0,300,110],true,&apos;#ffffff&apos;);
+    var msgText = new LTextField();
+    msgText.text = &quot;请出拳：&quot;;
+    msgText.weight = &quot;bolder&quot;;
+    msgText.x = 10;
+    msgText.y = 10;
+    clickLayer.addChild(msgText);
+    var btnShitou = getButton(&quot;shitou&quot;);
+    btnShitou.x = 30;
+    btnShitou.y = 35;
+    clickLayer.addChild(btnShitou);
+    btnShitou.addEventListener(LMouseEvent.MOUSE_UP,onclick);
+    var btnJiandao = getButton(&quot;jiandao&quot;);
+    btnJiandao.x = 115;
+    btnJiandao.y = 35;
+    clickLayer.addChild(btnJiandao);
+    btnJiandao.addEventListener(LMouseEvent.MOUSE_UP,onclick);
+    var btnBu = getButton(&quot;bu&quot;);
+    btnBu.x = 200;
+    btnBu.y = 35;
+    clickLayer.addChild(btnBu);
+    btnBu.addEventListener(LMouseEvent.MOUSE_UP,onclick);
+    clickLayer.x = 250;
+    clickLayer.y = 275;
+    backLayer.addChild(clickLayer);
+}
+function onclick(event,display){
+    var selfValue,enemyValue;
+    if(display.name == &quot;shitou&quot;){
+        selfValue = 0;
+    }else if(display.name == &quot;jiandao&quot;){
+        selfValue = 1;
+    }else if(display.name == &quot;bu&quot;){
+        selfValue = 2;
+    }
+    enemyValue = Math.floor(Math.random()*3);
+    selfBitmap.bitmapData = showList[selfValue];
+    enemyBitmap.bitmapData = showList[enemyValue];
+    var result = checkList[selfValue][enemyValue];
+    if(result == -1){
+        loss += 1;
+    }else if(result == 1){
+        win += 1;
+    }else{
+        draw += 1;
+    }
+    selfTextWin.text = &quot;胜利次数 ： &quot; + win;
+    selfTextLoss.text = &quot;失败次数 ： &quot; + loss;
+    selfTextDraw.text = &quot;平局次数 ： &quot; +  draw;
+    selfTextAll.text = &quot;猜拳次数 ： &quot; + (win + loss + draw);
+}
+function getButton(value){
+    var btnUp = new LBitmap(new LBitmapData(imglist[value]));
+    btnUp.scaleX = 0.5;
+    btnUp.scaleY = 0.5;
+    var btnOver = new LBitmap(new LBitmapData(imglist[value]));
+    btnOver.scaleX = 0.5;
+    btnOver.scaleY = 0.5;
+    btnOver.x = 2;
+    btnOver.y = 2;
+    var btn = new LButton(btnUp,btnOver);
+    btn.name = value;
+    return btn;
 }</code></pre>
         </div>
         
@@ -496,10 +935,10 @@ function main(){
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-17T21:52:22+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-18T14:44:14+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>最后更新于 Aug 17, 2019</p>
+    <p>last updated at Aug 18, 2019</p>
   </a>
 </div>
 
@@ -521,7 +960,7 @@ function main(){
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/08/17/使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发/&title=使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=猜拳游戏——石头剪刀布"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/08/17/使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发/&title=使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=猜拳游戏——石头剪刀布。里面使用了LBitmapData、LBitmap、LSprite、LTextField等几个类和lufylegend库件里的鼠标事件。"
           
           >
           
@@ -533,7 +972,7 @@ function main(){
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/08/17/使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发/&title=使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=猜拳游戏——石头剪刀布"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/08/17/使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发/&title=使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=猜拳游戏——石头剪刀布。里面使用了LBitmapData、LBitmap、LSprite、LTextField等几个类和lufylegend库件里的鼠标事件。"
           
           >
           
@@ -545,7 +984,7 @@ function main(){
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/08/17/使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发/&title=使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=猜拳游戏——石头剪刀布"
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/08/17/使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发/&title=使用lufylegend库件进行HTML5猜拳游戏猜拳游戏开发 | 小萝莉的游乐园&pics=https://img.icons8.com/cotton/64/000000/christmas-girl--v6.png&summary=猜拳游戏——石头剪刀布。里面使用了LBitmapData、LBitmap、LSprite、LTextField等几个类和lufylegend库件里的鼠标事件。"
           
           >
           
@@ -572,7 +1011,7 @@ function main(){
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
-                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
                                 <a href="/2019/08/17/lufylegend开源库件/" rel="prev" title="lufylegend开源库件">
                                     
@@ -679,14 +1118,14 @@ function main(){
   <section class='widget toc-wrapper'>
     
 <header class='pure'>
-  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
   
     <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
   
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、游戏分析"><span class="toc-text">一、游戏分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、必要的Javascript知识"><span class="toc-text">二、必要的Javascript知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-随机数"><span class="toc-text">2.1 随机数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-条件分支"><span class="toc-text">2.2 条件分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、分层实现"><span class="toc-text">三、分层实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、各个层的基本功能"><span class="toc-text">四、各个层的基本功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-基本画面显示"><span class="toc-text">4.1 基本画面显示</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、游戏分析"><span class="toc-text">一、游戏分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、必要的Javascript知识"><span class="toc-text">二、必要的Javascript知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-随机数"><span class="toc-text">2.1 随机数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-条件分支"><span class="toc-text">2.2 条件分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、分层实现"><span class="toc-text">三、分层实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、各个层的基本功能"><span class="toc-text">四、各个层的基本功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-基本画面显示"><span class="toc-text">4.1 基本画面显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-结果层的显示"><span class="toc-text">4.2 结果层的显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-控制层的显示"><span class="toc-text">4.3 控制层的显示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、出拳"><span class="toc-text">五、出拳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、结果判定"><span class="toc-text">六、结果判定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、完整代码"><span class="toc-text">七、完整代码</span></a></li></ol>
     </div>
   </section>
 
@@ -797,7 +1236,7 @@ function main(){
   <section class='widget tagcloud'>
     
 <header class='pure'>
-  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
   
     <a class="rightBtn"
     
@@ -905,19 +1344,19 @@ function main(){
     </div>
   
   <br>
-  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
   <div>
-    本站使用
+    Use
     <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
-    作为主题
+    as theme
     
-      ，
-      总访问量为
+      , 
+      total visits
       <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
-      次
+      times
     
-    。
+    . 
   </div>
 </footer>
 <script>setLoadingBarProgress(80);</script>
@@ -1023,15 +1462,15 @@ function main(){
 <!-- 复制 -->
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-  let COPY_SUCCESS = "复制成功";
-  let COPY_FAILURE = "复制失败";
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
   /*页面载入完成后，创建复制按钮*/
   !function (e, t, a) {
     /* code */
     var initCopyCode = function(){
       var copyHtml = '';
       copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
       copyHtml += '</button>';
       $(".highlight .code pre").before(copyHtml);
       var clipboard = new ClipboardJS('.btn-copy', {
